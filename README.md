@@ -12,7 +12,7 @@ Math Hero é um projeto desenvolvido como Trabalho de Conclusao de Curso do curs
 
 ## 📑 Releases previstas
 
--   <img src="https://img.shields.io/badge/Release_1-v0.1-green?style=for-the-badge"></img><img src="https://img.shields.io/badge/Date-12%2F11%2F2023-lightgrey?style=for-the-badge"></img>
+-   <img src="https://img.shields.io/badge/Release_1-v0.1-yellow?style=for-the-badge"></img><img src="https://img.shields.io/badge/Date-12%2F11%2F2023-lightgrey?style=for-the-badge"></img>
 
 # 🚀💾 Instalação e execução do projeto
 
