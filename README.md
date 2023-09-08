@@ -12,8 +12,7 @@ Math Hero é um projeto desenvolvido como Trabalho de Conclusao de Curso do curs
 
 ## 📑 Releases previstas
 
--   <a href="https://github.com/fga-eps-mds/2021.2-INDICAA/releases/tag/v0.1"><img src="https://img.shields.io/badge/Release_1-v0.1-green?style=for-the-badge"></img><img src="https://img.shields.io/badge/Date-07%2F03%2F2022-lightgrey?style=for-the-badge"></img></a>
--   <img src="https://img.shields.io/badge/Release_2-v0.2-yellow?style=for-the-badge"></img><img src="https://img.shields.io/badge/Date-26%2F04%2F2022-lightgrey?style=for-the-badge"></img>
+-   <img src="https://img.shields.io/badge/Release_1-v0.1-green?style=for-the-badge"></img><img src="https://img.shields.io/badge/Date-12%2F11%2F2023-lightgrey?style=for-the-badge"></img>
 
 # 🚀💾 Instalação e execução do projeto
 
