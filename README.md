@@ -7,7 +7,7 @@ Math Hero é um projeto desenvolvido como Trabalho de Conclusao de Curso do curs
 ## ⌨️🔨 Linguagens e ferramentas utilizadas
 
 <div align="center">
-<img width="50" height="50" src="https://img.icons8.com/ios-filled/50/unreal-engine.png" alt="unreal-engine"/> <img width="48" height="48" src="https://img.icons8.com/fluency/48/github.png" alt="github"/> <img width="48" height="48" src="https://img.icons8.com/fluency/48/texshop.png" alt="texshop"/>
+<img width="64" height="64" src="https://img.icons8.com/nolan/64/godot.png" alt="godot"/> <img width="48" height="48" src="https://img.icons8.com/fluency/48/github.png" alt="github"/> <img width="48" height="48" src="https://img.icons8.com/fluency/48/texshop.png" alt="texshop"/>
 </div>
 
 ## 📑 Releases previstas
