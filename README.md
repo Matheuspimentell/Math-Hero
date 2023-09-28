@@ -1,4 +1,4 @@
-Math Hero é um projeto desenvolvido como Trabalho de Conclusao de Curso do curso de Engenharaia de Software da [Universidade de Brasília - UnB](https://www.unb.br/) com o objetivo de ...
+Math Hero é um projeto desenvolvido como *Trabalho de Conclusao de Curso* do curso de Engenharaia de Software da [Universidade de Brasília - UnB](https://www.unb.br/) com o objetivo de compor o ensino de Matemática para jovens e crianças do ensino básico por meio da introdução do elemento lúdico.
 
 ## 🧭 Documentação do projeto
 
@@ -7,7 +7,7 @@ Math Hero é um projeto desenvolvido como Trabalho de Conclusao de Curso do curs
 ## ⌨️🔨 Linguagens e ferramentas utilizadas
 
 <div align="center">
-<img width="48" height="48" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="godot"/> <img width="48" height="48" src="https://img.icons8.com/fluency/48/github.png" alt="github"/> <img width="48" height="48" src="https://img.icons8.com/fluency/48/texshop.png" alt="texshop"/>
+<img width="48" height="48" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="godot"/> <img width="48" height="48" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="github"/> <img width="48" height="48" src="https://upload.wikimedia.org/wikipedia/commons/9/92/LaTeX_logo.svg" alt="LaTeX"/>
 </div>
 
 ## 📑 Releases previstas
