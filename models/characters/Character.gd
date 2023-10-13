@@ -1,4 +1,5 @@
 extends CharacterBody2D
+signal hit
 
 
 @export var speed = 100 # Player speed in Pixels / sec
@@ -28,5 +29,6 @@ func _process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed 
 
-	position = velocity * delta	
-	position = position.clamp(Vector2.ZERO, screen_size)
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		print("I have collided with ", collision.get_collider().name)
