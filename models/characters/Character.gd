@@ -13,23 +13,23 @@ func _physics_process(delta):
   
   # Add the gravity.
   if not is_on_floor():
-	  velocity.y += gravity * delta
+    velocity.y += gravity * delta
   
   # Handle Jump.
   if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-	  velocity.y = jump_speed
+    velocity.y = jump_speed
   
   # Get the input direction and handle the movement/deceleration.
   # As good practice, you should replace UI actions with custom gameplay actions.
   var direction = Input.get_axis("ui_left", "ui_right")
   
   if direction:
-	  velocity.x = direction * speed
+    velocity.x = direction * speed
   else:
-	  velocity.x = move_toward(velocity.x, 0, speed)
+    velocity.x = move_toward(velocity.x, 0, speed)
   
   # This returns the KinematicCollision2D object that collided with the player, if none, returns null
   var collision = move_and_collide(velocity * delta)
   
   if collision:
-	  print("Player collided with: ", collision.get_collider().name)
+    print("Player collided with: ", collision.get_collider().name)
