@@ -8,8 +8,6 @@ size = Vector2(12, 6)
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_swcla")
-speed = null
-jump_speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)
