@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpmb34gcrro1m"]
+
+[ext_resource type="PackedScene" uid="uid://nhm74aeoa63n" path="res://scenes/Character.tscn" id="1_lchl6"]
+[ext_resource type="PackedScene" uid="uid://bsev7iyo6eh3l" path="res://scenes/test_map.tscn" id="2_kjnoj"]
+[ext_resource type="PackedScene" uid="uid://cs4ma348kw25m" path="res://scenes/friendly_robot.tscn" id="3_xixy1"]
+
+[node name="Test scene" type="Node2D"]
+
+[node name="Character" parent="." instance=ExtResource("1_lchl6")]
+position = Vector2(170, 134)
+
+[node name="Test map" parent="." instance=ExtResource("2_kjnoj")]
+z_index = -1
+
+[node name="Friendly Robot" parent="." instance=ExtResource("3_xixy1")]
+position = Vector2(42, 174)
