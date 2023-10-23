@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs4ma348kw25m"]
+
+[ext_resource type="Texture2D" uid="uid://di1cf2pg74ht0" path="res://media/art/friendly_robot.png" id="1_8u7w7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_516gp"]
+size = Vector2(51, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ilty"]
+size = Vector2(22, 8)
+
+[node name="Friendly Robot" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_8u7w7")
+
+[node name="Interective Area" type="Area2D" parent="."]
+
+[node name="Interactive Area Shape" type="CollisionShape2D" parent="Interective Area"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_516gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_6ilty")
