@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://nhm74aeoa63n" path="res://scenes/Character.tscn" id="1_lchl6"]
 [ext_resource type="PackedScene" uid="uid://bsev7iyo6eh3l" path="res://scenes/test_map.tscn" id="2_kjnoj"]
-[ext_resource type="PackedScene" path="res://scenes/friendly_robot.tscn" id="3_xixy1"]
+[ext_resource type="PackedScene" uid="uid://ccxqgaykatlx7" path="res://scenes/friendly_robot.tscn" id="3_xixy1"]
 
 [node name="Test scene" type="Node2D"]
 

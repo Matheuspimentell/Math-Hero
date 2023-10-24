@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs4ma348kw25m"]
+[gd_scene load_steps=5 format=3 uid="uid://ccxqgaykatlx7"]
 
-[ext_resource type="Texture2D" uid="uid://di1cf2pg74ht0" path="res://media/art/friendly_robot.png" id="1_8u7w7"]
+[ext_resource type="Texture2D" uid="uid://dwk56ebmax1cd" path="res://media/art/friendly_robot.png" id="1_8u7w7"]
+[ext_resource type="Script" path="res://models/npcs/friendly_robot.gd" id="1_iwm0d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_516gp"]
 size = Vector2(51, 28)
@@ -15,11 +16,16 @@ texture_filter = 1
 texture = ExtResource("1_8u7w7")
 
 [node name="Interective Area" type="Area2D" parent="."]
+visible = false
+script = ExtResource("1_iwm0d")
 
 [node name="Interactive Area Shape" type="CollisionShape2D" parent="Interective Area"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_516gp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_6ilty")
+
+[connection signal="body_entered" from="Interective Area" to="Interective Area" method="_on_robot_body_entered"]
