@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct042rnl8vek3"]
+
+[ext_resource type="Script" path="res://models/npcs/hostile/hostile_scientist.gd" id="1_1lsn3"]
+[ext_resource type="Texture2D" uid="uid://bta42sbogcv5y" path="res://media/art/hostile_scientist.png" id="2_pxxfv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rycfo"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3shii"]
+size = Vector2(150, 32)
+
+[node name="hostile_scientist" type="CharacterBody2D"]
+script = ExtResource("1_1lsn3")
+speed = 80.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_pxxfv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, 13)
+shape = SubResource("RectangleShape2D_rycfo")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_3shii")

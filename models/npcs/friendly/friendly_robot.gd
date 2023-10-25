@@ -7,7 +7,3 @@ func _ready():
 func _on_robot_body_entered(body: Node2D):
 	if (body.name != self.owner.name):
 		print("The ", body.name , " entered the robot's conversation area")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
