@@ -8,10 +8,10 @@
 [node name="Test scene" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_lchl6")]
+z_index = 1
 position = Vector2(47, 47)
 
 [node name="map" parent="." instance=ExtResource("2_kjnoj")]
-z_index = -1
 
 [node name="friendly npc" parent="." instance=ExtResource("3_xixy1")]
 position = Vector2(42, 174)
