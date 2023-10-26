@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5lvqslwyraol"]
+
+[ext_resource type="PackedScene" uid="uid://bnl0pks70bkaj" path="res://objects/character/character.tscn" id="2_1qiun"]
+[ext_resource type="PackedScene" uid="uid://bsev7iyo6eh3l" path="res://scenes/levels/test_map.tscn" id="2_kjnoj"]
+[ext_resource type="PackedScene" uid="uid://ccxqgaykatlx7" path="res://objects/npcs/friendly/friendly_robot.tscn" id="3_xixy1"]
+[ext_resource type="PackedScene" uid="uid://ct042rnl8vek3" path="res://objects/npcs/hostile/hostile_scientist.tscn" id="4_ptche"]
+
+[node name="Level" type="Node2D"]
+z_index = 2
+
+[node name="map" parent="." instance=ExtResource("2_kjnoj")]
+
+[node name="player" parent="." instance=ExtResource("2_1qiun")]
+z_index = 2
+position = Vector2(49, 51)
+
+[node name="npc" parent="." instance=ExtResource("3_xixy1")]
+z_index = 2
+position = Vector2(36, 171)
+
+[node name="enemy" parent="." instance=ExtResource("4_ptche")]
+z_index = 2
+position = Vector2(262, 161)
