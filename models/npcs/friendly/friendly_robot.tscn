@@ -16,7 +16,6 @@ texture_filter = 1
 texture = ExtResource("1_8u7w7")
 
 [node name="Interective Area" type="Area2D" parent="."]
-visible = false
 script = ExtResource("2_qiyop")
 
 [node name="Interactive Area Shape" type="CollisionShape2D" parent="Interective Area"]
@@ -24,7 +23,6 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_516gp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_6ilty")
 

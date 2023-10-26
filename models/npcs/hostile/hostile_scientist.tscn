@@ -7,7 +7,7 @@
 size = Vector2(24, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3shii"]
-size = Vector2(150, 32)
+size = Vector2(58, 470)
 
 [node name="hostile_scientist" type="CharacterBody2D"]
 script = ExtResource("1_1lsn3")
@@ -18,12 +18,11 @@ texture_filter = 1
 texture = ExtResource("2_pxxfv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, 13)
 shape = SubResource("RectangleShape2D_rycfo")
 
 [node name="InteractionArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_3shii")
