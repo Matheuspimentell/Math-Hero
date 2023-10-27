@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccxqgaykatlx7"]
+[gd_scene load_steps=7 format=3 uid="uid://ccxqgaykatlx7"]
 
 [ext_resource type="Texture2D" uid="uid://di1cf2pg74ht0" path="res://media/art/characters/friendly_robot.png" id="1_ydkp3"]
-[ext_resource type="Script" path="res://models/npcs/friendly/friendly_robot.gd" id="2_qiyop"]
+[ext_resource type="Script" path="res://models/npcs/friendly/conversation_area.gd" id="2_m1rot"]
+[ext_resource type="Script" path="res://models/state_machine.gd" id="3_15q15"]
+[ext_resource type="Script" path="res://models/npcs/friendly/friendly_idle.gd" id="4_ytgye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_516gp"]
 size = Vector2(51, 28)
@@ -16,7 +18,7 @@ texture_filter = 1
 texture = ExtResource("1_ydkp3")
 
 [node name="Interective Area" type="Area2D" parent="."]
-script = ExtResource("2_qiyop")
+script = ExtResource("2_m1rot")
 
 [node name="Interactive Area Shape" type="CollisionShape2D" parent="Interective Area"]
 position = Vector2(0, 2)
@@ -25,5 +27,13 @@ shape = SubResource("RectangleShape2D_516gp")
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_6ilty")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_15q15")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("npc")]
+script = ExtResource("4_ytgye")
+npc = NodePath("../..")
 
 [connection signal="body_entered" from="Interective Area" to="Interective Area" method="_on_robot_body_entered"]
