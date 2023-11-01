@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://huugbi7gcybp" path="res://media/art/TileSet/Test TileSet/tile_map.tres" id="1_7qtdm"]
 
 [node name="Test map" type="TileMap"]
+y_sort_enabled = true
 texture_filter = 1
 tile_set = ExtResource("1_7qtdm")
 cell_quadrant_size = 32
@@ -12,7 +13,7 @@ layer_0/tile_data = PackedInt32Array(65536, 2162851, 1, 131072, 2162851, 1, 6553
 layer_1/name = "Walls"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
-layer_1/y_sort_enabled = false
+layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
-layer_1/z_index = 1
+layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(131081, 589987, 2, 65545, 589987, 2, 9, 589987, 1, 8, 327843, 0, 7, 327843, 0, 6, 327843, 0, 5, 327843, 0, 4, 327843, 0, 3, 196771, 0, 2, 327843, 0, 1, 327843, 0, 65539, 65699, 2, 131072, 65699, 2, 65536, 65699, 2, 0, 65699, 1, 196608, 65699, 2, 262144, 65699, 2, 327680, 65699, 2, 196617, 589987, 2, 262153, 589987, 2, 327689, 589987, 2, 393216, 131235, 10, 393217, 327843, 10, 393218, 327843, 10, 393219, 327843, 10, 393220, 327843, 10, 393221, 327843, 10, 393222, 327843, 10, 393223, 327843, 10, 393224, 327843, 10, 393225, 524451, 10, 131075, 262307, 2, 131076, 917667, 7)
