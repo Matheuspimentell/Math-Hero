@@ -9,6 +9,7 @@
 y_sort_enabled = true
 
 [node name="map" parent="." instance=ExtResource("2_kjnoj")]
+layer_0/z_index = -1
 
 [node name="player" parent="." instance=ExtResource("2_1qiun")]
 position = Vector2(49, 51)

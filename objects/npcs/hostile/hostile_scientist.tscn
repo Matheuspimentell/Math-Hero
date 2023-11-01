@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ct042rnl8vek3"]
 
-[ext_resource type="Texture2D" uid="uid://ckkjy7jxivhha" path="res://media/art/characters/hostile_scientist.png" id="2_u54tk"]
+[ext_resource type="Texture2D" uid="uid://cm700u2cd6t4o" path="res://media/art/characters/hostile_scientist.png" id="2_u54tk"]
 [ext_resource type="Script" path="res://models/state_machine.gd" id="3_6g050"]
 [ext_resource type="Script" path="res://models/npcs/hostile/hostile_idle.gd" id="4_10tkk"]
 
