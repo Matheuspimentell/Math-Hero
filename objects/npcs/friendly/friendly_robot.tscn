@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccxqgaykatlx7"]
 
-[ext_resource type="Texture2D" uid="uid://djh5tewoktc46" path="res://media/art/characters/friendly_robot.png" id="1_ydkp3"]
+[ext_resource type="Texture2D" uid="uid://di1cf2pg74ht0" path="res://media/art/characters/friendly_robot.png" id="1_ydkp3"]
 [ext_resource type="Script" path="res://models/npcs/friendly/conversation_area.gd" id="2_m1rot"]
 [ext_resource type="Script" path="res://models/state_machine.gd" id="3_15q15"]
 [ext_resource type="Script" path="res://models/npcs/friendly/friendly_idle.gd" id="4_ytgye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_516gp"]
-size = Vector2(51, 28)
+size = Vector2(68, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ilty"]
 size = Vector2(22, 8)
@@ -21,7 +21,6 @@ texture = ExtResource("1_ydkp3")
 script = ExtResource("2_m1rot")
 
 [node name="Interactive Area Shape" type="CollisionShape2D" parent="Interective Area"]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_516gp")
 
 [node name="Collider" type="CollisionShape2D" parent="."]

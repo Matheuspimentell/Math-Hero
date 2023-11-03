@@ -23,8 +23,8 @@ func _physics_process(delta: float):
 	if current_state:
 		current_state.Physics_Update(delta)
 
-func on_child_transition(state: String, new_state_name: String):
-	if state != current_state.name.to_lower():
+func on_child_transition(state: State, new_state_name: String):
+	if state.name.to_lower() != current_state.name.to_lower():
 		return
 
 	var new_state = states.get(new_state_name.to_lower())
@@ -36,3 +36,4 @@ func on_child_transition(state: String, new_state_name: String):
 
 	new_state.Enter()
 	current_state = new_state
+	print(current_state.name.to_lower())
