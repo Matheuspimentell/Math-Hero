@@ -1,5 +1,6 @@
 extends State
 class_name HostileIdle
+signal hasReachedPlayer
 
 @export var enemy: CharacterBody2D # Reference to the enemy that implements this state
 @export var moveSpeed := 50.0 # Movement speed (Can be altered inside the engine's UI)
@@ -22,4 +23,4 @@ func Physics_Update(delta: float):
 				'map':
 					moveDirection *= -1
 				'player':
-					print("Hey, want to battle ?")
+					hasReachedPlayer.emit()
