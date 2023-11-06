@@ -1,35 +1,39 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct042rnl8vek3"]
+[gd_scene load_steps=9 format=3 uid="uid://ct042rnl8vek3"]
 
+[ext_resource type="Script" path="res://models/npcs/hostile/scientist/hostile_scientist.gd" id="1_pmkv8"]
 [ext_resource type="Texture2D" uid="uid://ckkjy7jxivhha" path="res://media/art/characters/hostile_scientist.png" id="2_u54tk"]
 [ext_resource type="Script" path="res://models/state_machine.gd" id="3_6g050"]
-[ext_resource type="Script" path="res://models/npcs/hostile/hostile_follow.gd" id="4_0prku"]
-[ext_resource type="Script" path="res://models/npcs/hostile/hostile_idle.gd" id="4_10tkk"]
+[ext_resource type="Script" path="res://models/npcs/hostile/scientist/hostile_follow.gd" id="4_0prku"]
+[ext_resource type="Script" path="res://models/npcs/hostile/scientist/hostile_idle.gd" id="4_10tkk"]
+[ext_resource type="PackedScene" uid="uid://dt77b3o4i6hwp" path="res://ui/dialogue.tscn" id="6_ume3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rycfo"]
-size = Vector2(24, 8)
+size = Vector2(24, 11)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_she3s"]
 a = Vector2(0, -132)
 b = Vector2(0, 141)
 
-[node name="hostile_scientist" type="CharacterBody2D"]
+[node name="hostile_scientist" type="CharacterBody2D" node_paths=PackedStringArray("stateMachine", "dialogue")]
+script = ExtResource("1_pmkv8")
+stateMachine = NodePath("State Machine")
+dialogue = NodePath("DialogueBox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_u54tk")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 12)
+position = Vector2(-1, 10.5)
 shape = SubResource("RectangleShape2D_rycfo")
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_6g050")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy", "detectionArea")]
+[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_10tkk")
 enemy = NodePath("../..")
-detectionArea = NodePath("../../Detection Area")
 
 [node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_0prku")
@@ -40,4 +44,9 @@ enemy = NodePath("../..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Area"]
 shape = SubResource("SegmentShape2D_she3s")
 
-[connection signal="body_entered" from="Detection Area" to="State Machine/Idle" method="_on_detection_area_body_entered"]
+[node name="DialogueBox" parent="." instance=ExtResource("6_ume3y")]
+filePath = "res://models/npcs/hostile/scientist/dialogues.json"
+
+[connection signal="hasReachedPlayer" from="State Machine/Follow" to="." method="_on_reached_player"]
+[connection signal="body_entered" from="Detection Area" to="." method="_on_detection_area_body_entered"]
+[connection signal="hasFinishedDialogues" from="DialogueBox" to="." method="_on_finished_dialogues"]

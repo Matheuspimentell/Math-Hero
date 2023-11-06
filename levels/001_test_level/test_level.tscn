@@ -18,3 +18,5 @@ position = Vector2(36, 171)
 
 [node name="enemy" parent="." instance=ExtResource("4_ptche")]
 position = Vector2(272, 146)
+
+[connection signal="hasFoundPlayer" from="enemy" to="player" method="_on_enemy_has_found_player"]

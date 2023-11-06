@@ -1,4 +1,5 @@
 extends Node
+class_name StateMachine
 
 @export var initial_state: State
 
@@ -36,4 +37,3 @@ func on_child_transition(state: State, new_state_name: String):
 
 	new_state.Enter()
 	current_state = new_state
-	print(current_state.name.to_lower())

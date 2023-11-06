@@ -1,5 +1,6 @@
 extends State
 class_name HostileFollow
+signal hasReachedPlayer
 
 @export var enemy: CharacterBody2D # Reference to the enemy that has this state
 @export var moveSpeed := 50.0 # Enemy move speed (can be altered inside the engine UI)
@@ -14,13 +15,13 @@ func Enter():
 func Physics_Update(delta: float):
 	var direction = player.global_position - enemy.global_position
 
-	print(direction.length())
-	# If the distance is greater than 0, make the enemy move towards the player with moveSpeed speed
-	if direction.length() > 25.0:
+	# If the distance is greater than 30, make the enemy move towards the player with moveSpeed speed
+	if direction.length() > 30.0:
 		enemy.velocity = direction.normalized() * moveSpeed
 		enemy.move_and_collide(enemy.velocity * delta)
-	# Else, make the enemy stand still
+	# Else (Has reached player within 30 of distance)
 	else:
+		hasReachedPlayer.emit()
 		enemy.velocity = Vector2(0,0)
 	
 	# If the distance is greater than 100, transition to the idle state

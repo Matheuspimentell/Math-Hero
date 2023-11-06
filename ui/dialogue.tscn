@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dt77b3o4i6hwp"]
 
 [ext_resource type="Texture2D" uid="uid://m1bt0cp3wsuk" path="res://media/art/ui/dialogue_box.png" id="1_76ef5"]
-[ext_resource type="Script" path="res://models/npcs/hostile/dialogue_hostile.gd" id="1_ie5x2"]
+[ext_resource type="Script" path="res://models/npcs/hostile/scientist/dialogue_hostile.gd" id="1_ie5x2"]
 [ext_resource type="Theme" uid="uid://dxe27jmdlwcmm" path="res://media/art/fonts/font_theme.tres" id="3_k02m3"]
 
 [node name="DialogueBox" type="CanvasLayer"]
@@ -29,10 +29,10 @@ fit_content = true
 
 [node name="Message" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 21.0
-offset_right = 573.0
-offset_bottom = 61.0
+offset_left = 27.0
+offset_top = 22.0
+offset_right = 574.0
+offset_bottom = 62.0
 theme = ExtResource("3_k02m3")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin lacinia orci non varius. Fusce turpis ante, volutpat sed risus at, fermentum."
 fit_content = true
