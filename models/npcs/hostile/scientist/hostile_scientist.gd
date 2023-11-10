@@ -19,6 +19,7 @@ func _on_reached_player():
 	else:
 		return
 
+# If the pre battle dialogue has finished
 func _on_finished_dialogues():
 	hasFinishedPreBattleDialogue = true
 	print("Begin the battle!")

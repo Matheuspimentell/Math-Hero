@@ -45,6 +45,7 @@ enemy = NodePath("../..")
 shape = SubResource("SegmentShape2D_she3s")
 
 [node name="Pre Battle Dialogue" parent="." instance=ExtResource("6_ume3y")]
+follow_viewport_enabled = true
 filePath = "res://models/npcs/hostile/scientist/dialogues.json"
 
 [connection signal="hasReachedPlayer" from="State Machine/Idle" to="." method="_on_reached_player"]
