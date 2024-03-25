@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://dxe27jmdlwcmm"]
 
-[ext_resource type="FontFile" uid="uid://bgm1b86w0kqmo" path="res://media/art/fonts/Fipps-Regular.otf" id="1_owck5"]
+[ext_resource type="FontFile" uid="uid://dkofdh6s4vrq1" path="res://media/art/fonts/Fipps-Regular.otf" id="1_owck5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyq48"]
 bg_color = Color(0, 0, 0, 0)
