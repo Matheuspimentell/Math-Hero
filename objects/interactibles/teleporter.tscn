@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcxv5uincpbbg"]
+
+[ext_resource type="Texture2D" uid="uid://bm1gxkkjhuom7" path="res://media/art/objects/teleporter.png" id="1_0ahym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wusjc"]
+size = Vector2(10, 2)
+
+[node name="Teleporter" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0ahym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_wusjc")

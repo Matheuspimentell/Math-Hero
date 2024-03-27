@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5j544mtlo6qx"]
+
+[ext_resource type="PackedScene" uid="uid://dnaombctwoijr" path="res://scenes/levels/Level_001-platformer.tscn" id="1_6h10l"]
+[ext_resource type="PackedScene" uid="uid://bnl0pks70bkaj" path="res://objects/character/character.tscn" id="2_t5fqg"]
+
+[node name="Test Level (platoformer concept)" type="Node2D"]
+
+[node name="level" parent="." instance=ExtResource("1_6h10l")]
+position = Vector2(304, 161)
+
+[node name="character" parent="." instance=ExtResource("2_t5fqg")]
+position = Vector2(175, 145)

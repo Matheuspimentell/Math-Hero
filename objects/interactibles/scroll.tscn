@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmfrtxoytnajh"]
+
+[ext_resource type="Texture2D" uid="uid://dlptdddtw018k" path="res://media/art/objects/scroll.png" id="1_28den"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lq6ob"]
+radius = 2.82823
+height = 18.3835
+
+[node name="Scroll" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_28den")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.505837, 0.505977)
+rotation = 0.797213
+shape = SubResource("CapsuleShape2D_lq6ob")
