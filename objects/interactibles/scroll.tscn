@@ -6,7 +6,7 @@
 radius = 2.82823
 height = 18.3835
 
-[node name="Scroll" type="StaticBody2D"]
+[node name="Scroll" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_28den")

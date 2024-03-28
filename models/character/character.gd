@@ -1,31 +1,18 @@
 extends CharacterBody2D
 
 @export var speed = 300.0
-var _hasBeenDetected = false
+@export var jump_speed = -400.0
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
+	# Add gravity on y axis
+	velocity.y += gravity * delta
 
-	if not _hasBeenDetected:
-		# Get the input direction and handle the movement/deceleration.
-		var directionX = Input.get_axis("move_left", "move_right")
-		var directionY = Input.get_axis("move_up", "move_down")
+	# Get the input direction and handle the movement/deceleration.
+	var direction = Input.get_axis("move_left", "move_right")
+	velocity.x = direction * speed
 
-		if directionX:
-			velocity.x = directionX * speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_speed
 
-		if directionY:
-			velocity.y = directionY * speed
-		else:
-			velocity.y = move_toward(velocity.y, 0, speed)
-
-		# This returns the KinematicCollision2D object that collided with the player, if none, returns null
-		var collision = move_and_collide(velocity * delta)
-
-		if collision:
-			print("Player collided with: ", collision.get_collider().name)
-
-# If an enemy has found the player, set _hasBeenDetetcted to true
-func _on_enemy_has_found_player():
-	_hasBeenDetected = true
+	move_and_slide()
