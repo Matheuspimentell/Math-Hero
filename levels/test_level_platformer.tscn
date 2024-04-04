@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5j544mtlo6qx"]
+[gd_scene load_steps=7 format=3 uid="uid://c5j544mtlo6qx"]
 
 [ext_resource type="PackedScene" uid="uid://dnaombctwoijr" path="res://scenes/levels/Level_001-platformer.tscn" id="1_6h10l"]
 [ext_resource type="PackedScene" uid="uid://bnl0pks70bkaj" path="res://objects/character/character.tscn" id="2_t5fqg"]
 [ext_resource type="PackedScene" uid="uid://cmfrtxoytnajh" path="res://objects/interactibles/scroll.tscn" id="3_bc6f8"]
 [ext_resource type="PackedScene" uid="uid://dxqpelatonbyh" path="res://objects/interactibles/computer.tscn" id="4_cmoyb"]
 [ext_resource type="PackedScene" uid="uid://dcxv5uincpbbg" path="res://objects/interactibles/teleporter.tscn" id="5_g638l"]
+[ext_resource type="PackedScene" uid="uid://ce4dk8jmu715b" path="res://objects/interactibles/door-big.tscn" id="6_57rme"]
 
 [node name="Test Level (platoformer concept)" type="Node2D"]
 
@@ -29,3 +30,6 @@ position = Vector2(-88, 46)
 
 [node name="Teleporter b" parent="Interactibles" instance=ExtResource("5_g638l")]
 position = Vector2(-23, -2)
+
+[node name="Door-big" parent="." instance=ExtResource("6_57rme")]
+position = Vector2(147, -16)
