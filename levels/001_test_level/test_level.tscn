@@ -1,22 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5lvqslwyraol"]
+[gd_scene load_steps=7 format=3 uid="uid://c5j544mtlo6qx"]
 
-[ext_resource type="PackedScene" uid="uid://bnl0pks70bkaj" path="res://objects/character/character.tscn" id="2_1qiun"]
-[ext_resource type="PackedScene" uid="uid://bsev7iyo6eh3l" path="res://scenes/levels/test_map.tscn" id="2_kjnoj"]
-[ext_resource type="PackedScene" uid="uid://ccxqgaykatlx7" path="res://objects/npcs/friendly/friendly_robot.tscn" id="3_xixy1"]
-[ext_resource type="PackedScene" uid="uid://ct042rnl8vek3" path="res://objects/npcs/hostile/hostile_scientist.tscn" id="4_ptche"]
+[ext_resource type="PackedScene" uid="uid://dnaombctwoijr" path="res://scenes/levels/Level_001-platformer.tscn" id="1_6h10l"]
+[ext_resource type="PackedScene" uid="uid://bnl0pks70bkaj" path="res://objects/character/character.tscn" id="2_t5fqg"]
+[ext_resource type="PackedScene" uid="uid://cmfrtxoytnajh" path="res://objects/interactibles/scroll.tscn" id="3_bc6f8"]
+[ext_resource type="PackedScene" uid="uid://dxqpelatonbyh" path="res://objects/interactibles/computer.tscn" id="4_cmoyb"]
+[ext_resource type="PackedScene" uid="uid://dcxv5uincpbbg" path="res://objects/interactibles/teleporter.tscn" id="5_g638l"]
+[ext_resource type="PackedScene" uid="uid://ce4dk8jmu715b" path="res://objects/interactibles/door-big.tscn" id="6_57rme"]
 
-[node name="Level" type="Node2D"]
-y_sort_enabled = true
+[node name="Test Level (platoformer concept)" type="Node2D"]
 
-[node name="map" parent="." instance=ExtResource("2_kjnoj")]
+[node name="level" parent="." instance=ExtResource("1_6h10l")]
 
-[node name="player" parent="." instance=ExtResource("2_1qiun")]
-position = Vector2(28, 42)
+[node name="character" parent="." instance=ExtResource("2_t5fqg")]
+z_index = 1
+position = Vector2(-134, -8)
+speed = 130.0
+jump_speed = -250.0
 
-[node name="npc" parent="." instance=ExtResource("3_xixy1")]
-position = Vector2(36, 171)
+[node name="Interactibles" type="Node" parent="."]
 
-[node name="enemy" parent="." instance=ExtResource("4_ptche")]
-position = Vector2(272, 146)
+[node name="Scroll" parent="Interactibles" instance=ExtResource("3_bc6f8")]
+position = Vector2(72, 39)
 
-[connection signal="hasFoundPlayer" from="enemy" to="player" method="_on_enemy_has_found_player"]
+[node name="Computer" parent="Interactibles" instance=ExtResource("4_cmoyb")]
+position = Vector2(136, -8)
+
+[node name="Teleporter a" parent="Interactibles" instance=ExtResource("5_g638l")]
+position = Vector2(-88, 46)
+
+[node name="Teleporter b" parent="Interactibles" instance=ExtResource("5_g638l")]
+position = Vector2(-23, -2)
+
+[node name="Door-big" parent="." instance=ExtResource("6_57rme")]
+position = Vector2(147, -16)
