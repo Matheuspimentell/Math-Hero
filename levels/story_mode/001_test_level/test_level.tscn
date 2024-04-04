@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5j544mtlo6qx"]
+
+[ext_resource type="PackedScene" uid="uid://dnaombctwoijr" path="res://scenes/levels/Level_001-platformer.tscn" id="1_c1gqy"]
+[ext_resource type="PackedScene" uid="uid://bnl0pks70bkaj" path="res://objects/character/character.tscn" id="2_p187i"]
+[ext_resource type="PackedScene" uid="uid://cmfrtxoytnajh" path="res://objects/interactibles/scroll.tscn" id="3_bj24j"]
+[ext_resource type="PackedScene" uid="uid://dxqpelatonbyh" path="res://objects/interactibles/computer.tscn" id="4_lp1o0"]
+[ext_resource type="PackedScene" uid="uid://dcxv5uincpbbg" path="res://objects/interactibles/teleporter.tscn" id="5_636s0"]
+[ext_resource type="PackedScene" uid="uid://ce4dk8jmu715b" path="res://objects/interactibles/door-big.tscn" id="6_818cm"]
+
+[node name="Test Level (platoformer concept)" type="Node2D"]
+
+[node name="level" parent="." instance=ExtResource("1_c1gqy")]
+
+[node name="character" parent="." instance=ExtResource("2_p187i")]
+z_index = 1
+position = Vector2(-134, -8)
+speed = 130.0
+jump_speed = -250.0
+
+[node name="Interactibles" type="Node" parent="."]
+
+[node name="Scroll" parent="Interactibles" instance=ExtResource("3_bj24j")]
+position = Vector2(72, 39)
+
+[node name="Computer" parent="Interactibles" instance=ExtResource("4_lp1o0")]
+position = Vector2(136, -8)
+
+[node name="Teleporter a" parent="Interactibles" instance=ExtResource("5_636s0")]
+position = Vector2(-88, 46)
+
+[node name="Teleporter b" parent="Interactibles" instance=ExtResource("5_636s0")]
+position = Vector2(-23, -2)
+
+[node name="Door-big" parent="." instance=ExtResource("6_818cm")]
+position = Vector2(147, -16)
