@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnaombctwoijr"]
+[gd_scene load_steps=10 format=3 uid="uid://dnaombctwoijr"]
 
 [ext_resource type="Texture2D" uid="uid://dd8xbnuty13q8" path="res://media/art/TileSet/background-tileset.png" id="1_5krl7"]
 [ext_resource type="Texture2D" uid="uid://bwi12xmrjlnyq" path="res://media/art/TileSet/level-tileset.png" id="2_ikrqa"]
 [ext_resource type="Texture2D" uid="uid://bj6nahwkdrwpo" path="res://media/art/TileSet/props-tileset.png" id="3_epecn"]
-[ext_resource type="PackedScene" uid="uid://bnl0pks70bkaj" path="res://objects/character/character.tscn" id="4_aqsat"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6mo0"]
 texture = ExtResource("1_5krl7")
@@ -151,6 +150,3 @@ layer_0/tile_data = PackedInt32Array(65526, 65536, 0, 65527, 131072, 0, 65528, 1
 tile_set = SubResource("TileSet_bsi0h")
 format = 2
 layer_0/tile_data = PackedInt32Array(-327690, 65536, 0, -262154, 131072, 0, -196618, 196608, 0, -131082, 262144, 0, -65546, 327680, 0, -10, 131072, 0, 131077, 524288, 0, 131078, 589824, 0, 196613, 655360, 0, 196614, 655360, 0, 262150, 655360, 0, 262149, 655360, 0)
-
-[node name="character" parent="." instance=ExtResource("4_aqsat")]
-position = Vector2(-132, -8)

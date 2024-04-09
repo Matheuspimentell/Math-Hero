@@ -1,5 +1,6 @@
-[gd_scene load_steps=43 format=3 uid="uid://bcroo0vxx8aiv"]
+[gd_scene load_steps=44 format=3 uid="uid://bcroo0vxx8aiv"]
 
+[ext_resource type="Script" path="res://models/operations/time_attack.gd" id="1_4qwjw"]
 [ext_resource type="Texture2D" uid="uid://dy5mxvitfre4p" path="res://media/art/TileSet/screen_background.png" id="1_ecgf0"]
 [ext_resource type="Texture2D" uid="uid://d0hwj5sh2scb6" path="res://media/art/ui/numpad/num7.png" id="2_kiaqb"]
 [ext_resource type="Texture2D" uid="uid://cyn5yt6hv438i" path="res://media/art/ui/numpad/num8.png" id="3_la44o"]
@@ -12,6 +13,21 @@
 [ext_resource type="Texture2D" uid="uid://tvx3y3flr0aj" path="res://media/art/ui/numpad/num3.png" id="10_uv6re"]
 [ext_resource type="Texture2D" uid="uid://chrjjp2p4p2l5" path="res://media/art/ui/numpad/num0.png" id="11_504s6"]
 [ext_resource type="FontFile" uid="uid://bwx2xcc4v8uib" path="res://media/fonts/retro_computer/retro_computer_personal_use.ttf" id="12_tvlsq"]
+
+[sub_resource type="Animation" id="Animation_3fky2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_0gumg"]
 resource_name = "click"
@@ -29,7 +45,13 @@ tracks/0/keys = {
 "values": [0, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_3fky2"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ksfh"]
+_data = {
+"RESET": SubResource("Animation_3fky2"),
+"click": SubResource("Animation_0gumg")
+}
+
+[sub_resource type="Animation" id="Animation_jfd16"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -42,12 +64,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ksfh"]
-_data = {
-"RESET": SubResource("Animation_3fky2"),
-"click": SubResource("Animation_0gumg")
 }
 
 [sub_resource type="Animation" id="Animation_pv7bo"]
@@ -66,7 +82,13 @@ tracks/0/keys = {
 "values": [0, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_jfd16"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ryhnh"]
+_data = {
+"RESET": SubResource("Animation_jfd16"),
+"click": SubResource("Animation_pv7bo")
+}
+
+[sub_resource type="Animation" id="Animation_jxjhi"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -77,14 +99,8 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ryhnh"]
-_data = {
-"RESET": SubResource("Animation_jfd16"),
-"click": SubResource("Animation_pv7bo")
 }
 
 [sub_resource type="Animation" id="Animation_1mbsu"]
@@ -103,7 +119,13 @@ tracks/0/keys = {
 "values": [0, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_jxjhi"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iishs"]
+_data = {
+"RESET": SubResource("Animation_jxjhi"),
+"click": SubResource("Animation_1mbsu")
+}
+
+[sub_resource type="Animation" id="Animation_5uy8y"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -114,14 +136,8 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iishs"]
-_data = {
-"RESET": SubResource("Animation_jxjhi"),
-"click": SubResource("Animation_1mbsu")
 }
 
 [sub_resource type="Animation" id="Animation_pqpdc"]
@@ -140,7 +156,13 @@ tracks/0/keys = {
 "values": [0, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_5uy8y"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_erl1i"]
+_data = {
+"RESET": SubResource("Animation_5uy8y"),
+"click": SubResource("Animation_pqpdc")
+}
+
+[sub_resource type="Animation" id="Animation_vs0pj"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -153,12 +175,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_erl1i"]
-_data = {
-"RESET": SubResource("Animation_5uy8y"),
-"click": SubResource("Animation_pqpdc")
 }
 
 [sub_resource type="Animation" id="Animation_chw0v"]
@@ -177,7 +193,13 @@ tracks/0/keys = {
 "values": [0, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_vs0pj"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iv1pc"]
+_data = {
+"RESET": SubResource("Animation_vs0pj"),
+"click": SubResource("Animation_chw0v")
+}
+
+[sub_resource type="Animation" id="Animation_ftcyh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -190,12 +212,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iv1pc"]
-_data = {
-"RESET": SubResource("Animation_vs0pj"),
-"click": SubResource("Animation_chw0v")
 }
 
 [sub_resource type="Animation" id="Animation_ghve6"]
@@ -214,7 +230,13 @@ tracks/0/keys = {
 "values": [0, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_ftcyh"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6t21"]
+_data = {
+"RESET": SubResource("Animation_ftcyh"),
+"click": SubResource("Animation_ghve6")
+}
+
+[sub_resource type="Animation" id="Animation_j3ofw"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -227,12 +249,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6t21"]
-_data = {
-"RESET": SubResource("Animation_ftcyh"),
-"click": SubResource("Animation_ghve6")
 }
 
 [sub_resource type="Animation" id="Animation_18vqc"]
@@ -251,7 +267,13 @@ tracks/0/keys = {
 "values": [0, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_j3ofw"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g1cuf"]
+_data = {
+"RESET": SubResource("Animation_j3ofw"),
+"click": SubResource("Animation_18vqc")
+}
+
+[sub_resource type="Animation" id="Animation_2412k"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -264,12 +286,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g1cuf"]
-_data = {
-"RESET": SubResource("Animation_j3ofw"),
-"click": SubResource("Animation_18vqc")
 }
 
 [sub_resource type="Animation" id="Animation_3rrau"]
@@ -288,7 +304,13 @@ tracks/0/keys = {
 "values": [0, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_2412k"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7dvtb"]
+_data = {
+"RESET": SubResource("Animation_2412k"),
+"click": SubResource("Animation_3rrau")
+}
+
+[sub_resource type="Animation" id="Animation_ue7v5"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -301,12 +323,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7dvtb"]
-_data = {
-"RESET": SubResource("Animation_2412k"),
-"click": SubResource("Animation_3rrau")
 }
 
 [sub_resource type="Animation" id="Animation_y62d8"]
@@ -325,7 +341,13 @@ tracks/0/keys = {
 "values": [0, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_ue7v5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o4o7k"]
+_data = {
+"RESET": SubResource("Animation_ue7v5"),
+"click": SubResource("Animation_y62d8")
+}
+
+[sub_resource type="Animation" id="Animation_1egql"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -338,12 +360,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_o4o7k"]
-_data = {
-"RESET": SubResource("Animation_ue7v5"),
-"click": SubResource("Animation_y62d8")
 }
 
 [sub_resource type="Animation" id="Animation_7awa1"]
@@ -362,21 +378,6 @@ tracks/0/keys = {
 "values": [0, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_1egql"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d46r8"]
 _data = {
 "RESET": SubResource("Animation_1egql"),
@@ -386,8 +387,10 @@ _data = {
 [node name="TimeAttack" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_4qwjw")
 
-[node name="background" type="NinePatchRect" parent="."]
+[node name="screen" type="NinePatchRect" parent="."]
+layout_mode = 0
 offset_right = 272.0
 offset_bottom = 160.0
 texture = ExtResource("1_ecgf0")
@@ -396,7 +399,7 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Numpad" type="GridContainer" parent="background"]
+[node name="Numpad" type="GridContainer" parent="screen"]
 layout_mode = 0
 offset_left = 96.0
 offset_top = 64.0
@@ -404,137 +407,137 @@ offset_right = 160.0
 offset_bottom = 128.0
 columns = 3
 
-[node name="Number7" type="Panel" parent="background/Numpad"]
+[node name="Number7" type="Panel" parent="screen/Numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="background/Numpad/Number7"]
+[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number7"]
 position = Vector2(16, 8)
 texture = ExtResource("2_kiaqb")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="background/Numpad/Number7"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number7"]
 libraries = {
 "": SubResource("AnimationLibrary_2ksfh")
 }
 
-[node name="Number8" type="Panel" parent="background/Numpad"]
+[node name="Number8" type="Panel" parent="screen/Numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="background/Numpad/Number8"]
+[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number8"]
 position = Vector2(28, 8)
 texture = ExtResource("3_la44o")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="background/Numpad/Number8"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number8"]
 libraries = {
 "": SubResource("AnimationLibrary_ryhnh")
 }
 
-[node name="Number9" type="Panel" parent="background/Numpad"]
+[node name="Number9" type="Panel" parent="screen/Numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="background/Numpad/Number9"]
+[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number9"]
 position = Vector2(40, 8)
 texture = ExtResource("4_efk4o")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="background/Numpad/Number9"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number9"]
 libraries = {
 "": SubResource("AnimationLibrary_iishs")
 }
 
-[node name="Number4" type="Panel" parent="background/Numpad"]
+[node name="Number4" type="Panel" parent="screen/Numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="background/Numpad/Number4"]
+[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number4"]
 position = Vector2(16, 20)
 texture = ExtResource("5_ce02g")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="background/Numpad/Number4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number4"]
 libraries = {
 "": SubResource("AnimationLibrary_erl1i")
 }
 
-[node name="Number5" type="Panel" parent="background/Numpad"]
+[node name="Number5" type="Panel" parent="screen/Numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="background/Numpad/Number5"]
+[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number5"]
 position = Vector2(28, 20)
 texture = ExtResource("6_bcr8x")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="background/Numpad/Number5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number5"]
 libraries = {
 "": SubResource("AnimationLibrary_iv1pc")
 }
 
-[node name="Number6" type="Panel" parent="background/Numpad"]
+[node name="Number6" type="Panel" parent="screen/Numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="background/Numpad/Number6"]
+[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number6"]
 position = Vector2(40, 20)
 texture = ExtResource("7_ijhm5")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="background/Numpad/Number6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number6"]
 libraries = {
 "": SubResource("AnimationLibrary_j6t21")
 }
 
-[node name="Number1" type="Panel" parent="background/Numpad"]
+[node name="Number1" type="Panel" parent="screen/Numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="background/Numpad/Number1"]
+[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number1"]
 position = Vector2(16, 32)
 texture = ExtResource("8_meu6f")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="background/Numpad/Number1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number1"]
 libraries = {
 "": SubResource("AnimationLibrary_g1cuf")
 }
 
-[node name="Number2" type="Panel" parent="background/Numpad"]
+[node name="Number2" type="Panel" parent="screen/Numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="background/Numpad/Number2"]
+[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number2"]
 position = Vector2(28, 32)
 texture = ExtResource("9_nmxsk")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="background/Numpad/Number2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number2"]
 libraries = {
 "": SubResource("AnimationLibrary_7dvtb")
 }
 
-[node name="Number3" type="Panel" parent="background/Numpad"]
+[node name="Number3" type="Panel" parent="screen/Numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="background/Numpad/Number3"]
+[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number3"]
 position = Vector2(40, 32)
 texture = ExtResource("10_uv6re")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="background/Numpad/Number3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number3"]
 libraries = {
 "": SubResource("AnimationLibrary_o4o7k")
 }
 
-[node name="Number0" type="Panel" parent="background/Numpad"]
+[node name="Number0" type="Panel" parent="screen/Numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="background/Numpad/Number0"]
+[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number0"]
 position = Vector2(24, 44)
 texture = ExtResource("11_504s6")
 vframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="background/Numpad/Number0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number0"]
 libraries = {
 "": SubResource("AnimationLibrary_d46r8")
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="background"]
+[node name="RichTextLabel" type="RichTextLabel" parent="screen"]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 24.0

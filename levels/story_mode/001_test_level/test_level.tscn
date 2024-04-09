@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5j544mtlo6qx"]
 
-[ext_resource type="PackedScene" uid="uid://dnaombctwoijr" path="res://scenes/levels/Level_001-platformer.tscn" id="1_c1gqy"]
+[ext_resource type="PackedScene" uid="uid://dnaombctwoijr" path="res://scenes/levels/Level_001.tscn" id="1_c1gqy"]
 [ext_resource type="PackedScene" uid="uid://bnl0pks70bkaj" path="res://objects/character/character.tscn" id="2_p187i"]
 [ext_resource type="PackedScene" uid="uid://cmfrtxoytnajh" path="res://objects/interactibles/scroll.tscn" id="3_bj24j"]
 [ext_resource type="PackedScene" uid="uid://dxqpelatonbyh" path="res://objects/interactibles/computer.tscn" id="4_lp1o0"]
