@@ -1,18 +1,19 @@
-[gd_scene load_steps=44 format=3 uid="uid://bcroo0vxx8aiv"]
+[gd_scene load_steps=45 format=3 uid="uid://bcroo0vxx8aiv"]
 
 [ext_resource type="Script" path="res://models/operations/time_attack.gd" id="1_4qwjw"]
-[ext_resource type="Texture2D" uid="uid://dy5mxvitfre4p" path="res://media/art/TileSet/screen_background.png" id="1_ecgf0"]
-[ext_resource type="Texture2D" uid="uid://d0hwj5sh2scb6" path="res://media/art/ui/numpad/num7.png" id="2_kiaqb"]
-[ext_resource type="Texture2D" uid="uid://cyn5yt6hv438i" path="res://media/art/ui/numpad/num8.png" id="3_la44o"]
-[ext_resource type="Texture2D" uid="uid://dbqxo344qufgk" path="res://media/art/ui/numpad/num9.png" id="4_efk4o"]
-[ext_resource type="Texture2D" uid="uid://bxyshvu36mg10" path="res://media/art/ui/numpad/num4.png" id="5_ce02g"]
-[ext_resource type="Texture2D" uid="uid://nniuqmbtfjdx" path="res://media/art/ui/numpad/num5.png" id="6_bcr8x"]
-[ext_resource type="Texture2D" uid="uid://depacebu8bmys" path="res://media/art/ui/numpad/num6.png" id="7_ijhm5"]
-[ext_resource type="Texture2D" uid="uid://b7ituvi0j1ts6" path="res://media/art/ui/numpad/num1.png" id="8_meu6f"]
-[ext_resource type="Texture2D" uid="uid://baxu1di5bl8qc" path="res://media/art/ui/numpad/num2.png" id="9_nmxsk"]
-[ext_resource type="Texture2D" uid="uid://tvx3y3flr0aj" path="res://media/art/ui/numpad/num3.png" id="10_uv6re"]
-[ext_resource type="Texture2D" uid="uid://chrjjp2p4p2l5" path="res://media/art/ui/numpad/num0.png" id="11_504s6"]
-[ext_resource type="FontFile" uid="uid://bwx2xcc4v8uib" path="res://media/fonts/retro_computer/retro_computer_personal_use.ttf" id="12_tvlsq"]
+[ext_resource type="Texture2D" uid="uid://cmdm1ti1c2fd4" path="res://media/art/TileSet/screen_background.png" id="1_ecgf0"]
+[ext_resource type="Texture2D" uid="uid://8r28m5i7dnao" path="res://media/art/ui/numpad/num7.png" id="2_kiaqb"]
+[ext_resource type="Texture2D" uid="uid://7fv87jlji8di" path="res://media/art/ui/numpad/num8.png" id="3_la44o"]
+[ext_resource type="Texture2D" uid="uid://ct17dyloxtocs" path="res://media/art/ui/numpad/num9.png" id="4_efk4o"]
+[ext_resource type="Texture2D" uid="uid://cvgq0220wooib" path="res://media/art/ui/numpad/num4.png" id="5_ce02g"]
+[ext_resource type="Texture2D" uid="uid://cye1j6icfebvi" path="res://media/art/ui/numpad/num5.png" id="6_bcr8x"]
+[ext_resource type="Texture2D" uid="uid://dj7bvoonwqd27" path="res://media/art/ui/numpad/num6.png" id="7_ijhm5"]
+[ext_resource type="Texture2D" uid="uid://o830sh3upkc4" path="res://media/art/ui/numpad/num1.png" id="8_meu6f"]
+[ext_resource type="Texture2D" uid="uid://qwsothlwhf6j" path="res://media/art/ui/numpad/num2.png" id="9_nmxsk"]
+[ext_resource type="Texture2D" uid="uid://ciasxql6t55q5" path="res://media/art/ui/numpad/num3.png" id="10_uv6re"]
+[ext_resource type="Texture2D" uid="uid://bkbclf4obk40w" path="res://media/art/ui/numpad/num0.png" id="11_504s6"]
+[ext_resource type="FontFile" uid="uid://ctfb0hydv72g7" path="res://media/fonts/retro_computer/retro_computer_personal_use.ttf" id="12_tvlsq"]
+[ext_resource type="Script" path="res://models/operations/numpad_animation_controller.gd" id="13_vyy3o"]
 
 [sub_resource type="Animation" id="Animation_3fky2"]
 length = 0.001
@@ -384,169 +385,190 @@ _data = {
 "click": SubResource("Animation_7awa1")
 }
 
-[node name="TimeAttack" type="Control"]
+[node name="TimeAttack" type="Control" node_paths=PackedStringArray("numpad")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_4qwjw")
+numpad = NodePath("screen/numpad")
 
 [node name="screen" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 272.0
-offset_bottom = 160.0
+offset_right = 960.0
+offset_bottom = 540.0
 texture = ExtResource("1_ecgf0")
 patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Numpad" type="GridContainer" parent="screen"]
+[node name="numpad" type="GridContainer" parent="screen"]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 64.0
-offset_right = 160.0
-offset_bottom = 128.0
+offset_left = 400.0
+offset_top = 240.0
+offset_right = 544.0
+offset_bottom = 400.0
 columns = 3
 
-[node name="Number7" type="Panel" parent="screen/Numpad"]
+[node name="number7" type="Panel" parent="screen/numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number7"]
-position = Vector2(16, 8)
+[node name="sprite" type="Sprite2D" parent="screen/numpad/number7"]
+position = Vector2(32, 24)
+scale = Vector2(3, 3)
 texture = ExtResource("2_kiaqb")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number7"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/numpad/number7"]
 libraries = {
 "": SubResource("AnimationLibrary_2ksfh")
 }
+script = ExtResource("13_vyy3o")
 
-[node name="Number8" type="Panel" parent="screen/Numpad"]
+[node name="number8" type="Panel" parent="screen/numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number8"]
-position = Vector2(28, 8)
+[node name="sprite" type="Sprite2D" parent="screen/numpad/number8"]
+position = Vector2(76, 24)
+scale = Vector2(3, 3)
 texture = ExtResource("3_la44o")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number8"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/numpad/number8"]
 libraries = {
 "": SubResource("AnimationLibrary_ryhnh")
 }
+script = ExtResource("13_vyy3o")
 
-[node name="Number9" type="Panel" parent="screen/Numpad"]
+[node name="number9" type="Panel" parent="screen/numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number9"]
-position = Vector2(40, 8)
+[node name="sprite" type="Sprite2D" parent="screen/numpad/number9"]
+position = Vector2(120, 24)
+scale = Vector2(3, 3)
 texture = ExtResource("4_efk4o")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number9"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/numpad/number9"]
 libraries = {
 "": SubResource("AnimationLibrary_iishs")
 }
+script = ExtResource("13_vyy3o")
 
-[node name="Number4" type="Panel" parent="screen/Numpad"]
+[node name="number4" type="Panel" parent="screen/numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number4"]
-position = Vector2(16, 20)
+[node name="sprite" type="Sprite2D" parent="screen/numpad/number4"]
+position = Vector2(32, 68)
+scale = Vector2(3, 3)
 texture = ExtResource("5_ce02g")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/numpad/number4"]
 libraries = {
 "": SubResource("AnimationLibrary_erl1i")
 }
+script = ExtResource("13_vyy3o")
 
-[node name="Number5" type="Panel" parent="screen/Numpad"]
+[node name="number5" type="Panel" parent="screen/numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number5"]
-position = Vector2(28, 20)
+[node name="sprite" type="Sprite2D" parent="screen/numpad/number5"]
+position = Vector2(76, 68)
+scale = Vector2(3, 3)
 texture = ExtResource("6_bcr8x")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/numpad/number5"]
 libraries = {
 "": SubResource("AnimationLibrary_iv1pc")
 }
+script = ExtResource("13_vyy3o")
 
-[node name="Number6" type="Panel" parent="screen/Numpad"]
+[node name="number6" type="Panel" parent="screen/numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number6"]
-position = Vector2(40, 20)
+[node name="sprite" type="Sprite2D" parent="screen/numpad/number6"]
+position = Vector2(120, 68)
+scale = Vector2(3, 3)
 texture = ExtResource("7_ijhm5")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number6"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/numpad/number6"]
 libraries = {
 "": SubResource("AnimationLibrary_j6t21")
 }
+script = ExtResource("13_vyy3o")
 
-[node name="Number1" type="Panel" parent="screen/Numpad"]
+[node name="number1" type="Panel" parent="screen/numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number1"]
-position = Vector2(16, 32)
+[node name="sprite" type="Sprite2D" parent="screen/numpad/number1"]
+position = Vector2(32, 112)
+scale = Vector2(3, 3)
 texture = ExtResource("8_meu6f")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/numpad/number1"]
 libraries = {
 "": SubResource("AnimationLibrary_g1cuf")
 }
+script = ExtResource("13_vyy3o")
 
-[node name="Number2" type="Panel" parent="screen/Numpad"]
+[node name="number2" type="Panel" parent="screen/numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number2"]
-position = Vector2(28, 32)
+[node name="sprite" type="Sprite2D" parent="screen/numpad/number2"]
+position = Vector2(76, 112)
+scale = Vector2(3, 3)
 texture = ExtResource("9_nmxsk")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/numpad/number2"]
 libraries = {
 "": SubResource("AnimationLibrary_7dvtb")
 }
+script = ExtResource("13_vyy3o")
 
-[node name="Number3" type="Panel" parent="screen/Numpad"]
+[node name="number3" type="Panel" parent="screen/numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number3"]
-position = Vector2(40, 32)
+[node name="sprite" type="Sprite2D" parent="screen/numpad/number3"]
+position = Vector2(120, 112)
+scale = Vector2(3, 3)
 texture = ExtResource("10_uv6re")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/numpad/number3"]
 libraries = {
 "": SubResource("AnimationLibrary_o4o7k")
 }
+script = ExtResource("13_vyy3o")
 
-[node name="Number0" type="Panel" parent="screen/Numpad"]
+[node name="number0" type="Panel" parent="screen/numpad"]
 layout_mode = 2
 
-[node name="sprite" type="Sprite2D" parent="screen/Numpad/Number0"]
-position = Vector2(24, 44)
+[node name="sprite" type="Sprite2D" parent="screen/numpad/number0"]
+position = Vector2(56, 156)
+scale = Vector2(3, 3)
 texture = ExtResource("11_504s6")
 vframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/Numpad/Number0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/numpad/number0"]
 libraries = {
 "": SubResource("AnimationLibrary_d46r8")
 }
+script = ExtResource("13_vyy3o")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="screen"]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 24.0
-offset_right = 152.0
-offset_bottom = 40.0
+offset_left = 384.0
+offset_top = 112.0
+offset_right = 568.0
+offset_bottom = 160.0
 theme_override_fonts/normal_font = ExtResource("12_tvlsq")
-theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "[wave amp=30 freq=2]
+text = "[wave amp=30 freq=4]
 [color=#238531]something[/color]
 [/wave]"
 scroll_active = false
