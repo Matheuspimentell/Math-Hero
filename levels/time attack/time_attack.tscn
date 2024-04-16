@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bcroo0vxx8aiv"]
+[gd_scene load_steps=47 format=3 uid="uid://bcroo0vxx8aiv"]
 
 [ext_resource type="Script" path="res://models/operations/time_attack.gd" id="1_4qwjw"]
 [ext_resource type="Texture2D" uid="uid://cmdm1ti1c2fd4" path="res://media/art/TileSet/screen_background.png" id="1_ecgf0"]
@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://ctfb0hydv72g7" path="res://media/fonts/retro_computer/retro_computer_personal_use.ttf" id="12_tvlsq"]
 [ext_resource type="Script" path="res://models/operations/numpad_animation_controller.gd" id="13_vyy3o"]
 [ext_resource type="Texture2D" uid="uid://c5vynbbauwd2t" path="res://media/art/TileSet/lamp.png" id="15_wif8q"]
+[ext_resource type="Texture2D" uid="uid://dldwcfyh862a2" path="res://media/art/TileSet/password-box.png" id="16_q3n3h"]
 
 [sub_resource type="Animation" id="Animation_1egql"]
 length = 0.001
@@ -397,10 +398,10 @@ layout_mode = 0
 offset_right = 960.0
 offset_bottom = 540.0
 texture = ExtResource("1_ecgf0")
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 3
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
 [node name="numpad" type="GridContainer" parent="screen"]
 layout_mode = 0
@@ -570,6 +571,39 @@ theme_override_fonts/normal_font = ExtResource("12_tvlsq")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "[center][wave amp=30 freq=4][color=#238531]2+2 = ?[/color][/wave][/center]"
+scroll_active = false
+scroll_following = true
+
+[node name="password box" type="NinePatchRect" parent="screen"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 208.0
+offset_right = 560.0
+offset_bottom = 248.0
+texture = ExtResource("16_q3n3h")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="answer" type="RichTextLabel" parent="screen/password box"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -20.0
+offset_right = 72.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("12_tvlsq")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center][color=#238531]****[/color][/center]"
 scroll_active = false
 scroll_following = true
 
