@@ -1,0 +1,172 @@
+[gd_scene load_steps=18 format=3 uid="uid://bcroo0vxx8aiv"]
+
+[ext_resource type="Script" path="res://levels/time attack/scripts/time_attack.gd" id="1_mkbky"]
+[ext_resource type="Texture2D" uid="uid://cmdm1ti1c2fd4" path="res://media/art/TileSet/screen_background.png" id="2_bd3v4"]
+[ext_resource type="Theme" uid="uid://c82dpfb8u1u1a" path="res://themes/numpad7.tres" id="3_tegvk"]
+[ext_resource type="Theme" uid="uid://cww3px40kdg1f" path="res://themes/numpad0.tres" id="3_urejf"]
+[ext_resource type="Script" path="res://models/numpad_key.gd" id="4_pqupj"]
+[ext_resource type="Theme" uid="uid://bb1h6kn1hw3i6" path="res://themes/numpad1.tres" id="5_hxb7y"]
+[ext_resource type="Theme" uid="uid://ctdc0kd334pur" path="res://themes/numpad8.tres" id="5_s0vqg"]
+[ext_resource type="Theme" uid="uid://dn0r0yr4xgocq" path="res://themes/numpad2.tres" id="5_xgtuj"]
+[ext_resource type="Theme" uid="uid://bj8u7qoaf4mi6" path="res://themes/numpad9.tres" id="6_7n0fr"]
+[ext_resource type="Theme" uid="uid://drur7fkahvqkj" path="res://themes/numpad4.tres" id="7_6f7h5"]
+[ext_resource type="Theme" uid="uid://cj2ddj3p01o0a" path="res://themes/numpad5.tres" id="8_m5j2i"]
+[ext_resource type="Theme" uid="uid://bhgg08wbh04pa" path="res://themes/numpad6.tres" id="9_m86iw"]
+[ext_resource type="Theme" uid="uid://f5lqhyc5umii" path="res://themes/numpad3.tres" id="12_vtwov"]
+[ext_resource type="Theme" uid="uid://ch5jjbmt7kyqj" path="res://themes/backspace.tres" id="14_a8ee0"]
+[ext_resource type="FontFile" uid="uid://ctfb0hydv72g7" path="res://media/fonts/retro_computer/retro_computer_personal_use.ttf" id="14_kpcla"]
+[ext_resource type="Texture2D" uid="uid://dldwcfyh862a2" path="res://media/art/TileSet/password-box.png" id="15_dejtk"]
+[ext_resource type="Texture2D" uid="uid://c5vynbbauwd2t" path="res://media/art/TileSet/lamp.png" id="16_god8e"]
+
+[node name="TimeAttack" type="Control" node_paths=PackedStringArray("numpad")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mkbky")
+numpad = NodePath("")
+
+[node name="screen" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("2_bd3v4")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="screen"]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 272.0
+offset_right = 566.0
+offset_bottom = 484.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="screen/VBoxContainer"]
+layout_mode = 2
+
+[node name="7" type="Button" parent="screen/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("3_tegvk")
+script = ExtResource("4_pqupj")
+
+[node name="8" type="Button" parent="screen/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("5_s0vqg")
+script = ExtResource("4_pqupj")
+
+[node name="9" type="Button" parent="screen/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("6_7n0fr")
+script = ExtResource("4_pqupj")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="screen/VBoxContainer"]
+layout_mode = 2
+
+[node name="4" type="Button" parent="screen/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("7_6f7h5")
+script = ExtResource("4_pqupj")
+
+[node name="5" type="Button" parent="screen/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("8_m5j2i")
+script = ExtResource("4_pqupj")
+
+[node name="6" type="Button" parent="screen/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("9_m86iw")
+script = ExtResource("4_pqupj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="screen/VBoxContainer"]
+layout_mode = 2
+
+[node name="1" type="Button" parent="screen/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("5_hxb7y")
+script = ExtResource("4_pqupj")
+
+[node name="2" type="Button" parent="screen/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("5_xgtuj")
+script = ExtResource("4_pqupj")
+
+[node name="3" type="Button" parent="screen/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("12_vtwov")
+script = ExtResource("4_pqupj")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="screen/VBoxContainer"]
+layout_mode = 2
+
+[node name="0" type="Button" parent="screen/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme = ExtResource("3_urejf")
+script = ExtResource("4_pqupj")
+
+[node name="backspace" type="Button" parent="screen/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("14_a8ee0")
+script = ExtResource("4_pqupj")
+
+[node name="question" type="RichTextLabel" parent="screen"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 140.0
+offset_right = 600.0
+offset_bottom = 180.0
+theme_override_fonts/normal_font = ExtResource("14_kpcla")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center][wave amp=30 freq=4][color=#238531]2+2 = ?[/color][/wave][/center]"
+scroll_active = false
+scroll_following = true
+
+[node name="password box" type="NinePatchRect" parent="screen"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 208.0
+offset_right = 560.0
+offset_bottom = 248.0
+texture = ExtResource("15_dejtk")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="answer" type="RichTextLabel" parent="screen/password box"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -20.0
+offset_right = 72.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("14_kpcla")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center][color=#238531]****[/color][/center]"
+scroll_active = false
+scroll_following = true
+
+[node name="lamp" type="Sprite2D" parent="screen"]
+position = Vector2(376, 160)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("16_god8e")

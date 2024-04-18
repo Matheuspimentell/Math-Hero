@@ -26,6 +26,19 @@ window/stretch/aspect="keep_width"
 
 project/assembly_name="Math-hero"
 
+[file_customization]
+
+folder_colors={
+"res://audio/": "teal",
+"res://levels/": "blue",
+"res://media/": "green",
+"res://models/": "gray",
+"res://objects/": "orange",
+"res://scenes/": "yellow",
+"res://themes/": "pink",
+"res://ui/": "purple"
+}
+
 [input]
 
 move_right={
