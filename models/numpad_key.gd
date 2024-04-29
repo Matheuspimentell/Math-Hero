@@ -1,5 +1,9 @@
-extends Sprite2D
+extends AnimatedSprite2D
 class_name NumpadKey
 
-func _ready():
-  print('I\'m a button! and my name is %s' % self.name)
+
+
+func click():
+  self.play("click")
+  print("Button %s was clicked!" % self.name)
+  
