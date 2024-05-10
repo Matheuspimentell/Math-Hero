@@ -3,18 +3,16 @@ extends Node2D
 var numpad: Dictionary
 @onready var question: RichTextLabel = $question
 @onready var password: Label = $passwordBox/password
-@export var questionFilePath: String
-var rng = RandomNumberGenerator.new()
-var currentQuestionData: Dictionary
+var sumGenerator = SumGenerator.new(null)
 
 func _ready():
 	# Get reference to all numpad keys
 	var numpadKeys = self.find_child("numpad").get_children()
 	for key in numpadKeys:
 		numpad[key.name] = key
-	var questionData: Array = get_questions(questionFilePath)
-	currentQuestionData = questionData[rng.randi_range(0,questionData.size()-1)]
-	question.append_text(set_question_style(currentQuestionData["question"]))
+	var operations: Array = sumGenerator.gen_one_digit_unrestricted(10)
+	print(operations)
+	question.append_text(set_question_style('%s + %s = ?' % [operations[0].a, operations[0].b]))
 
 func _input(_event):
 	if Input.is_action_pressed("number0"):
@@ -52,15 +50,3 @@ func _input(_event):
 
 func set_question_style(text: String):
 	return "[center][color=#238531][wave amp=15 freq=2]%s[/wave][/color][/center]" % text
-
-func get_questions(filePath: String):
-	if FileAccess.file_exists(filePath):
-		var questionFile = FileAccess.open(filePath, FileAccess.READ)
-		var questionData = JSON.parse_string(questionFile.get_as_text())
-		if questionData is Array:
-			return questionData
-		else:
-			print("Json parsing error...")
-	else:
-		print("File doesn't exist or isn't available.")
-	return null
