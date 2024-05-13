@@ -1,5 +1,5 @@
+@tool
 class_name SumGenerator
-
 var rng = RandomNumberGenerator.new()
 var ascii = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 
@@ -23,8 +23,8 @@ func gen_one_digit_unrestricted(quantity: int) -> Array:
 	var operations: Array = [];
 
 	for x in range(quantity):
-		var a = self.rng.randi_range(0,10)
-		var b = self.rng.randi_range(0,10)
+		var a = self.rng.randi_range(0,9)
+		var b = self.rng.randi_range(0,9)
 		var res = a+b
 		operations.append({ 'a': a, 'b': b, 'res': res })
 
