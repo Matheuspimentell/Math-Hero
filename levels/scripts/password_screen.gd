@@ -3,9 +3,9 @@ extends Node2D
 var numpad: Dictionary
 @onready var question: RichTextLabel = $question
 @onready var password: Label = $passwordBox/password
-var sumGenerator = SumGenerator.new('SEMEX2024')
+var sumGenerator = SumGenerator.new(null)
 var operations: Array
-var currentOperation: Dictionary
+var currentOp: int
 
 func _ready():
 	# Get reference to all numpad keys
@@ -14,8 +14,8 @@ func _ready():
 		numpad[key.name] = key
 	operations = sumGenerator.gen_one_digit_restricted(10)
 	print(operations)
-	currentOperation = operations[0]
-	question.append_text(set_question_style('%s + %s = ?' % [currentOperation.a, currentOperation.b]))
+	currentOp = 0
+	self._change_question_text('%s + %s = ?' % [operations[currentOp].a, operations[currentOp].b])
 
 func _input(_event):
 	if Input.is_action_just_pressed("number0"):
@@ -51,11 +51,21 @@ func _input(_event):
 	elif Input.is_action_just_pressed("backspace"):
 		numpad["backspace"].click()
 	elif Input.is_action_just_pressed("accept"):
-		if str(currentOperation.res) == password.text:
+		if str(operations[currentOp].res) == password.text:
 			print('correct answer')
+			if(currentOp == operations.size()-1):
+				print('Congrats!')
+			else:
+				currentOp+=1
+				self._change_question_text('%s + %s = ?' % [operations[currentOp].a, operations[currentOp].b])
+				password.text = ''
 		else:
 			print('wrong answer')
 			password.text = ''
 
-func set_question_style(text: String):
+func _set_question_style(text: String):
 	return "[center][color=#238531][wave amp=15 freq=2]%s[/wave][/color][/center]" % text
+
+func _change_question_text(newText: String):
+	question.clear()
+	question.append_text(self._set_question_style(newText))
