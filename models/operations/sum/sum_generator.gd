@@ -25,7 +25,30 @@ func gen_one_digit_unrestricted(quantity: int) -> Array:
 	for x in range(quantity):
 		var a = self.rng.randi_range(0,9)
 		var b = self.rng.randi_range(0,9)
-		var res = a+b
-		operations.append({ 'a': a, 'b': b, 'res': res })
+		operations.append({ 'a': a, 'b': b, 'res': (a+b) })
+
+	return operations
+
+func gen_one_digit_restricted(quantity: int) -> Array:
+	var operations: Array = []
+
+	for a in range(10):
+		for b in range(10):
+			if(a+b<10):
+				operations.append({ 'a': a, 'b': b, 'res': (a+b) })
+	
+	seed(self.rng.seed) # Set @GlobalScope seed to be equal to game_seed
+	operations.shuffle()
+	randomize() # Unset @GlobalScope seed to random again
+	
+	return operations.slice(0, quantity)
+
+func gen_two_digit_unrestricted(quantity: int) -> Array:
+	var operations: Array = []
+
+	for i in range(quantity):
+		var a = self.rng.randi_range(10, 99)
+		var b = self.rng.randi_range(10, 99)
+		operations.append({ 'a': a, 'b': b, 'res': (a+b) })
 
 	return operations

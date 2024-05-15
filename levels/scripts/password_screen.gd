@@ -12,7 +12,8 @@ func _ready():
 	var numpadKeys = self.find_child("numpad").get_children()
 	for key in numpadKeys:
 		numpad[key.name] = key
-	operations = sumGenerator.gen_one_digit_unrestricted(10)
+	operations = sumGenerator.gen_one_digit_restricted(10)
+	print(operations)
 	currentOperation = operations[0]
 	question.append_text(set_question_style('%s + %s = ?' % [currentOperation.a, currentOperation.b]))
 

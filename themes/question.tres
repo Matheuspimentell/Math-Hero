@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://cacqlfyw6xmfy"]
 
-[ext_resource type="FontFile" uid="uid://c4m68n4ccvqtv" path="res://media/fonts/m5x7.ttf" id="1_8gntn"]
+[ext_resource type="FontFile" uid="uid://cle1s7j5h7erx" path="res://media/fonts/m5x7.ttf" id="1_8gntn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xoav0"]
 
