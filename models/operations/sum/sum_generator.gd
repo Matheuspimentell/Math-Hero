@@ -55,7 +55,6 @@ func gen_two_digit_unrestricted(quantity: int) -> Array:
 
 func gen_two_digit_restricted(quantity: int) -> Array:
 	var operations: Array = []
-
 	for a in range(10,99):
 		for b in range(10,99):
 			if(((a%10)+(b%10)<10) and (a/10)+(b/10)<10):
