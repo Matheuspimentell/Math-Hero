@@ -64,4 +64,27 @@ func gen_two_digit_restricted(quantity: int) -> Array:
 	operations.shuffle()
 	randomize()
 
-	return operations.slice(0, quantity) 
+	return operations.slice(0, quantity)
+
+func gen_three_digit_unrestricted(quantity: int) -> Array:
+	var operations: Array = []
+
+	for i in range(quantity):
+		var a = self.rng.randi_range(100, 999)
+		var b = self.rng.randi_range(100, 999)
+		operations.append({ 'a': a, 'b': b, 'res': (a+b) })
+
+	return operations
+
+func gen_three_digit_restricted(quantity: int) -> Array:
+	var operations: Array = []
+	for a in range(100,999):
+		for b in range(100,999):
+			if(((a%10)+(b%10)<10) and ((a%100)+(b%100)<10) and ((a/100)+(b/100)<10)):
+				operations.append({ 'a': a, 'b': b, 'res': (a+b) })
+	
+	seed(self.rng.seed)
+	operations.shuffle()
+	randomize()
+
+	return operations.slice(0, quantity)

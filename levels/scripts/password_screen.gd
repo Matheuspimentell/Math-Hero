@@ -9,13 +9,16 @@ var sumGenerator = SumGenerator.new(null)
 var operations: Array
 var _currentOp: int = 0
 
+# Levels: One digit restricted, One digit unrestricted, Two digit restricted, Two digit unrestricted, Three digit restricted, Three digit unrestricted
+var _currentLevel: int = 0
+
 func _ready():
 	# Get reference to all numpad keys
 	var numpadKeys = self.find_child("numpad").get_children()
 	for key in numpadKeys:
 		numpad[key.name] = key
 
-	operations = sumGenerator.gen_one_digit_restricted(10)
+	operations = sumGenerator.gen_one_digit_restricted(5)
 	print(operations)
 	self._change_question_text('%s + %s = ?' % [operations[_currentOp].a, operations[_currentOp].b])
 
@@ -50,14 +53,32 @@ func _input(_event):
 		if str(operations[_currentOp].res) == password.text:
 			sfxs["correct_answer"].play()
 			if(_currentOp == operations.size()-1):
-				print('Congrats!')
-			else:
-				_currentOp+=1
-				self._change_question_text('%s + %s = ?' % [operations[_currentOp].a, operations[_currentOp].b])
-				password.text = ''
+				print('Next level!')
+				_generate_next_level()
+
+			_currentOp+=1
+			self._change_question_text('%s + %s = ?' % [operations[_currentOp].a, operations[_currentOp].b])
+			password.text = ''
 		else:
 			sfxs["wrong_answer"].play()
 			password.text = ''
+
+func _generate_next_level():
+	match _currentLevel:
+		0:
+			operations.append_array(sumGenerator.gen_one_digit_unrestricted(5))
+		1:
+			operations.append_array(sumGenerator.gen_two_digit_restricted(5))
+		2:
+			operations.append_array(sumGenerator.gen_two_digit_unrestricted(5))
+		3:
+			operations.append_array(sumGenerator.gen_three_digit_restricted(5))
+		4:
+			operations.append_array(sumGenerator.gen_three_digit_unrestricted(5))
+		_:
+			print('No more levels to generate')
+			return
+	_currentLevel+=1
 
 func _set_question_style(text: String):
 	return "[center][color=#238531][wave amp=15 freq=2]%s[/wave][/color][/center]" % text
