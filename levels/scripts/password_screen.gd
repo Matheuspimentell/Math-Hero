@@ -18,7 +18,7 @@ func _ready():
 	for key in numpadKeys:
 		numpad[key.name] = key
 
-	operations = sumGenerator.gen_one_digit_restricted(5)
+	operations = sumGenerator.gen_one_digit_restricted(2)
 	print(operations)
 	self._change_question_text('%s + %s = ?' % [operations[_currentOp].a, operations[_currentOp].b])
 
@@ -66,15 +66,15 @@ func _input(_event):
 func _generate_next_level():
 	match _currentLevel:
 		0:
-			operations.append_array(sumGenerator.gen_one_digit_unrestricted(5))
+			operations.append_array(sumGenerator.gen_one_digit_unrestricted(2))
 		1:
-			operations.append_array(sumGenerator.gen_two_digit_restricted(5))
+			operations.append_array(sumGenerator.gen_two_digit_restricted(2))
 		2:
-			operations.append_array(sumGenerator.gen_two_digit_unrestricted(5))
+			operations.append_array(sumGenerator.gen_two_digit_unrestricted(2))
 		3:
-			operations.append_array(sumGenerator.gen_three_digit_restricted(5))
+			operations.append_array(sumGenerator.gen_three_digit_restricted(2))
 		4:
-			operations.append_array(sumGenerator.gen_three_digit_unrestricted(5))
+			operations.append_array(sumGenerator.gen_three_digit_unrestricted(2))
 		_:
 			print('No more levels to generate')
 			return
