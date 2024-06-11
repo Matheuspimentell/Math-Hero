@@ -1,12 +1,12 @@
-extends Sprite2D
+extends Node2D
 
-@onready var timer_label = $CenterContainer/Label
+@onready var timer_label = $Label
 var current_time: float
 
 func _ready():
 	current_time = 0.0
 
-# Use a signal from password screen to stop timer and get elapsed time similarly to the function below
+#TODO: Receive end of phase signal, send elapsed time back to main scene
 func _input(_event):
 	if Input.is_action_just_pressed('accept'):
 		print("%03d:%02d.%03d" % [fmod(current_time,3600)/60,fmod(current_time,60),fmod(current_time,1)*1000])

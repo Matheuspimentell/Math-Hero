@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciw6jroguue34"]
+
+[ext_resource type="Script" path="res://models/timer.gd" id="1_10ly4"]
+[ext_resource type="Texture2D" uid="uid://bsap8chpgvkqe" path="res://media/art/TileSet/timer.png" id="2_k0l1t"]
+[ext_resource type="Theme" uid="uid://dwabgko50wtt8" path="res://themes/default.tres" id="3_selmv"]
+
+[node name="timer" type="Node2D"]
+script = ExtResource("1_10ly4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(40, 8)
+texture = ExtResource("2_k0l1t")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 1.0
+offset_right = 75.0
+offset_bottom = 14.0
+theme = ExtResource("3_selmv")
+text = "000:00.000"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cacqlfyw6xmfy"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dwabgko50wtt8"]
 
-[ext_resource type="FontFile" uid="uid://c4m68n4ccvqtv" path="res://media/fonts/m5x7.ttf" id="1_8gntn"]
+[ext_resource type="FontFile" uid="uid://c4m68n4ccvqtv" path="res://media/fonts/m5x7.ttf" id="1_1cw0d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xoav0"]
 
@@ -34,8 +34,8 @@ content_margin_bottom = 0.0
 [resource]
 Label/colors/font_color = Color(0.137255, 0.521569, 0.192157, 1)
 Label/constants/line_spacing = 0
-Label/font_sizes/font_size = 36
-Label/fonts/font = ExtResource("1_8gntn")
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_1cw0d")
 Label/styles/normal = SubResource("StyleBoxEmpty_xoav0")
 RichTextLabel/constants/line_separation = 0
 RichTextLabel/constants/outline_size = 0
@@ -46,7 +46,7 @@ RichTextLabel/constants/table_h_separation = 3
 RichTextLabel/constants/table_v_separation = 3
 RichTextLabel/constants/text_highlight_h_padding = 3
 RichTextLabel/constants/text_highlight_v_padding = 3
-RichTextLabel/font_sizes/normal_font_size = 32
-RichTextLabel/fonts/normal_font = ExtResource("1_8gntn")
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/fonts/normal_font = ExtResource("1_1cw0d")
 RichTextLabel/styles/focus = SubResource("StyleBoxFlat_bbjfs")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_toai0")

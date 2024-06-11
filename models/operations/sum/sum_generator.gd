@@ -4,14 +4,12 @@ var rng = RandomNumberGenerator.new()
 var ascii = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 
 func _init(generator_seed):
-	var game_seed: int = 0
 	if !generator_seed:
-		game_seed = hash(self._gen_unique_hash(10));
+		self.rng.seed = hash(self._gen_unique_hash(10));
 	else:
-		game_seed = hash(generator_seed)
+		self.rng.seed = hash(generator_seed)
 	
-	self.rng.seed = game_seed
-	print(game_seed)
+	print(self.rng.seed)
 
 func _gen_unique_hash(length: int):
 	var result = ''
