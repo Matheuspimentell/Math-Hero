@@ -1,5 +1,6 @@
 extends Node2D
 
+# Variables
 @onready var timer_label = $Label
 var current_time: float
 

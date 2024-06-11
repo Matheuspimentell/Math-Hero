@@ -1,44 +1,53 @@
 extends Node2D
 
-# enum NUMPADKEYS  {
-# 	number0,
-# 	number1,
-# 	number2,
-# 	number3,
-# 	number4,
-# 	number5,
-# 	number6,
-# 	number7,
-# 	number8,
-# 	number9,
-# 	backspace
-# }
+enum NUMPADKEYS  {
+	number0,
+	number1,
+	number2,
+	number3,
+	number4,
+	number5,
+	number6,
+	number7,
+	number8,
+	number9,
+	backspace
+}
 
-var sumGenerator: SumGenerator
-var equations: Array
-@onready var equationLabel = $equation/RichTextLabel
+# Variables
+@onready var answerLabel = $password/Label
+@onready var equation = $equation
 
 func _ready():
-	# Initialize sum generator seed
-	if TimeAttackManager.match_seed:
-		sumGenerator = SumGenerator.new(TimeAttackManager.match_seed)
-	else:
-		sumGenerator = SumGenerator.new(null)
-		TimeAttackManager.match_seed = sumGenerator.rng.seed
-	
-	# TODO: Get sum type from mode manager
-	equations = sumGenerator.gen_one_digit_restricted(10)
-	equations.append_array(sumGenerator.gen_one_digit_unrestricted(10))
+	# TODO: Get sum type from time attack manager
+	for key in self.find_child("numpad").get_children():
+		key.clicked.connect(_on_numpad_clicked)
 
-	# for key in self.find_child("numpad").get_children():
-	# 	key.clicked.connect(self._on_numpad_clicked(NUMPADKEYS[key.buttonName]))
-	pass
+	equation.level_finished.connect(_on_level_finished)
 
 func _input(_event):
 	if Input.is_action_just_pressed('accept'):
-		#TODO: Check password with answer
-		pass
+		if equation.is_answer_correct(answerLabel.text):
+			# TODO Send signal to sfx manager
+			equation.next()
+			answerLabel.text = ""
+		else:
+			answerLabel.text = ""
+			# TODO: send signal to sfx manager
 
-# func _on_numpad_clicked(buttonName):
-# 	# TODO: Send signal to password with button value
-# 	pass
+func _on_numpad_clicked(buttonName):
+	var button = NUMPADKEYS[buttonName]
+	if button == NUMPADKEYS.backspace:
+		if not answerLabel.text.is_empty():
+			print("Label is not empty")
+			answerLabel.text = answerLabel.text.erase(answerLabel.text.length()-1, 1)
+			# TODO: Send signal to sfx manager
+		else:
+			# TODO: Send error signal to sfx manager
+			print("Label is empty")
+	else:
+		answerLabel.text+=str(button)
+		# TODO: Send signal to sfx manager
+
+func _on_level_finished():
+	get_tree().quit()

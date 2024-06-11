@@ -2,7 +2,7 @@ extends Node
 
 enum EquationType { SUM, SUBTRACTION, MULTIPLICATION, DIVISION }
 
-# Singleton variables
+# Variables
 var error_count: int
 var match_seed
 var time_elapsed: float

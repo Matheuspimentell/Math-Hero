@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://cacqlfyw6xmfy"]
 
-[ext_resource type="FontFile" uid="uid://c4m68n4ccvqtv" path="res://media/fonts/m5x7.ttf" id="1_8gntn"]
+[ext_resource type="FontFile" uid="uid://cle1s7j5h7erx" path="res://media/fonts/m5x7.ttf" id="1_8gntn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xoav0"]
 
@@ -34,7 +34,7 @@ content_margin_bottom = 0.0
 [resource]
 Label/colors/font_color = Color(0.137255, 0.521569, 0.192157, 1)
 Label/constants/line_spacing = 0
-Label/font_sizes/font_size = 36
+Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_8gntn")
 Label/styles/normal = SubResource("StyleBoxEmpty_xoav0")
 RichTextLabel/constants/line_separation = 0

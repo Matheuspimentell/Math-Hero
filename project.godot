@@ -21,11 +21,11 @@ TimeAttackManager="*res://levels/scripts/time_attack_manager.gd"
 
 [display]
 
-window/size/viewport_width=384
-window/size/viewport_height=216
+window/size/viewport_width=512
+window/size/viewport_height=288
 window/size/window_width_override=1366
 window/size/window_height_override=768
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [dotnet]
 
@@ -43,6 +43,12 @@ folder_colors={
 "res://themes/": "pink",
 "res://ui/": "purple"
 }
+
+[gui]
+
+theme/default_font_hinting=2
+theme/default_font_multichannel_signed_distance_field=true
+theme/lcd_subpixel_layout=0
 
 [input]
 
