@@ -1,7 +1,4 @@
-# Created by https://www.toptal.com/developers/gitignore/api/godot
-# Edit at https://www.toptal.com/developers/gitignore?templates=godot
-
-### Godot ###
+## Godot ###
 # Godot 4+ specific ignores
 .godot/
 
@@ -21,5 +18,5 @@ mono_crash.*.json
 
 # End of https://www.toptal.com/developers/gitignore/api/godot
 
-# Vscode configs
+# VSCode configs
 .vscode/
