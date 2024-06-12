@@ -1,6 +1,6 @@
 [gd_scene load_steps=57 format=3 uid="uid://dy355ocuvbomk"]
 
-[ext_resource type="Script" path="res://levels/scripts/sum_screen.gd" id="1_iu73y"]
+[ext_resource type="Script" path="res://models/operations/sum/sum_screen.gd" id="1_iu73y"]
 [ext_resource type="Texture2D" uid="uid://cmdm1ti1c2fd4" path="res://media/art/TileSet/screen_background.png" id="2_rspdi"]
 [ext_resource type="Texture2D" uid="uid://ceeqwmxc6tbaj" path="res://media/art/TileSet/lampx2.png" id="3_e02is"]
 [ext_resource type="Script" path="res://models/equation.gd" id="3_w0wwv"]
@@ -365,12 +365,22 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="sum_screen" type="Node2D"]
+[node name="sum_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_iu73y")
 
 [node name="background" type="NinePatchRect" parent="."]
-offset_right = 512.0
-offset_bottom = 288.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_rspdi")
 patch_margin_left = 3
 patch_margin_top = 3
@@ -517,9 +527,27 @@ position = Vector2(413, 255)
 position = Vector2(20, 13)
 texture = ExtResource("9_jalt5")
 
+[node name="Label" type="RichTextLabel" parent="tooltips/enter"]
+offset_left = -24.0
+offset_top = 4.0
+offset_right = 25.0
+offset_bottom = 20.0
+theme = ExtResource("11_yakid")
+bbcode_enabled = true
+text = "[center][color=#238531][wave amp=5 freq=2]confirma[/wave][/color][/center]"
+
 [node name="esc" type="Sprite2D" parent="tooltips"]
 position = Vector2(71, 13)
 texture = ExtResource("10_enn5c")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="tooltips/esc"]
+offset_left = -24.0
+offset_top = 5.0
+offset_right = 26.0
+offset_bottom = 21.0
+theme = ExtResource("11_yakid")
+bbcode_enabled = true
+text = "[center][color=#238531][wave amp=5 freq=2]pause[/wave][/color][/center]"
 
 [node name="match_seed" type="Label" parent="."]
 offset_left = 4.0
