@@ -1,16 +1,14 @@
 extends Node
 
-var soundBoard: Dictionary
+var _sounds: Dictionary
 
 func _ready():
-	var sounds = self.get_children()
-	for sound in sounds:
-		soundBoard[sound.name] = sound
+	for sound: AudioStreamPlayer in get_children():
+		_sounds[sound.name] = sound
+	
+func play_sound(soundName: String):
+	if not _sounds.has(soundName):
+		print_debug("Sound name not found in sfx manager.")
+		return
 
-func _on_numpad_clicked(key:String):
-	if key == 'backspace':
-		#TODO send erase singal to passwordbox
-		pass
-	else:
-		soundBoard['click'].play()
-		#TODO send append signal to passwordBox
+	_sounds[soundName].play()

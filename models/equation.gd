@@ -33,17 +33,17 @@ func _ready():
 func _generate_equations() -> Array:
 	match current_level:
 		levels.one_digit_unres:
-			return sumGenerator.gen_one_digit_unrestricted(10)
+			return sumGenerator.gen_one_digit_unrestricted(6)
 		levels.two_digit_res:
-			return sumGenerator.gen_two_digit_restricted(10)
+			return sumGenerator.gen_two_digit_restricted(6)
 		levels.two_digit_unres:
-			return sumGenerator.gen_two_digit_unrestricted(10)
+			return sumGenerator.gen_two_digit_unrestricted(6)
 		levels.three_digit_res:
-			return sumGenerator.gen_three_digit_restricted(10)
+			return sumGenerator.gen_three_digit_restricted(6)
 		levels.three_digit_unres:
-			return sumGenerator.gen_three_digit_unrestricted(10)
+			return sumGenerator.gen_three_digit_unrestricted(6)
 		_:
-			return sumGenerator.gen_one_digit_restricted(10)
+			return sumGenerator.gen_one_digit_restricted(6)
 
 func _set_text():
 	label.clear()
@@ -60,4 +60,5 @@ func next():
 	if _equation_index < _equations.size():
 		_set_text()
 	elif _equation_index >= _equations.size():
+		current_level = (current_level+1) as levels
 		level_finished.emit()

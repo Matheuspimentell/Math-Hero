@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg0ji8ll7xgd0"]
+[gd_scene load_steps=6 format=3 uid="uid://dg0ji8ll7xgd0"]
 
 [ext_resource type="Texture2D" uid="uid://cmdm1ti1c2fd4" path="res://media/art/TileSet/screen_background.png" id="1_hgqrj"]
 [ext_resource type="Theme" uid="uid://cacqlfyw6xmfy" path="res://themes/question.tres" id="2_3fnni"]
@@ -45,7 +45,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_b3viw"]
 resource_name = "fade_in"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -53,7 +52,7 @@ tracks/0/path = NodePath("background:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -65,7 +64,7 @@ tracks/1/path = NodePath("label:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(181.5, 300), Vector2(181.5, 118)]
@@ -77,57 +76,16 @@ tracks/2/path = NodePath("label:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_xv4nu"]
-resource_name = "fade_out"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("background:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("label:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(181.5, 118), Vector2(181.5, 300)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("label:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aggnt"]
 _data = {
 "RESET": SubResource("Animation_wv4ya"),
-"fade_in": SubResource("Animation_b3viw"),
-"fade_out": SubResource("Animation_xv4nu")
+"fade_in": SubResource("Animation_b3viw")
 }
 
 [node name="next_Level_transition" type="CanvasLayer"]
@@ -155,7 +113,7 @@ anchor_bottom = 0.5
 offset_left = 181.5
 offset_top = 300.0
 offset_right = 330.5
-offset_bottom = 352.0
+offset_bottom = 352.001
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_3fnni")

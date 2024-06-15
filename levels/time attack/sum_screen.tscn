@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dy355ocuvbomk"]
+[gd_scene load_steps=62 format=3 uid="uid://dy355ocuvbomk"]
 
 [ext_resource type="Script" path="res://models/operations/sum/sum_screen.gd" id="1_iu73y"]
 [ext_resource type="Texture2D" uid="uid://cmdm1ti1c2fd4" path="res://media/art/TileSet/screen_background.png" id="2_rspdi"]
@@ -12,6 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://1pa3ul32mq70" path="res://media/art/TileSet/ui_enter_tooltip.png" id="9_jalt5"]
 [ext_resource type="Texture2D" uid="uid://txm1w0ci8mur" path="res://media/art/TileSet/ui_esc_tooltop.png" id="10_enn5c"]
 [ext_resource type="Theme" uid="uid://dwabgko50wtt8" path="res://themes/default.tres" id="11_yakid"]
+[ext_resource type="Script" path="res://models/sfx_controller.gd" id="13_0eox5"]
+[ext_resource type="AudioStream" uid="uid://b72b2p4wyknva" path="res://audio/click.wav" id="14_1ag2l"]
+[ext_resource type="AudioStream" uid="uid://b5igkc5vmok0q" path="res://audio/error.wav" id="15_fmags"]
+[ext_resource type="AudioStream" uid="uid://btrtljhnvr85f" path="res://audio/correct_answer.wav" id="16_4olui"]
+[ext_resource type="AudioStream" uid="uid://b4h15hqrnsyqu" path="res://audio/wrong_answer.wav" id="17_dnfu6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aq5yb"]
 atlas = ExtResource("6_ku6bg")
@@ -521,10 +526,19 @@ theme = ExtResource("4_58cwa")
 horizontal_alignment = 1
 
 [node name="tooltips" type="Node2D" parent="."]
-position = Vector2(413, 255)
+position = Vector2(3, 252)
+
+[node name="match_seed" type="Label" parent="tooltips"]
+offset_top = 19.0
+offset_right = 87.0
+offset_bottom = 32.0
+theme = ExtResource("11_yakid")
+text = "aaaaaaaaa
+"
+horizontal_alignment = 1
 
 [node name="enter" type="Sprite2D" parent="tooltips"]
-position = Vector2(20, 13)
+position = Vector2(425, 15)
 texture = ExtResource("9_jalt5")
 
 [node name="Label" type="RichTextLabel" parent="tooltips/enter"]
@@ -537,7 +551,7 @@ bbcode_enabled = true
 text = "[center][color=#238531][wave amp=5 freq=2]confirma[/wave][/color][/center]"
 
 [node name="esc" type="Sprite2D" parent="tooltips"]
-position = Vector2(71, 13)
+position = Vector2(476, 15)
 texture = ExtResource("10_enn5c")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="tooltips/esc"]
@@ -549,10 +563,17 @@ theme = ExtResource("11_yakid")
 bbcode_enabled = true
 text = "[center][color=#238531][wave amp=5 freq=2]pause[/wave][/color][/center]"
 
-[node name="match_seed" type="Label" parent="."]
-offset_left = 4.0
-offset_top = 271.0
-offset_right = 91.0
-offset_bottom = 284.0
-theme = ExtResource("11_yakid")
-horizontal_alignment = 1
+[node name="sfx_manager" type="Node" parent="."]
+script = ExtResource("13_0eox5")
+
+[node name="click" type="AudioStreamPlayer" parent="sfx_manager"]
+stream = ExtResource("14_1ag2l")
+
+[node name="error" type="AudioStreamPlayer" parent="sfx_manager"]
+stream = ExtResource("15_fmags")
+
+[node name="correct_answer" type="AudioStreamPlayer" parent="sfx_manager"]
+stream = ExtResource("16_4olui")
+
+[node name="wrong_answer" type="AudioStreamPlayer" parent="sfx_manager"]
+stream = ExtResource("17_dnfu6")
