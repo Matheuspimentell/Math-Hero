@@ -1,11 +1,20 @@
 extends Node
 
+const sum_screen = preload("res://levels/time_attack/sum_screen.tscn")
+const time_attack_transition_scene = preload("res://scenes/transitions/time_attack_transition.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func load_scene(transition_type: String):
+	var transition_scene
+	
+	match transition_type:
+		"time_attack":
+			transition_scene = time_attack_transition_scene.instantiate()
 
+	get_tree().root.add_child(transition_scene)
+	transition_scene.start_transition()
+	await transition_scene.animationPlayer.animation_finished
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	# reload previously active scene from scene tree
+	get_tree().reload_current_scene()
+	transition_scene.finish_transition()
+	await transition_scene.animationPlayer.animation_finished

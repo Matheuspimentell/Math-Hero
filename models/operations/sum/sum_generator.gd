@@ -6,10 +6,10 @@ var rng = RandomNumberGenerator.new()
 var ascii = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 
 func _init(generator_seed):
-	if not generator_seed:
+	if generator_seed == null:
 		self.rng.seed = hash(self._gen_unique_hash(10));
 	else:
-		self.rng.seed = hash(generator_seed)
+		self.rng.seed = generator_seed
 	
 	print(self.rng.seed)
 

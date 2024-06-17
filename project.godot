@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-TimeAttackManager="*res://levels/scripts/time_attack_manager.gd"
+TimeAttackManager="*res://models/utils/time_attack_manager.gd"
 SceneManager="*res://models/utils/scene_manager.gd"
 
 [display]

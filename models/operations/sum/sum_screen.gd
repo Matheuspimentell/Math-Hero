@@ -53,7 +53,19 @@ func _on_numpad_clicked(buttonName):
 	sfx_manager.play_sound("click")
 
 func _on_level_finished():
-	timer.save_timer()
-	var final_time = TimeAttackManager.elapsed_time
-	print("%03d:%02d.%03d" % [fmod(final_time,3600)/60,fmod(final_time,60),fmod(final_time,1)*1000])
-	get_tree().quit()
+	timer.save_time()
+	match TimeAttackManager.current_equation_type as TimeAttackManager.EquationType:	
+		TimeAttackManager.EquationType.MULTIPLICATION:
+			pass
+		TimeAttackManager.EquationType.DIVISION:
+			pass
+		_:
+			if TimeAttackManager.equation_level < TimeAttackManager.BasicLevels.values().size():
+				TimeAttackManager.equation_level += 1
+			else:
+				# TODO: Change equation type for competition mode
+				get_tree().quit()
+				
+
+	# TODO: Instantiate scene transition from scene manager
+	SceneManager.load_scene("time_attack")
