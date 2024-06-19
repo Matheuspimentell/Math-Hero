@@ -11,8 +11,7 @@ func load_scene(transition_type: String):
 			transition_scene = time_attack_transition_scene.instantiate()
 
 	get_tree().root.add_child(transition_scene)
-	transition_scene.start_transition()
-	await transition_scene.animationPlayer.animation_finished
+	await transition_scene.start_transition()
 
 	# reload previously active scene from scene tree
 	get_tree().reload_current_scene()

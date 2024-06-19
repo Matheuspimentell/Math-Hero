@@ -54,7 +54,7 @@ func _on_numpad_clicked(buttonName):
 
 func _on_level_finished():
 	timer.save_time()
-	match TimeAttackManager.current_equation_type as TimeAttackManager.EquationType:	
+	match TimeAttackManager.current_equation_type:	
 		TimeAttackManager.EquationType.MULTIPLICATION:
 			pass
 		TimeAttackManager.EquationType.DIVISION:
@@ -66,6 +66,5 @@ func _on_level_finished():
 				# TODO: Change equation type for competition mode
 				get_tree().quit()
 				
-
 	# TODO: Instantiate scene transition from scene manager
 	SceneManager.load_scene("time_attack")

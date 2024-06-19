@@ -91,6 +91,7 @@ _data = {
 
 [node name="time_attack_transition" type="CanvasLayer"]
 script = ExtResource("1_5bumo")
+wait_time = 1.2
 
 [node name="background" type="NinePatchRect" parent="."]
 modulate = Color(1, 1, 1, 0)
