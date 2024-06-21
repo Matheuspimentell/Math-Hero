@@ -10,3 +10,4 @@ func start_transition():
 
 func finish_transition():
 	animationPlayer.play_backwards("fade_in")
+	await animationPlayer.animation_finished

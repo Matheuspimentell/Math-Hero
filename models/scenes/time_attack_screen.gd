@@ -11,7 +11,8 @@ enum NUMPADKEYS  {
 	number7,
 	number8,
 	number9,
-	backspace
+	backspace,
+	change_sign
 }
 
 # Variables
@@ -32,10 +33,9 @@ func _input(_event):
 		if equation.is_answer_correct(answerLabel.text):
 			sfx_manager.play_sound("correct_answer")
 			equation.next()
-			answerLabel.text = ""
 		else:
-			answerLabel.text = ""
 			sfx_manager.play_sound("wrong_answer")
+		answerLabel.text = ""
 
 func _on_numpad_clicked(buttonName):
 	var button = NUMPADKEYS[buttonName]
@@ -46,7 +46,12 @@ func _on_numpad_clicked(buttonName):
 			sfx_manager.play_sound("error")
 			return
 		else:
-			answerLabel.text = answerLabel.text.erase(answerLabel.text.length()-1, 1)
+			answerLabel.text = answerLabel.text.erase(answerLabel.text.length()-1)
+	elif button == NUMPADKEYS.change_sign:
+		if not answerLabel.text.is_empty() and answerLabel.text[0] == "-":
+			answerLabel.text = answerLabel.text.erase(0)
+		else:
+			answerLabel.text = "-" + answerLabel.text
 	else:
 		answerLabel.text+=str(button)
 		
@@ -54,17 +59,7 @@ func _on_numpad_clicked(buttonName):
 
 func _on_level_finished():
 	timer.save_time()
-	match TimeAttackManager.current_equation_type:	
-		TimeAttackManager.EquationType.MULTIPLICATION:
-			pass
-		TimeAttackManager.EquationType.DIVISION:
-			pass
-		_:
-			if TimeAttackManager.equation_level < TimeAttackManager.BasicLevels.values().size():
-				TimeAttackManager.equation_level += 1
-			else:
-				# TODO: Change equation type for competition mode
-				get_tree().quit()
-				
+	TimeAttackManager.increase_equation_level()
+
 	# TODO: Instantiate scene transition from scene manager
-	SceneManager.load_scene("time_attack")
+	SceneManager.load_scene("next level")

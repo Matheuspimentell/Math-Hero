@@ -11,8 +11,6 @@ func _init(generator_seed):
 	else:
 		self.rng.seed = generator_seed
 	
-	print(self.rng.seed)
-
 func _gen_unique_hash(length: int):
 	var result = ''
 	for i in range(length):

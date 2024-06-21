@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dg0ji8ll7xgd0"]
 
-[ext_resource type="Script" path="res://models/scene_transitions/time_attack_transition.gd" id="1_5bumo"]
-[ext_resource type="Texture2D" uid="uid://cmdm1ti1c2fd4" path="res://media/art/TileSet/screen_background.png" id="2_q23b1"]
-[ext_resource type="Theme" uid="uid://cacqlfyw6xmfy" path="res://themes/question.tres" id="3_l2e6o"]
+[ext_resource type="Script" path="res://models/scene_transitions/time_attack_transition.gd" id="1_ai71r"]
+[ext_resource type="Texture2D" uid="uid://cmdm1ti1c2fd4" path="res://media/art/TileSet/screen_background.png" id="2_de6tp"]
+[ext_resource type="Theme" uid="uid://cacqlfyw6xmfy" path="res://themes/question.tres" id="3_n5loq"]
 
 [sub_resource type="Animation" id="Animation_wv4ya"]
 resource_name = "RESET"
@@ -89,8 +89,8 @@ _data = {
 "fade_in": SubResource("Animation_b3viw")
 }
 
-[node name="time_attack_transition" type="CanvasLayer"]
-script = ExtResource("1_5bumo")
+[node name="next_level" type="CanvasLayer"]
+script = ExtResource("1_ai71r")
 wait_time = 1.2
 
 [node name="background" type="NinePatchRect" parent="."]
@@ -100,7 +100,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_q23b1")
+texture = ExtResource("2_de6tp")
 patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
@@ -119,7 +119,7 @@ offset_right = 330.5
 offset_bottom = 352.001
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_l2e6o")
+theme = ExtResource("3_n5loq")
 bbcode_enabled = true
 text = "[center][wave amp=15 freq=4][color=#238531]Próxima Fase![/color][/wave][/center]"
 fit_content = true
