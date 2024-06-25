@@ -4,6 +4,8 @@ extends Control
 @onready var label = $RichTextLabel
 var sumGenerator: SumGenerator
 var subGenerator: SubGenerator
+var multGenerator: MultGenerator
+var divisionGenerator: DivisionGenerator
 var _level: int
 var _equations: Array
 var _equation_index: int
@@ -20,30 +22,36 @@ func _ready():
 
 	_init_generators()
 	
-	_equations = _generate_equations(2)
+	_equations = _get_equations(2)
 	_equation_index = 0
 	_set_text()
 
 func _init_generators():
 	if TimeAttackManager.match_seed != null:
 		sumGenerator = SumGenerator.new(TimeAttackManager.match_seed)
-		subGenerator = SubGenerator.new(TimeAttackManager.match_seed)
 	else:
 		sumGenerator = SumGenerator.new(null)
-		subGenerator = SubGenerator.new(sumGenerator.rng.seed)
 		TimeAttackManager.match_seed = sumGenerator.rng.seed
+	
+	subGenerator = SubGenerator.new(TimeAttackManager.match_seed)
+	multGenerator = MultGenerator.new(TimeAttackManager.match_seed)
+	divisionGenerator = DivisionGenerator.new(TimeAttackManager.match_seed)
 
-func _generate_equations(quantity: int) -> Array:
+func _get_equations(quantity: int) -> Array:
 	var new_equations: Array
 	match TimeAttackManager.current_equation_type:
 		TimeAttackManager.EquationType.SUM:
 			new_equations = _generate_sum_equations(quantity)
 		TimeAttackManager.EquationType.SUBTRACTION:
 			new_equations = _generate_sub_equations(quantity)
+		TimeAttackManager.EquationType.MULTIPLICATION:
+			new_equations = _generate_mult_equations(quantity)
+		TimeAttackManager.EquationType.DIVISION:
+			new_equations = _generate_division_equations(quantity)
 		_:
-			print_debug("Not known equation type!")
-			new_equations = _generate_sum_equations(quantity)
-		
+			print_debug("Unknown equation type!")
+			new_equations = _equations
+
 	return new_equations
 
 func _generate_sum_equations(quantity: int) -> Array:
@@ -75,6 +83,36 @@ func _generate_sub_equations(quantity: int) -> Array:
 			return subGenerator.gen_four_on_three(quantity)
 		_:
 			return subGenerator.gen_two_digit_restricted(quantity)
+
+func _generate_mult_equations(quantity: int) -> Array:
+	match _level as TimeAttackManager.MultiplicationLevels:
+		TimeAttackManager.MultiplicationLevels.by_five:
+			return multGenerator.gen_by_five(quantity)
+		TimeAttackManager.MultiplicationLevels.by_eleven:
+			return multGenerator.gen_by_eleven(quantity)
+		TimeAttackManager.MultiplicationLevels.two_by_one:
+			return multGenerator.gen_two_by_one(quantity)
+		TimeAttackManager.MultiplicationLevels.three_by_one:
+			return multGenerator.gen_three_by_one(quantity)
+		TimeAttackManager.MultiplicationLevels.two_by_two:
+			return multGenerator.gen_two_by_two(quantity)
+		_: 
+			return multGenerator.gen_two_by_one(quantity) 
+
+func _generate_division_equations(quantity: int) -> Array:
+	match _level as TimeAttackManager.DivisionLevels:
+		TimeAttackManager.DivisionLevels.two_by_one:
+			return divisionGenerator.gen_two_by_one(quantity)
+		TimeAttackManager.DivisionLevels.three_by_one:
+			return divisionGenerator.gen_three_by_one(quantity)
+		TimeAttackManager.DivisionLevels.four_by_one:
+			return divisionGenerator.gen_four_by_one(quantity)
+		TimeAttackManager.DivisionLevels.three_by_two:
+			return divisionGenerator.gen_three_by_two(quantity)
+		TimeAttackManager.DivisionLevels.four_by_two:
+			return divisionGenerator.gen_four_by_two(quantity)
+		_: 
+			return divisionGenerator.gen_two_by_one(quantity)
 
 func _set_text():
 	label.clear()

@@ -22,16 +22,19 @@ enum SubLevels {
 }
 
 enum MultiplicationLevels {
+  by_five,
+  by_eleven,
   two_by_one,
   three_by_one,
-  two_by_two,
-  by_five,
-  by_eleven
+  two_by_two
 }
 
 enum DivisionLevels {
-  one_digit,
-  two_digit,
+  two_by_one,
+  three_by_one,
+  four_by_one,
+  three_by_two,
+  four_by_two
 }
 
 # Variables
@@ -60,10 +63,11 @@ func _ready():
   t_attack_mode = TimeAttackModes.COMPETITION
 
 func _change_equation_type():
+  if current_equation_type >= EquationType.size():
+    pass
   match t_attack_mode as TimeAttackModes:
     TimeAttackModes.COMPETITION:
       current_equation_type += (1 as EquationType)
-
       match current_equation_type:
         EquationType.MULTIPLICATION:
           _max_level = MultiplicationLevels.size()-1
@@ -86,7 +90,6 @@ func _change_equation_type():
       pass
 
 func increase_equation_level():
-  print(equation_level, _max_level)
   if equation_level >= _max_level:
     _change_equation_type()
   
