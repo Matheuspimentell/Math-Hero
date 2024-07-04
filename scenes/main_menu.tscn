@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://rwo71spwgiip"]
+
+[ext_resource type="Texture2D" uid="uid://d3gi6jlxai64k" path="res://media/art/main_menu_bg.png" id="1_u5pcn"]
+[ext_resource type="FontFile" uid="uid://dsildj2fcstav" path="res://media/fonts/PixelatedPusab.ttf" id="2_1puff"]
+[ext_resource type="PackedScene" uid="uid://dlh4jtqy4obr2" path="res://ui/menu_button.tscn" id="3_2pmjl"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_u5pcn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.160784, 0.678431, 1, 1)
+theme_override_fonts/font = ExtResource("2_1puff")
+theme_override_font_sizes/font_size = 32
+text = "Math Hero"
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="menu_button" parent="VBoxContainer/VBoxContainer" instance=ExtResource("3_2pmjl")]
+layout_mode = 2
+text = "Start Game"
+
+[node name="menu_button2" parent="VBoxContainer/VBoxContainer" instance=ExtResource("3_2pmjl")]
+layout_mode = 2
+text = "Options"
+
+[node name="menu_button3" parent="VBoxContainer/VBoxContainer" instance=ExtResource("3_2pmjl")]
+layout_mode = 2
+text = "Quit Game"

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 TimeAttackManager="*res://models/utils/time_attack_manager.gd"
 SceneManager="*res://models/utils/scene_manager.gd"
+GameManager="*res://scripts/game_manager.gd"
 
 [display]
 
@@ -37,11 +38,12 @@ project/assembly_name="Math-hero"
 folder_colors={
 "res://audio/": "teal",
 "res://levels/": "blue",
-"res://media/": "green",
+"res://media/": "pink",
 "res://models/": "gray",
 "res://objects/": "orange",
-"res://scenes/": "yellow",
-"res://themes/": "pink",
+"res://scenes/": "blue",
+"res://scripts/": "gray",
+"res://themes/": "orange",
 "res://ui/": "purple"
 }
 

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlh4jtqy4obr2"]
+
+[ext_resource type="FontFile" uid="uid://blk586sgb26fk" path="res://media/fonts/Fipps-Regular.otf" id="1_f7aiw"]
+[ext_resource type="Script" path="res://scripts/menu_button.gd" id="2_82fm2"]
+
+[node name="menu_button" type="Button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -15.5
+offset_right = 56.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_f7aiw")
+theme_override_font_sizes/font_size = 8
+text = "placeholder..."
+flat = true
+script = ExtResource("2_82fm2")
