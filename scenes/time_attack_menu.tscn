@@ -1,0 +1,160 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1kyevso2v3g"]
+
+[ext_resource type="Texture2D" uid="uid://d3gi6jlxai64k" path="res://media/art/main_menu_bg.png" id="1_idj61"]
+[ext_resource type="Texture2D" uid="uid://6ud30byy4p2a" path="res://media/art/selection_arrow.png" id="2_ix85k"]
+
+[node name="time_attack_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_idj61")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 140
+theme_override_constants/margin_top = 140
+theme_override_constants/margin_right = 140
+theme_override_constants/margin_bottom = 140
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+text = "mode"
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "competition"
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+text = "seed"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "a1b2c3d4e"
+alignment = 2
+flat = true
+select_all_on_focus = true
+caret_blink = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+text = "sum"
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "on"
+horizontal_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GridContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+text = "subtraction"
+
+[node name="Label3" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "on"
+horizontal_alignment = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GridContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+text = "multiplication"
+
+[node name="Label4" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "on"
+horizontal_alignment = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GridContainer/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+text = "division"
+
+[node name="Label5" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "on"
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Label7" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Return"
+horizontal_alignment = 2
