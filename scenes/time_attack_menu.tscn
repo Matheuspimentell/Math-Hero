@@ -233,12 +233,14 @@ alignment = 1
 
 [node name="start_option" type="Label" parent="MarginContainer/time_attack_options/menu_options"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0945091, 0.0940788, 0.346547, 1)
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
 text = "Start"
 
 [node name="back_option" type="Label" parent="MarginContainer/time_attack_options/menu_options"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0941176, 0.0941176, 0.345098, 1)
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
 text = "Back"
