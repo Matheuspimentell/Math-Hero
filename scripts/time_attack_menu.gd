@@ -34,7 +34,9 @@ func _input(event):
 		start_action.set("theme_override_constants/outline_size", 5)
 		back_action.set("theme_override_constants/outline_size", 0)
 	elif event.is_action_released("ui_accept"):
-		if options[selected_option].is_in_group("ArrayOption"):
+		if selected_option > options.size()-3 and selected_option < options.size():
+			options[selected_option].take_action()
+		elif options[selected_option].is_in_group("ArrayOption"):
 			options[selected_option].cycle_option()
 		elif options[selected_option].is_in_group("TextOption"):
 			options[selected_option].focus_text()	
