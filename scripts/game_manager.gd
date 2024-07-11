@@ -17,4 +17,3 @@ func change_scene(target_scene):
 	else:
 		print(target_scene)
 		scene_tree.change_scene_to_file(target_scene)
-		#TODO: Change to specified scene

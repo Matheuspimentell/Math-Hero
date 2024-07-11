@@ -35,6 +35,7 @@ func _input(event):
 		back_action.set("theme_override_constants/outline_size", 0)
 	elif event.is_action_released("ui_accept"):
 		if selected_option > options.size()-3 and selected_option < options.size():
+			#TODO: Get attributes from options and send to game manager
 			options[selected_option].take_action()
 		elif options[selected_option].is_in_group("ArrayOption"):
 			options[selected_option].cycle_option()
