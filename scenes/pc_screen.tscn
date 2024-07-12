@@ -1,10 +1,12 @@
-[gd_scene load_steps=64 format=3 uid="uid://cv2n7rfpsk77q"]
+[gd_scene load_steps=66 format=3 uid="uid://cv2n7rfpsk77q"]
 
 [ext_resource type="Texture2D" uid="uid://dppatd16u0im4" path="res://media/art/pc_screen_background.png" id="1_jclbc"]
+[ext_resource type="Texture2D" uid="uid://d0277o25ahmii" path="res://media/art/error_icon.png" id="2_7klpr"]
 [ext_resource type="Texture2D" uid="uid://nes3wbly4n5c" path="res://media/art/timer.png" id="2_e3b1k"]
 [ext_resource type="Texture2D" uid="uid://dkb0p62u83xsd" path="res://media/art/password_box.png" id="3_q2j58"]
 [ext_resource type="FontFile" uid="uid://drmaqu12r2oe4" path="res://media/fonts/dogicapixel.ttf" id="3_rbtkv"]
 [ext_resource type="Texture2D" uid="uid://cret4t443fxl1" path="res://media/art/numpad.png" id="4_kqpko"]
+[ext_resource type="Texture2D" uid="uid://cvwqdqrpvwwpw" path="res://media/art/lamp.png" id="4_pgn4t"]
 [ext_resource type="FontFile" uid="uid://dwhyijda5kvra" path="res://media/fonts/dogicapixelbold.ttf" id="6_doeq1"]
 [ext_resource type="Texture2D" uid="uid://cc87v62vax4s2" path="res://media/art/ui_enter_tooltip.png" id="7_vtjwo"]
 [ext_resource type="Texture2D" uid="uid://1sj77c3otbu8" path="res://media/art/ui_esc_tooltop.png" id="8_lnyoo"]
@@ -501,6 +503,18 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_7klpr")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
+theme_override_fonts/font = ExtResource("3_rbtkv")
+theme_override_font_sizes/font_size = 8
+text = "x1"
+
 [node name="spacer" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -522,9 +536,26 @@ text = "00:00:000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="spacer" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_pgn4t")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
+theme_override_fonts/font = ExtResource("6_doeq1")
+theme_override_font_sizes/font_size = 8
+text = " 10
+-12"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -673,7 +704,7 @@ animation = &"RESET"
 autoplay = "RESET"
 centered = false
 
-[node name="Control" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="spacer" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
@@ -686,6 +717,8 @@ theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
 theme_override_fonts/font = ExtResource("6_doeq1")
 theme_override_font_sizes/font_size = 8
 text = "0a1b2c3d4e"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Control" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/tooltips"]
 layout_mode = 2
@@ -705,11 +738,11 @@ stretch_mode = 3
 [node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/tooltips/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
-theme_override_fonts/font = ExtResource("6_doeq1")
+theme_override_fonts/font = ExtResource("3_rbtkv")
 theme_override_font_sizes/font_size = 8
 text = "confirma"
 
-[node name="Control" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/tooltips/HBoxContainer"]
+[node name="spacer" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/tooltips/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
@@ -724,6 +757,6 @@ stretch_mode = 3
 [node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/tooltips/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
-theme_override_fonts/font = ExtResource("6_doeq1")
+theme_override_fonts/font = ExtResource("3_rbtkv")
 theme_override_font_sizes/font_size = 8
 text = "pause"

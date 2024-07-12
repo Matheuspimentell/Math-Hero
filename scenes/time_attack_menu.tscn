@@ -44,7 +44,7 @@ layout_mode = 2
 [node name="option1" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
 layout_mode = 2
 script = ExtResource("3_uktx1")
-options = ["competition"]
+options = ["competition", "practice"]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/time_attack_options/option1"]
 layout_mode = 2
@@ -232,12 +232,12 @@ layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="start_option" type="Label" parent="MarginContainer/time_attack_options/menu_options"]
+[node name="confirm_option" type="Label" parent="MarginContainer/time_attack_options/menu_options"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.0945091, 0.0940788, 0.346547, 1)
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "Start"
+text = "Confirm"
 script = ExtResource("7_7j1ai")
 action_scene = "res://scenes/pc_screen.tscn"
 

@@ -3,6 +3,7 @@ extends Node
 enum Game_modes {Story=1, TimeAttack=2, Menu=0}
 
 var game_mode: int = Game_modes.Menu
+var tattack_options: Dictionary = {}
 
 @onready var scene_tree = get_tree()
 
