@@ -44,7 +44,8 @@ layout_mode = 2
 [node name="option1" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
 layout_mode = 2
 script = ExtResource("3_uktx1")
-options = ["competition", "practice"]
+options = ["competition"]
+option_name = "mode"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/time_attack_options/option1"]
 layout_mode = 2
@@ -73,6 +74,7 @@ horizontal_alignment = 2
 [node name="option2" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["TextOption"]]
 layout_mode = 2
 script = ExtResource("6_7sw55")
+option_name = "seed"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/time_attack_options/option2"]
 layout_mode = 2
@@ -107,6 +109,7 @@ caret_blink = true
 layout_mode = 2
 script = ExtResource("3_uktx1")
 options = ["on", "off"]
+option_name = "sum_enabled"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/time_attack_options/option3"]
 layout_mode = 2
@@ -137,6 +140,7 @@ horizontal_alignment = 2
 layout_mode = 2
 script = ExtResource("3_uktx1")
 options = ["on", "off"]
+option_name = "subtraction_enabled"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/time_attack_options/option4"]
 layout_mode = 2
@@ -167,6 +171,7 @@ horizontal_alignment = 2
 layout_mode = 2
 script = ExtResource("3_uktx1")
 options = ["on", "off"]
+option_name = "multiplication_enabled"
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/time_attack_options/option5"]
 layout_mode = 2
@@ -197,6 +202,7 @@ horizontal_alignment = 2
 layout_mode = 2
 script = ExtResource("3_uktx1")
 options = ["on", "off"]
+option_name = "division_enabled"
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/time_attack_options/option6"]
 layout_mode = 2
@@ -239,7 +245,7 @@ theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
 text = "Confirm"
 script = ExtResource("7_7j1ai")
-action_scene = "res://scenes/pc_screen.tscn"
+action_scene = "res://scenes/time_attack.tscn"
 
 [node name="back_option" type="Label" parent="MarginContainer/time_attack_options/menu_options"]
 layout_mode = 2

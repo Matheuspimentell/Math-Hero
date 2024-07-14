@@ -56,5 +56,5 @@ func _set_action_highlighted(confirm_outline: int, back_outline: int) -> void:
 	confirm_action.set("theme_override_constants/outline_size", confirm_outline)
 	back_action.set("theme_override_constants/outline_size", back_outline)
 
-func _is_option_editable(option: BoxContainer) -> bool:
+func _is_option_editable(option) -> bool:
 	return option.is_in_group("ArrayOption") or option.is_in_group("TextOption")

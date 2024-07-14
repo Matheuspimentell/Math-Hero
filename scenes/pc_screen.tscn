@@ -1,5 +1,6 @@
-[gd_scene load_steps=66 format=3 uid="uid://cv2n7rfpsk77q"]
+[gd_scene load_steps=67 format=3 uid="uid://cv2n7rfpsk77q"]
 
+[ext_resource type="Script" path="res://scripts/pc_screen.gd" id="1_ceg0w"]
 [ext_resource type="Texture2D" uid="uid://dppatd16u0im4" path="res://media/art/pc_screen_background.png" id="1_jclbc"]
 [ext_resource type="Texture2D" uid="uid://d0277o25ahmii" path="res://media/art/error_icon.png" id="2_7klpr"]
 [ext_resource type="Texture2D" uid="uid://nes3wbly4n5c" path="res://media/art/timer.png" id="2_e3b1k"]
@@ -469,6 +470,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ceg0w")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -503,12 +505,15 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="error_counter" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/error_counter"]
 layout_mode = 2
 texture = ExtResource("2_7klpr")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/error_counter"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
 theme_override_fonts/font = ExtResource("3_rbtkv")
@@ -536,31 +541,31 @@ text = "00:00:000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="question" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/question"]
 layout_mode = 2
 texture = ExtResource("4_pgn4t")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/question"]
 custom_minimum_size = Vector2(50, 32)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
 theme_override_fonts/font = ExtResource("6_doeq1")
 theme_override_font_sizes/font_size = 8
-text = " 10
--12"
+text = " 10 - 12 = ?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="answer" type="CenterContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer"]
+[node name="background" type="NinePatchRect" parent="MarginContainer/MarginContainer/VBoxContainer/answer"]
 custom_minimum_size = Vector2(130, 20)
 layout_mode = 2
 texture = ExtResource("3_q2j58")
@@ -568,6 +573,15 @@ patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/answer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
+theme_override_fonts/font = ExtResource("6_doeq1")
+theme_override_font_sizes/font_size = 8
+text = "000000000000000"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -711,7 +725,7 @@ layout_mode = 2
 [node name="tooltips" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/tooltips"]
+[node name="seed" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/tooltips"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
 theme_override_fonts/font = ExtResource("6_doeq1")
@@ -720,7 +734,7 @@ text = "0a1b2c3d4e"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Control" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/tooltips"]
+[node name="spacer" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/tooltips"]
 layout_mode = 2
 size_flags_horizontal = 3
 

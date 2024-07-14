@@ -1,6 +1,7 @@
 extends BoxContainer
 
 @export var options: Array
+@export_placeholder("option name...") var option_name: String
 var _current_option: int
 @onready var value_label = $option_value
 @onready var has_saved_value = GameManager.tattack_options.has(self.name)
@@ -20,4 +21,4 @@ func _set_label_text() -> void:
 	value_label.text = options[_current_option]
 
 func save_value() -> void:
-	GameManager.tattack_options[self.name] = _current_option
+	GameManager.tattack_options[option_name] = _current_option

@@ -1,8 +1,9 @@
 extends Node
 
-enum Game_modes {Story=1, TimeAttack=2, Menu=0}
+enum Game_Modes {Story=1, TimeAttack=2, Menu=0}
+enum Time_Attack_Modes {Competition=0, Practice=1, Normal=3}
 
-var game_mode: int = Game_modes.Menu
+var game_mode: int = Game_Modes.Menu
 var tattack_options: Dictionary = {}
 
 @onready var scene_tree = get_tree()

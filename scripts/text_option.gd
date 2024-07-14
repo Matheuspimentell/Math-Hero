@@ -1,5 +1,6 @@
 extends BoxContainer
 
+@export_placeholder("option name...") var option_name: String
 @onready var text_label = $option_value
 @onready var has_saved_value = GameManager.tattack_options.has(self.name)
 
@@ -13,4 +14,4 @@ func unfocus_text() -> void:
 	text_label.release_focus()
 
 func save_value() -> void:
-	GameManager.tattack_options[self.name] = text_label.text
+	GameManager.tattack_options[option_name] = text_label.text
