@@ -15,11 +15,27 @@ var current_eq_type: int = Level.sum # Set to sum
 var current_eq_level: int = Sum.Level.odr # Set to initial level on sum (one digit restriscted)
 
 var equations: Array = []
+var current_equation: int = 0
 
 func _ready():
 	get_eq_types()
 	set_eq_type(0)
 	get_equations(2) # Preenche o array equations com X equações de cada tipo habilitado
+	print(equations)
+	set_equation_text()
+
+func set_equation_text() -> void:
+	match Level.find_key(enabled_levels[current_eq_level]):
+		"sum":
+			pc_screen.set_question_text("%d + %d = ?" % [equations[current_equation].a, equations[current_equation].b])
+		"subtraction":
+			pc_screen.set_question_text("%d - %d = ?" % [equations[current_equation].a, equations[current_equation].b])
+		"multiplication":
+			pc_screen.set_question_text("%d x %d = ?" % [equations[current_equation].a, equations[current_equation].b])
+		"division":
+			pc_screen.set_question_text("%d / %d = ?" % [equations[current_equation].a, equations[current_equation].b])
+		_:
+			print_debug("Not known equation level.")
 
 func get_eq_types() -> void:
 	if GameManager.tattack_options["sum_enabled"] == 0:

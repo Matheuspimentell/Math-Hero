@@ -3,21 +3,12 @@ class_name Subtraction
 
 # Variables
 var rng = RandomNumberGenerator.new()
-var ascii = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 
 enum Level {twdr, twdu, tdr, tdu, fot}
 
 func _init(generator_seed):
-	if generator_seed == null:
-		self.rng.seed = hash(self._gen_unique_hash(10));
-	else:
-		self.rng.seed = generator_seed
 
-func _gen_unique_hash(length: int):
-	var result = ''
-	for i in range(length):
-		result += ascii[randi() % ascii.length()]
-	return result
+	self.rng.seed = generator_seed
 
 func gen_two_digit_unrestricted(quantity: int) -> Array:
 	var operations: Array = []

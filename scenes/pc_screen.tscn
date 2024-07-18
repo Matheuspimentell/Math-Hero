@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cv2n7rfpsk77q"]
+[gd_scene load_steps=75 format=3 uid="uid://cv2n7rfpsk77q"]
 
 [ext_resource type="Script" path="res://scripts/pc_screen.gd" id="1_ceg0w"]
 [ext_resource type="Texture2D" uid="uid://dppatd16u0im4" path="res://media/art/pc_screen_background.png" id="1_jclbc"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://dgudihiwkh18f" path="res://media/fonts/PIXEARG_.TTF" id="7_ll6r8"]
 [ext_resource type="Texture2D" uid="uid://cc87v62vax4s2" path="res://media/art/ui_enter_tooltip.png" id="7_vtjwo"]
 [ext_resource type="Texture2D" uid="uid://1sj77c3otbu8" path="res://media/art/ui_esc_tooltop.png" id="8_lnyoo"]
+[ext_resource type="Script" path="res://scripts/numpad_key.gd" id="11_i31e0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xh1pr"]
 atlas = ExtResource("4_kqpko")
@@ -383,6 +384,47 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mlcx"]
+atlas = ExtResource("4_kqpko")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cobw"]
+atlas = ExtResource("4_kqpko")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg3h8"]
+atlas = ExtResource("4_kqpko")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb1yu"]
+atlas = ExtResource("4_kqpko")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uev0i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mlcx")
+}],
+"loop": false,
+"name": &"RESET",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6cobw")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_kg3h8")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_tb1yu")
+}],
+"loop": false,
+"name": &"click",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ig4cd"]
 atlas = ExtResource("4_kqpko")
 region = Rect2(0, 160, 16, 16)
@@ -596,126 +638,146 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="numpad7" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+[node name="number7" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+script = ExtResource("11_i31e0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/numpad7"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/number7"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1fqii")
 animation = &"RESET"
 autoplay = "RESET"
 centered = false
 
-[node name="numpad8" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+[node name="number8" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+script = ExtResource("11_i31e0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/numpad8"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/number8"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_wfc5c")
 animation = &"RESET"
 autoplay = "RESET"
 centered = false
 
-[node name="numpad9" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+[node name="number9" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+script = ExtResource("11_i31e0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/numpad9"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/number9"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_kl77n")
 animation = &"RESET"
 autoplay = "RESET"
 centered = false
 
-[node name="numpad4" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+[node name="number4" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+script = ExtResource("11_i31e0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/numpad4"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/number4"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_5y08p")
 animation = &"RESET"
 autoplay = "RESET"
 centered = false
 
-[node name="numpad5" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+[node name="number5" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+script = ExtResource("11_i31e0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/numpad5"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/number5"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_hyoyv")
 animation = &"RESET"
 autoplay = "RESET"
 centered = false
 
-[node name="numpad6" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+[node name="number6" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+script = ExtResource("11_i31e0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/numpad6"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/number6"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_slbc5")
 animation = &"RESET"
 autoplay = "RESET"
 centered = false
 
-[node name="numpad1" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+[node name="number1" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+script = ExtResource("11_i31e0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/numpad1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/number1"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_xslxm")
 animation = &"RESET"
 autoplay = "RESET"
 centered = false
 
-[node name="numpad2" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+[node name="number2" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+script = ExtResource("11_i31e0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/numpad2"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/number2"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_41i60")
 animation = &"RESET"
 autoplay = "RESET"
 centered = false
 
-[node name="numpad3" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+[node name="number3" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+script = ExtResource("11_i31e0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/numpad3"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/number3"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_ruoja")
+animation = &"click"
+autoplay = "RESET"
+centered = false
+
+[node name="change_sign" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+script = ExtResource("11_i31e0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/change_sign"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_uev0i")
 animation = &"RESET"
 autoplay = "RESET"
 centered = false
 
-[node name="Control" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
-layout_mode = 2
-
-[node name="numpad0" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+[node name="number0" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+script = ExtResource("11_i31e0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/numpad0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/number0"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_qgnhn")
 animation = &"RESET"
 autoplay = "RESET"
 centered = false
 
-[node name="numpad_erase" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
+[node name="backspace" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+script = ExtResource("11_i31e0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/numpad_erase"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/backspace"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_lufgm")
 animation = &"RESET"

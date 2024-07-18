@@ -46,6 +46,8 @@ func _input(event):
 			for option in options:
 				if _is_option_editable(option):
 					option.save_value()
+			if options[selected_option].name == "confirm_option":
+				GameManager.game_mode = GameManager.Game_Modes.TimeAttack
 			options[selected_option].take_action()
 		elif options[selected_option].is_in_group("ArrayOption"):
 			options[selected_option].cycle_option()

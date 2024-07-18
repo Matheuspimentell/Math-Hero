@@ -9,7 +9,8 @@ enum Level {twbo, tbo, fbo, tbtw, fbtw}
 
 func _init(generator_seed):
 	if generator_seed == null:
-		self.rng.seed = hash(self._gen_unique_hash(10));
+		self.rng.seed = hash(self._gen_unique_hash(10))
+		GameManager.tattack_options["seed"] = self.rng.seed
 	else:
 		self.rng.seed = generator_seed
 
