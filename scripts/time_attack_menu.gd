@@ -41,11 +41,11 @@ func _input(event):
 		_set_action_highlighted(5,0)
 	elif event.is_action_released("ui_accept"):
 		if selected_option > options.size()-3 and selected_option < options.size():
+			if options[selected_option].name == "confirm_option" and not _is_at_least_one_equation_toggled():
+				return
 			for option in options:
 				if _is_option_editable(option):
 					option.save_value()
-			if options[selected_option].name == "confirm_option" and not _is_at_least_one_equation_toggled():
-				return
 			options[selected_option].take_action()
 		elif options[selected_option].is_in_group("ArrayOption"):
 			options[selected_option].cycle_option()

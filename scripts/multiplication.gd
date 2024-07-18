@@ -1,9 +1,11 @@
 @tool
-class_name MultGenerator
+class_name Multiplication
 
 # Variables
 var rng = RandomNumberGenerator.new()
 var ascii = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+
+enum Level {bfi, be, twbo, tbo, twbtw}
 
 func _init(generator_seed):
 	if generator_seed == null:
@@ -64,3 +66,5 @@ func gen_by_eleven(quantity: int) -> Array:
 		operations.append({'a': a, 'b': 11, 'res': a*11})
 
 	return operations
+
+#TODO: Separação das multiplicações por 5 casos especiais e 11 casos esperar

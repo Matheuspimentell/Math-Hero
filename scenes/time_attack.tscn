@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl7tpsd0ddg0e"]
+[gd_scene load_steps=4 format=3 uid="uid://cl7tpsd0ddg0e"]
 
 [ext_resource type="Texture2D" uid="uid://dmpqrixs8olb0" path="res://media/art/blocking math hero 1st level.png" id="1_fdwts"]
+[ext_resource type="Script" path="res://scripts/time_attack.gd" id="1_hv6jc"]
 [ext_resource type="PackedScene" uid="uid://cv2n7rfpsk77q" path="res://scenes/pc_screen.tscn" id="2_s21g7"]
 
 [node name="time_attack" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hv6jc")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1

@@ -1,9 +1,11 @@
 @tool
-class_name SubGenerator
+class_name Subtraction
 
 # Variables
 var rng = RandomNumberGenerator.new()
 var ascii = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+
+enum Level {twdr, twdu, tdr, tdu, fot}
 
 func _init(generator_seed):
 	if generator_seed == null:

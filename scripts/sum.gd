@@ -1,22 +1,24 @@
 @tool
-class_name SumGenerator
+class_name Sum
 
 # Variables
 var rng = RandomNumberGenerator.new()
 var ascii = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+
+enum Level {odr, onu, twdr, twdu, tdr, tdu}
 
 func _init(generator_seed):
 	if generator_seed == null:
 		self.rng.seed = hash(self._gen_unique_hash(10));
 	else:
 		self.rng.seed = generator_seed
-	
+
 func _gen_unique_hash(length: int):
 	var result = ''
 	for i in range(length):
 		result += ascii[randi() % ascii.length()]
 	return result
-	
+
 func gen_one_digit_unrestricted(quantity: int) -> Array:
 	var operations: Array = [];
 
@@ -34,11 +36,11 @@ func gen_one_digit_restricted(quantity: int) -> Array:
 		for b in range(10):
 			if(a+b<10):
 				operations.append({ 'a': a, 'b': b, 'res': (a+b) })
-	
+
 	seed(self.rng.seed) # Set @GlobalScope seed to be equal to game_seed
 	operations.shuffle()
 	randomize() # Unset @GlobalScope seed to random again
-	
+
 	return operations.slice(0, quantity)
 
 func gen_two_digit_unrestricted(quantity: int) -> Array:
@@ -57,7 +59,7 @@ func gen_two_digit_restricted(quantity: int) -> Array:
 		for b in range(10,99):
 			if(((a%10)+(b%10)<10) and (a/10)+(b/10)<10):
 				operations.append({ 'a': a, 'b': b, 'res': (a+b) })
-	
+
 	seed(self.rng.seed)
 	operations.shuffle()
 	randomize()
@@ -80,7 +82,7 @@ func gen_three_digit_restricted(quantity: int) -> Array:
 		for b in range(100,999):
 			if(((a%10)+(b%10)<10) and ((a%100)+(b%100)<10) and ((a/100)+(b/100)<10)):
 				operations.append({ 'a': a, 'b': b, 'res': (a+b) })
-	
+
 	seed(self.rng.seed)
 	operations.shuffle()
 	randomize()

@@ -1,9 +1,11 @@
 @tool
-class_name DivisionGenerator
+class_name Division
 
 # Variables
 var rng = RandomNumberGenerator.new()
 var ascii = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+
+enum Level {twbo, tbo, fbo, tbtw, fbtw}
 
 func _init(generator_seed):
 	if generator_seed == null:
@@ -86,3 +88,5 @@ func gen_four_by_two(quantity: int) -> Array:
 	randomize()
 
 	return operations.slice(0, quantity)
+
+#TODO: Add divisões por 2 e por 5
