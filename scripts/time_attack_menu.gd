@@ -11,6 +11,15 @@ func _ready():
 	_set_action_highlighted(0,0)
 	_set_selected_option(0)
 
+func _is_at_least_one_equation_toggled() -> bool:
+	var count = 0
+	for i in range(2,6):
+		count+= 1 if options[i].current_option == 0 else 0
+	if count > 0:
+		return true
+	else:
+		return false
+
 func _input(event):
 	if event.is_action_released("ui_up") and selected_option > 0 and selected_option <= options.size()-3:
 		_set_selected_option(selected_option-1)
@@ -35,6 +44,8 @@ func _input(event):
 			for option in options:
 				if _is_option_editable(option):
 					option.save_value()
+			if options[selected_option].name == "confirm_option" and not _is_at_least_one_equation_toggled():
+				return
 			options[selected_option].take_action()
 		elif options[selected_option].is_in_group("ArrayOption"):
 			options[selected_option].cycle_option()

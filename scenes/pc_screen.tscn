@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cv2n7rfpsk77q"]
+[gd_scene load_steps=69 format=3 uid="uid://cv2n7rfpsk77q"]
 
 [ext_resource type="Script" path="res://scripts/pc_screen.gd" id="1_ceg0w"]
 [ext_resource type="Texture2D" uid="uid://dppatd16u0im4" path="res://media/art/pc_screen_background.png" id="1_jclbc"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cret4t443fxl1" path="res://media/art/numpad.png" id="4_kqpko"]
 [ext_resource type="Texture2D" uid="uid://cvwqdqrpvwwpw" path="res://media/art/lamp.png" id="4_pgn4t"]
 [ext_resource type="FontFile" uid="uid://dwhyijda5kvra" path="res://media/fonts/dogicapixelbold.ttf" id="6_doeq1"]
+[ext_resource type="Script" path="res://scripts/timer.gd" id="6_y0jho"]
+[ext_resource type="FontFile" uid="uid://dgudihiwkh18f" path="res://media/fonts/PIXEARG_.TTF" id="7_ll6r8"]
 [ext_resource type="Texture2D" uid="uid://cc87v62vax4s2" path="res://media/art/ui_enter_tooltip.png" id="7_vtjwo"]
 [ext_resource type="Texture2D" uid="uid://1sj77c3otbu8" path="res://media/art/ui_esc_tooltop.png" id="8_lnyoo"]
 
@@ -527,17 +529,19 @@ size_flags_horizontal = 3
 [node name="timer" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_e3b1k")
+script = ExtResource("6_y0jho")
 
 [node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/timer"]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 0
-offset_left = 14.0
-offset_top = 2.0
-offset_right = 72.0
-offset_bottom = 14.0
+offset_left = 12.0
+offset_top = 2.5
+offset_right = 76.0
+offset_bottom = 14.5
 theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
-theme_override_fonts/font = ExtResource("3_rbtkv")
+theme_override_fonts/font = ExtResource("7_ll6r8")
 theme_override_font_sizes/font_size = 8
-text = "00:00:000"
+text = "000:00:000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
