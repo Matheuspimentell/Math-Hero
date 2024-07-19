@@ -26,6 +26,7 @@ enum NUMPADKEYS  {
 var errors: int = 0
 
 func _ready():
+	_error_label.text = "x0"
 	for key in _numpad.get_children():
 		key.clicked.connect(_on_numpad_clicked)
 	if GameManager.game_mode as GameManager.Game_Modes == GameManager.Game_Modes.TimeAttack:
@@ -60,6 +61,9 @@ func set_seed_text() -> void:
 
 func set_answer_text(new_text: String) -> void:
 	_answer_label.text = new_text
+
+func get_answer_text() -> String:
+	return _answer_label.text
 
 func _on_numpad_clicked(buttonName):
 	var button = NUMPADKEYS[buttonName]

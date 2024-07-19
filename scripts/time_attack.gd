@@ -5,27 +5,49 @@ extends Control
 
 # option (sum_enabled, subtraction_enabled, multiplication_enabled, division_enabled) == 0 -> enabled
 
-enum Level { sum, subtraction, multiplication, division }
+enum Type { sum, subtraction, multiplication, division }
 # Level.values().has(0) -> check if value exists inside levels enum
-# Level.find_key(enabled_levels[current_level]) -> get current level name
+# Level.find_key(enabled_types[current_level]) -> get current level name
 
-var enabled_levels: Array = []
+var enabled_types: Array = []
 
-var current_eq_type: int = Level.sum # Set to sum
-var current_eq_level: int = Sum.Level.odr # Set to initial level on sum (one digit restriscted)
+var current_eq_type: int = 0
+var current_eq_level: int = 0
 
 var equations: Array = []
 var current_equation: int = 0
+var quantity_each_equation_level: int = 1
 
 func _ready():
 	get_eq_types()
-	set_eq_type(0)
-	get_equations(2) # Preenche o array equations com X equações de cada tipo habilitado
-	print(equations)
+	equations = get_equations(quantity_each_equation_level) # Preenche o array equations com X equações de cada tipo habilitado
 	set_equation_text()
 
+func _input(event):
+	if event.is_action_released("accept") and is_correct():
+		print_debug("correct answer")
+		current_equation+=1
+		set_equation_text()
+		pc_screen.set_answer_text("")
+	elif event.is_action_released("accept") and not is_correct():
+		pc_screen.add_error()
+		print_debug(pc_screen.errors)
+		pc_screen.set_answer_text("")
+		#TODO: add sounds
+
+func is_correct() -> bool:
+	print_debug("Type: %s | Level: %d | Equation: %d" % [Type.find_key(enabled_types[current_eq_type]), current_eq_level, current_equation])
+	return str(equations[current_equation].res) == pc_screen.get_answer_text()
+
 func set_equation_text() -> void:
-	match Level.find_key(enabled_levels[current_eq_level]):
+	# TODO: Check if passed last equation in equations array
+	if current_equation >= equations.size():
+		next_eq_level()
+		equations = get_equations(quantity_each_equation_level)
+		current_equation = 0
+		set_equation_text()
+
+	match Type.find_key(enabled_types[current_eq_type]):
 		"sum":
 			pc_screen.set_question_text("%d + %d = ?" % [equations[current_equation].a, equations[current_equation].b])
 		"subtraction":
@@ -39,60 +61,72 @@ func set_equation_text() -> void:
 
 func get_eq_types() -> void:
 	if GameManager.tattack_options["sum_enabled"] == 0:
-		enabled_levels.append(Level.sum)
+		enabled_types.append(Type.sum)
 	if GameManager.tattack_options["subtraction_enabled"] == 0:
-		enabled_levels.append(Level.subtraction)
+		enabled_types.append(Type.subtraction)
 	if GameManager.tattack_options["multiplication_enabled"] == 0:
-		enabled_levels.append(Level.multiplication)
+		enabled_types.append(Type.multiplication)
 	if GameManager.tattack_options["division_enabled"] == 0:
-		enabled_levels.append(Level.division)
+		enabled_types.append(Type.division)
 
-func set_eq_type(next_type: int) -> void:
-	current_eq_type = next_type
-	current_eq_type = enabled_levels[current_eq_type]
+func next_eq_type() -> void:
+	current_eq_type+=1
 
 func next_eq_level() -> void:
-	match Level.find_key(enabled_levels[current_eq_type]):
+	match Type.find_key(enabled_types[current_eq_type]):
 		"sum":
 			if current_eq_level >= Sum.Level.size():
-				set_eq_type(current_eq_type+1)
+				print_debug("Finished SUM levels")
+				next_eq_type()
 				current_eq_level = 0
+				return
 			else:
 				current_eq_level+=1
+				return
 		"subtraction":
 			if current_eq_level >= Subtraction.Level.size():
-				set_eq_type(current_eq_type+1)
+				print_debug("Finished SUBTRACTION levels")	
+				next_eq_type()
 				current_eq_level = 0
+				return
 			else:
 				current_eq_level+=1
+				return
 		"multiplication":
 			if current_eq_level >= Multiplication.Level.size():
-				set_eq_type(current_eq_type+1)
+				print_debug("Finished MULTIPLICATION levels")
+				next_eq_type()
 				current_eq_level = 0
+				return
 			else:
 				current_eq_level+=1
+				return
 		"division":
 			if current_eq_level >= Division.Level.size():
-				set_eq_type(current_eq_type+1)
+				print_debug("Finished DIVISION levels")
+				next_eq_type()
 				current_eq_level = 0
+				return
 			else:
 				current_eq_level+=1
+				return
 		_:
 			print_debug("not known equation level...")
+			return
 
-func get_equations(quantity_each: int) -> void:
-	for level in enabled_levels:
-		match Level.find_key(level):
-			"sum":
-				equations.append_array(get_sum_equations(quantity_each))
-			"subtraction":
-				equations.append_array(get_subtraction_equations(quantity_each))
-			"multiplication":
-				equations.append_array(get_multiplication_equations(quantity_each))
-			"division":
-				equations.append_array(get_division_equations(quantity_each))
-			_:
-				print_debug("Equation level not found in enabled levels.")
+func get_equations(quantity_each: int) -> Array:
+	match Type.find_key(enabled_types[current_eq_type]):
+		"sum":
+			return get_sum_equations(quantity_each)
+		"subtraction":
+			return get_subtraction_equations(quantity_each)
+		"multiplication":
+			return get_multiplication_equations(quantity_each)
+		"division":
+			return get_division_equations(quantity_each)
+		_:
+			print_debug("Equation level not found in enabled levels.")
+	return []
 
 func get_sum_equations(quantity: int) -> Array:
 	match Sum.Level.find_key(current_eq_level):

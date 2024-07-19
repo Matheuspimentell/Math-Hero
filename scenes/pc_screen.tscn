@@ -51,7 +51,7 @@ animations = [{
 "duration": 0.1,
 "texture": SubResource("AtlasTexture_nkcwu")
 }],
-"loop": true,
+"loop": false,
 "name": &"click",
 "speed": 5.0
 }]
@@ -646,7 +646,7 @@ script = ExtResource("11_i31e0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/MarginContainer/VBoxContainer/CenterContainer2/numpad/number7"]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_1fqii")
-animation = &"RESET"
+animation = &"click"
 autoplay = "RESET"
 centered = false
 
