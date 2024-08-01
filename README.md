@@ -17,11 +17,11 @@ Math Hero é um projeto desenvolvido como *Trabalho de Conclusao de Curso* do cu
 
 # 🚀💾 Instalação e execução do projeto
 
-O *game* math hero conta com 2 versões: uma publicada no website (itch.io)[https://itch.io] e um instalável local. ambos estarão descritos na seção *Releases* deste repositório.
+O *game* math hero conta com 2 versões: uma publicada no website [itch.io](https://itch.io) e um instalável local. ambos estarão descritos na seção *Releases* deste repositório.
 
 ## 🌎 Acesso ao projeto em diferentes plataformas
 
-- (Math Hero no Itch.io)[https://itch.io]
+- [Math Hero no Itch.io](https://itch.io)
 
 ## 🏭 Rodando o projeto em versão de desenvolvimento (localmente)
 
