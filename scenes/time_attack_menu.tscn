@@ -1,0 +1,258 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1kyevso2v3g"]
+
+[ext_resource type="Texture2D" uid="uid://b7fr45ao4gq05" path="res://media/art/main_menu_bg.png" id="1_idj61"]
+[ext_resource type="Script" path="res://scripts/time_attack_menu.gd" id="1_rji4u"]
+[ext_resource type="Texture2D" uid="uid://2cgrfv4tojvg" path="res://media/art/selection_arrow.png" id="2_ix85k"]
+[ext_resource type="FontFile" uid="uid://2j1y2sjnri4y" path="res://media/fonts/Fipps-Regular.otf" id="3_55oul"]
+[ext_resource type="Script" path="res://scripts/array_option.gd" id="3_uktx1"]
+[ext_resource type="Script" path="res://scripts/text_option.gd" id="6_7sw55"]
+[ext_resource type="Script" path="res://scripts/action_option.gd" id="7_7j1ai"]
+
+[node name="time_attack_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rji4u")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_idj61")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 140
+theme_override_constants/margin_top = 140
+theme_override_constants/margin_right = 140
+theme_override_constants/margin_bottom = 140
+
+[node name="time_attack_options" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="option1" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
+layout_mode = 2
+script = ExtResource("3_uktx1")
+options = ["competition"]
+option_name = "mode"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/time_attack_options/option1"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/time_attack_options/option1/HBoxContainer"]
+custom_minimum_size = Vector2(16, 20)
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="option_name" type="Label" parent="MarginContainer/time_attack_options/option1/HBoxContainer"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "mode"
+
+[node name="option_value" type="Label" parent="MarginContainer/time_attack_options/option1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "competition"
+horizontal_alignment = 2
+
+[node name="option2" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["TextOption"]]
+layout_mode = 2
+script = ExtResource("6_7sw55")
+option_name = "seed"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/time_attack_options/option2"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/time_attack_options/option2/HBoxContainer2"]
+visible = false
+custom_minimum_size = Vector2(16, 20)
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="option_name" type="Label" parent="MarginContainer/time_attack_options/option2/HBoxContainer2"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "seed"
+
+[node name="option_value" type="LineEdit" parent="MarginContainer/time_attack_options/option2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+placeholder_text = "a1b2c3d4e"
+alignment = 2
+max_length = 10
+flat = true
+select_all_on_focus = true
+caret_blink = true
+
+[node name="option3" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
+layout_mode = 2
+script = ExtResource("3_uktx1")
+options = ["on", "off"]
+option_name = "sum_enabled"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/time_attack_options/option3"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/time_attack_options/option3/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(16, 20)
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="option_name" type="Label" parent="MarginContainer/time_attack_options/option3/HBoxContainer3"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "sum"
+
+[node name="option_value" type="Label" parent="MarginContainer/time_attack_options/option3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "on"
+horizontal_alignment = 2
+
+[node name="option4" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
+layout_mode = 2
+script = ExtResource("3_uktx1")
+options = ["on", "off"]
+option_name = "subtraction_enabled"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/time_attack_options/option4"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/time_attack_options/option4/HBoxContainer4"]
+visible = false
+custom_minimum_size = Vector2(16, 20)
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="option_name" type="Label" parent="MarginContainer/time_attack_options/option4/HBoxContainer4"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "subtraction"
+
+[node name="option_value" type="Label" parent="MarginContainer/time_attack_options/option4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "on"
+horizontal_alignment = 2
+
+[node name="option5" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
+layout_mode = 2
+script = ExtResource("3_uktx1")
+options = ["on", "off"]
+option_name = "multiplication_enabled"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/time_attack_options/option5"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/time_attack_options/option5/HBoxContainer5"]
+visible = false
+custom_minimum_size = Vector2(16, 20)
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="option_name" type="Label" parent="MarginContainer/time_attack_options/option5/HBoxContainer5"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "multiplication"
+
+[node name="option_value" type="Label" parent="MarginContainer/time_attack_options/option5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "on"
+horizontal_alignment = 2
+
+[node name="option6" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
+layout_mode = 2
+script = ExtResource("3_uktx1")
+options = ["on", "off"]
+option_name = "division_enabled"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/time_attack_options/option6"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/time_attack_options/option6/HBoxContainer6"]
+visible = false
+custom_minimum_size = Vector2(16, 20)
+layout_mode = 2
+texture = ExtResource("2_ix85k")
+
+[node name="option_name" type="Label" parent="MarginContainer/time_attack_options/option6/HBoxContainer6"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "division"
+
+[node name="option_value" type="Label" parent="MarginContainer/time_attack_options/option6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "on"
+horizontal_alignment = 2
+
+[node name="separator" type="Control" parent="MarginContainer/time_attack_options"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="menu_options" type="HBoxContainer" parent="MarginContainer/time_attack_options"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="confirm_option" type="Label" parent="MarginContainer/time_attack_options/menu_options"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0945091, 0.0940788, 0.346547, 1)
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "Confirm"
+script = ExtResource("7_7j1ai")
+action_scene = "res://scenes/time_attack.tscn"
+
+[node name="back_option" type="Label" parent="MarginContainer/time_attack_options/menu_options"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.0941176, 0.0941176, 0.345098, 1)
+theme_override_fonts/font = ExtResource("3_55oul")
+theme_override_font_sizes/font_size = 8
+text = "Back"
+horizontal_alignment = 2
+script = ExtResource("7_7j1ai")
+action_scene = "res://scenes/main_menu.tscn"

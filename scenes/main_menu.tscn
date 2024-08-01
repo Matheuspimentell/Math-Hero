@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://rwo71spwgiip"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_myy70"]
+[ext_resource type="Texture2D" uid="uid://b7fr45ao4gq05" path="res://media/art/main_menu_bg.png" id="1_u5pcn"]
+[ext_resource type="FontFile" uid="uid://c5yqgoh4d3omb" path="res://media/fonts/PixelatedPusab.ttf" id="2_1puff"]
+[ext_resource type="FontFile" uid="uid://2j1y2sjnri4y" path="res://media/fonts/Fipps-Regular.otf" id="4_c53lv"]
+[ext_resource type="Script" path="res://scripts/menu_button.gd" id="5_j4dgy"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_myy70")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_u5pcn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.5
+offset_top = -106.0
+offset_right = 139.5
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.160784, 0.678431, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_1puff")
+theme_override_font_sizes/font_size = 48
+text = "Math Hero"
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="options" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="menu_button" type="Button" parent="VBoxContainer/options"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_c53lv")
+theme_override_font_sizes/font_size = 8
+disabled = true
+text = "Start Game"
+flat = true
+script = ExtResource("5_j4dgy")
+
+[node name="menu_button2" type="Button" parent="VBoxContainer/options"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_c53lv")
+theme_override_font_sizes/font_size = 8
+text = "Time Attack"
+flat = true
+script = ExtResource("5_j4dgy")
+action_scene = "res://scenes/time_attack_menu.tscn"
+
+[node name="menu_button3" type="Button" parent="VBoxContainer/options"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_c53lv")
+theme_override_font_sizes/font_size = 8
+disabled = true
+text = "Options"
+flat = true
+script = ExtResource("5_j4dgy")
+
+[node name="menu_button4" type="Button" parent="VBoxContainer/options"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_c53lv")
+theme_override_font_sizes/font_size = 8
+text = "Quit Game"
+flat = true
+script = ExtResource("5_j4dgy")

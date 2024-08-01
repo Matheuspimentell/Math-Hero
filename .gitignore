@@ -20,3 +20,4 @@ mono_crash.*.json
 
 # VSCode configs
 .vscode/
+.vs/
