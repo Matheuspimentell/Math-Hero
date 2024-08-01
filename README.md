@@ -12,12 +12,22 @@ Math Hero é um projeto desenvolvido como *Trabalho de Conclusao de Curso* do cu
 
 ## 📑 Releases previstas
 
--   <img src="https://img.shields.io/badge/Release_1-v0.1-yellow?style=for-the-badge"></img><img src="https://img.shields.io/badge/Date-12%2F11%2F2023-lightgrey?style=for-the-badge"></img>
+-   <img src="https://img.shields.io/badge/Release_1-v0.1-green?style=for-the-badge"></img><img src="https://img.shields.io/badge/Date-12%2F11%2F2023-lightgrey?style=for-the-badge"></img>
+-   <img src="https://img.shields.io/badge/Alpha-v0.2-green?style=for-the-badge"></img><img src="https://img.shields.io/badge/Date-04%2F08%2F2024-lightgrey?style=for-the-badge"></img>
 
 # 🚀💾 Instalação e execução do projeto
 
+O *game* math hero conta com 2 versões: uma publicada no website (itch.io)[https://itch.io] e um instalável local. ambos estarão descritos na seção *Releases* deste repositório.
+
 ## 🌎 Acesso ao projeto em diferentes plataformas
 
-...
+- (Math Hero no Itch.io)[https://itch.io]
 
 ## 🏭 Rodando o projeto em versão de desenvolvimento (localmente)
+
+### Versionamento de ferramentas:
+- *Godot Stable v4.2.x*
+
+### Passo a passo: 
+- Abrir o arquivo *project.godot* na Game engine já instalada em sua máquina
+- Clicar em *Executar o projeto* ou pressionar a tecla *F5*
