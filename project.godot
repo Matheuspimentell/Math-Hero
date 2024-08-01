@@ -11,14 +11,12 @@ config_version=5
 [application]
 
 config/name="Math-hero"
-run/main_scene="res://levels/time attack/password_screen.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-TimeAttackManager="*res://models/utils/time_attack_manager.gd"
-SceneManager="*res://models/utils/scene_manager.gd"
 GameManager="*res://scripts/game_manager.gd"
 
 [display]

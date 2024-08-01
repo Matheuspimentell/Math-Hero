@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cl7tpsd0ddg0e"]
 
-[ext_resource type="Texture2D" uid="uid://dmpqrixs8olb0" path="res://media/art/blocking math hero 1st level.png" id="1_fdwts"]
+[ext_resource type="Texture2D" uid="uid://vf5scjfy0mki" path="res://media/art/blocking math hero 1st level.png" id="1_fdwts"]
 [ext_resource type="Script" path="res://scripts/time_attack.gd" id="1_hv6jc"]
 [ext_resource type="PackedScene" uid="uid://cv2n7rfpsk77q" path="res://scenes/pc_screen.tscn" id="2_s21g7"]
 
