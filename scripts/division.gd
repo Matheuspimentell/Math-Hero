@@ -3,22 +3,11 @@ class_name Division
 
 # Variables
 var rng = RandomNumberGenerator.new()
-var ascii = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 
 enum Level {twbo, tbo, fbo, tbtw, fbtw}
 
-func _init(generator_seed):
-	if generator_seed == null:
-		self.rng.seed = hash(self._gen_unique_hash(10))
-		GameManager.tattack_options["seed"] = self.rng.seed
-	else:
-		self.rng.seed = generator_seed
-
-func _gen_unique_hash(length: int):
-	var result = ''
-	for i in range(length):
-		result += ascii[randi() % ascii.length()]
-	return result
+func _init(game_seed: String):
+	self.rng.seed = hash(game_seed)
 
 func gen_two_by_one(quantity: int) -> Array:
 	var operations: Array = []

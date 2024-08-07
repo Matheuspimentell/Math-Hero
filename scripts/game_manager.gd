@@ -5,6 +5,7 @@ enum Time_Attack_Modes {Competition=0, Practice=1, Normal=3}
 
 var game_mode: int = Game_Modes.Menu
 var tattack_options: Dictionary = {}
+var tattack_results: Dictionary = {}
 
 @onready var scene_tree = get_tree()
 

@@ -1,7 +1,7 @@
 extends Control
 
 @onready var pc_screen = $pc_screen
-#TODO: Add time attack logic
+const time_attack_results_scene = 'res://scenes/time_attack_results.tscn'
 
 # option (sum_enabled, subtraction_enabled, multiplication_enabled, division_enabled) == 0 -> enabled
 
@@ -16,11 +16,11 @@ var current_eq_level: int = 0
 
 var equations: Array = []
 var current_equation: int = 0
-var quantity_each_equation_level: int = 1
+var equation_levels_amount: int = 1
 
 func _ready():
 	get_eq_types()
-	equations = get_equations(quantity_each_equation_level) # Preenche o array equations com X equações de cada tipo habilitado
+	equations = get_equations(equation_levels_amount) # Preenche o array equations com X equações de cada tipo habilitado
 	set_equation_text()
 
 func _input(event):
@@ -43,21 +43,26 @@ func set_equation_text() -> void:
 	# TODO: Check if passed last equation in equations array
 	if current_equation >= equations.size():
 		next_eq_level()
-		equations = get_equations(quantity_each_equation_level)
+		if current_eq_type >= enabled_types.size():
+			print_debug("has finished time attack... will change scene")
+			finish_time_attack()
+			return
+		equations = get_equations(equation_levels_amount)
 		current_equation = 0
 		set_equation_text()
-
-	match Type.find_key(enabled_types[current_eq_type]):
-		"sum":
-			pc_screen.set_question_text("%d + %d = ?" % [equations[current_equation].a, equations[current_equation].b])
-		"subtraction":
-			pc_screen.set_question_text("%d - %d = ?" % [equations[current_equation].a, equations[current_equation].b])
-		"multiplication":
-			pc_screen.set_question_text("%d x %d = ?" % [equations[current_equation].a, equations[current_equation].b])
-		"division":
-			pc_screen.set_question_text("%d / %d = ?" % [equations[current_equation].a, equations[current_equation].b])
-		_:
-			print_debug("Not known equation level.")
+	
+	if current_eq_type < enabled_types.size():
+		match Type.find_key(enabled_types[current_eq_type]):
+			"sum":
+				pc_screen.set_question_text("%d + %d = ?" % [equations[current_equation].a, equations[current_equation].b])
+			"subtraction":
+				pc_screen.set_question_text("%d - %d = ?" % [equations[current_equation].a, equations[current_equation].b])
+			"multiplication":
+				pc_screen.set_question_text("%d x %d = ?" % [equations[current_equation].a, equations[current_equation].b])
+			"division":
+				pc_screen.set_question_text("%d / %d = ?" % [equations[current_equation].a, equations[current_equation].b])
+			_:
+				print_debug("Not known equation level.")
 
 func get_eq_types() -> void:
 	if GameManager.tattack_options["sum_enabled"] == 0:
@@ -85,7 +90,7 @@ func next_eq_level() -> void:
 				return
 		"subtraction":
 			if current_eq_level >= Subtraction.Level.size():
-				print_debug("Finished SUBTRACTION levels")	
+				print_debug("Finished SUBTRACTION levels")
 				next_eq_type()
 				current_eq_level = 0
 				return
@@ -111,7 +116,7 @@ func next_eq_level() -> void:
 				current_eq_level+=1
 				return
 		_:
-			print_debug("not known equation level...")
+			print_debug("unknown equation type!")
 			return
 
 func get_equations(quantity_each: int) -> Array:
@@ -189,3 +194,13 @@ func get_division_equations(quantity: int) -> Array:
 			return Division.new(GameManager.tattack_options.get("seed")).gen_four_by_two(quantity)
 		_:
 			return []
+
+func finish_time_attack() -> void:
+	# Finished enabled equation levels
+	# Generate save data and transition to time attack results screen
+	pc_screen.timer.stop()
+	GameManager.tattack_results["user"] = ""
+	GameManager.tattack_results["time"] = pc_screen.timer.get_time()
+	GameManager.tattack_results["errors"] = pc_screen.errors
+	GameManager.tattack_results["seed"] = GameManager.tattack_options["seed"]
+	GameManager.change_scene(time_attack_results_scene)

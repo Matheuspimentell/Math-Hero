@@ -19,7 +19,7 @@ func save_value() -> void:
 	var input_seed = text_label.text
 	if input_seed.length() <= 0:
 		input_seed = _gen_unique_hash(10)
-	GameManager.tattack_options[option_name] = hash(input_seed)
+	GameManager.tattack_options[option_name] = input_seed
 
 func _gen_unique_hash(length: int):
 	var result = ''

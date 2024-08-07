@@ -6,8 +6,8 @@ var rng = RandomNumberGenerator.new()
 
 enum Level {odr, onu, twdr, twdu, tdr, tdu}
 
-func _init(generator_seed):
-	self.rng.seed = generator_seed
+func _init(game_seed: String):
+	self.rng.seed = hash(game_seed)
 
 func gen_one_digit_unrestricted(quantity: int) -> Array:
 	var operations: Array = [];

@@ -529,6 +529,7 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0.764706)
 layout_mode = 2
 texture = ExtResource("1_jclbc")
 patch_margin_left = 3

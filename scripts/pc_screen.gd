@@ -17,7 +17,7 @@ enum NUMPADKEYS  {
 
 @onready var _error_label = $MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/error_counter/Label
 @onready var _error_counter = $MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/error_counter
-@onready var _timer = $MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/timer
+@onready var timer = $MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/timer
 @onready var _answer_label = $MarginContainer/MarginContainer/VBoxContainer/answer/Label
 @onready var _seed_label = $MarginContainer/MarginContainer/VBoxContainer/tooltips/seed
 @onready var _question_label = $MarginContainer/MarginContainer/VBoxContainer/question/Label
@@ -42,7 +42,7 @@ func set_time_attack() -> void:
 func set_story() -> void:
 	_seed_label.visible = false
 	_error_counter.visible = false
-	_timer.visible = false
+	timer.visible = false
 	set_answer_text("")
 	set_question_text("")
 
@@ -55,9 +55,9 @@ func set_question_text(new_text: String) -> void:
 
 func set_seed_text() -> void:
 	if GameManager.tattack_options.has("seed"):
-		_seed_label.text = "%d" % GameManager.tattack_options["seed"]
+		_seed_label.text = "%s" % GameManager.tattack_options["seed"]
 	else:
-		_seed_label.text = "null"
+		_seed_label.text = "No seed found."
 
 func set_answer_text(new_text: String) -> void:
 	_answer_label.text = new_text
