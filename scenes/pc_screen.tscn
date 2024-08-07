@@ -821,7 +821,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
 theme_override_fonts/font = ExtResource("3_rbtkv")
 theme_override_font_sizes/font_size = 8
-text = "confirm"
+text = "confirma"
 
 [node name="spacer" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/tooltips/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)

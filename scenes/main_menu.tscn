@@ -65,7 +65,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_c53lv")
 theme_override_font_sizes/font_size = 8
 disabled = true
-text = "Start Game"
+text = "História"
 flat = true
 script = ExtResource("5_j4dgy")
 
@@ -85,7 +85,7 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_c53lv")
 theme_override_font_sizes/font_size = 8
 disabled = true
-text = "Options"
+text = "Opções"
 flat = true
 script = ExtResource("5_j4dgy")
 
@@ -94,6 +94,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_c53lv")
 theme_override_font_sizes/font_size = 8
-text = "Quit Game"
+text = "Sair"
 flat = true
 script = ExtResource("5_j4dgy")

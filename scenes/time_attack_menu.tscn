@@ -44,7 +44,7 @@ layout_mode = 2
 [node name="option1" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
 layout_mode = 2
 script = ExtResource("3_uktx1")
-options = ["competition"]
+options = ["competição"]
 option_name = "mode"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/time_attack_options/option1"]
@@ -61,14 +61,14 @@ custom_minimum_size = Vector2(108, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "mode"
+text = "Modo"
 
 [node name="option_value" type="Label" parent="MarginContainer/time_attack_options/option1"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "competition"
+text = "competição"
 horizontal_alignment = 2
 
 [node name="option2" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["TextOption"]]
@@ -91,7 +91,7 @@ custom_minimum_size = Vector2(108, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "seed"
+text = "Seed"
 
 [node name="option_value" type="LineEdit" parent="MarginContainer/time_attack_options/option2"]
 layout_mode = 2
@@ -108,7 +108,7 @@ caret_blink = true
 [node name="option3" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
 layout_mode = 2
 script = ExtResource("3_uktx1")
-options = ["on", "off"]
+options = ["ligado", "desligado"]
 option_name = "sum_enabled"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/time_attack_options/option3"]
@@ -126,20 +126,20 @@ custom_minimum_size = Vector2(108, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "sum"
+text = "Soma"
 
 [node name="option_value" type="Label" parent="MarginContainer/time_attack_options/option3"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "on"
+text = "ligado"
 horizontal_alignment = 2
 
 [node name="option4" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
 layout_mode = 2
 script = ExtResource("3_uktx1")
-options = ["on", "off"]
+options = ["ligado", "desligado"]
 option_name = "subtraction_enabled"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/time_attack_options/option4"]
@@ -157,20 +157,20 @@ custom_minimum_size = Vector2(108, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "subtraction"
+text = "Subtração"
 
 [node name="option_value" type="Label" parent="MarginContainer/time_attack_options/option4"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "on"
+text = "ligado"
 horizontal_alignment = 2
 
 [node name="option5" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
 layout_mode = 2
 script = ExtResource("3_uktx1")
-options = ["on", "off"]
+options = ["ligado", "desligado"]
 option_name = "multiplication_enabled"
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/time_attack_options/option5"]
@@ -188,20 +188,20 @@ custom_minimum_size = Vector2(108, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "multiplication"
+text = "Multiplicação"
 
 [node name="option_value" type="Label" parent="MarginContainer/time_attack_options/option5"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "on"
+text = "ligado"
 horizontal_alignment = 2
 
 [node name="option6" type="BoxContainer" parent="MarginContainer/time_attack_options" groups=["ArrayOption"]]
 layout_mode = 2
 script = ExtResource("3_uktx1")
-options = ["on", "off"]
+options = ["ligado", "desligado"]
 option_name = "division_enabled"
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/time_attack_options/option6"]
@@ -219,14 +219,14 @@ custom_minimum_size = Vector2(108, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "division"
+text = "Divisão"
 
 [node name="option_value" type="Label" parent="MarginContainer/time_attack_options/option6"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "on"
+text = "ligado"
 horizontal_alignment = 2
 
 [node name="separator" type="Control" parent="MarginContainer/time_attack_options"]
@@ -243,7 +243,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.0945091, 0.0940788, 0.346547, 1)
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "Confirm"
+text = "Confirmar"
 script = ExtResource("7_7j1ai")
 action_scene = "res://scenes/time_attack.tscn"
 
@@ -252,7 +252,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.0941176, 0.0941176, 0.345098, 1)
 theme_override_fonts/font = ExtResource("3_55oul")
 theme_override_font_sizes/font_size = 8
-text = "Back"
+text = "Voltar"
 horizontal_alignment = 2
 script = ExtResource("7_7j1ai")
 action_scene = "res://scenes/main_menu.tscn"
