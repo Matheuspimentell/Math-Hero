@@ -43,6 +43,7 @@ func _on_name_submitted(new_text:String):
 	# Add result to time attack results json
 	GameManager.tattack_results["user"] = new_text
 	GameManager.tattack_results["time"] = get_final_time()
+	GameManager.tattack_results["date"] = Time.get_datetime_string_from_system(true,true)
 	# Change scene to leaderboard and save current results
 	FileManager.save_results(GameManager.tattack_results)
 	GameManager.change_scene(leaderboard)
