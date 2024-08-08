@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0fbnnj5ga7sa"]
+
+[ext_resource type="Texture2D" uid="uid://vf5scjfy0mki" path="res://media/art/blocking math hero 1st level.png" id="1_a7xju"]
+[ext_resource type="Texture2D" uid="uid://bp6aq48p08u2s" path="res://media/art/pc_screen_background.png" id="1_ib25x"]
+[ext_resource type="FontFile" uid="uid://da5b5tojlaosn" path="res://media/fonts/dogicapixelbold.ttf" id="3_ddq4p"]
+[ext_resource type="Texture2D" uid="uid://d3h2k1d6noddr" path="res://media/art/ui_enter_tooltip.png" id="4_6885w"]
+[ext_resource type="FontFile" uid="uid://dvea7m88oxmit" path="res://media/fonts/dogicapixel.ttf" id="5_bbcl0"]
+
+[node name="Leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a7xju")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0.764706)
+layout_mode = 2
+texture = ExtResource("1_ib25x")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
+theme_override_fonts/font = ExtResource("3_ddq4p")
+theme_override_font_sizes/font_size = 16
+text = "Quadro de líderes"
+horizontal_alignment = 1
+
+[node name="spacer" type="Control" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
+theme_override_fonts/font = ExtResource("3_ddq4p")
+theme_override_font_sizes/font_size = 8
+text = "1. fulano de tal - 000:00.000
+
+2. fulano de tal - 000:00.000
+
+3. fulano de tal - 000:00.000
+
+4. fulano de tal - 000:00.000
+
+5. fulano de tal - 000:00.000"
+horizontal_alignment = 1
+
+[node name="spacer2" type="Control" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="tooltips" type="HBoxContainer" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="spacer" type="Control" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/tooltips"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/tooltips"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/tooltips/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_6885w")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/tooltips/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
+theme_override_fonts/font = ExtResource("5_bbcl0")
+theme_override_font_sizes/font_size = 8
+text = "Menu"
