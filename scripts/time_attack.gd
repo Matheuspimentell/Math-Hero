@@ -17,7 +17,7 @@ var current_eq_level: int = 0
 
 var equations: Array = []
 var current_equation: int = 0
-var equation_levels_amount: int = 1
+var equation_levels_amount: int = 10
 
 func _ready():
 	SfxManager.play("time_attack_background")
