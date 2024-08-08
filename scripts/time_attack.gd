@@ -1,7 +1,8 @@
 extends Control
 
 @onready var pc_screen = $pc_screen
-const time_attack_results_scene = 'res://scenes/time_attack_results.tscn'
+const time_attack_results_scene = "res://scenes/time_attack_results.tscn"
+const main_menu = "res://scenes/main_menu.tscn"
 
 # option (sum_enabled, subtraction_enabled, multiplication_enabled, division_enabled) == 0 -> enabled
 
@@ -19,21 +20,28 @@ var current_equation: int = 0
 var equation_levels_amount: int = 1
 
 func _ready():
+	SfxManager.play("time_attack_background")
 	get_eq_types()
 	equations = get_equations(equation_levels_amount) # Preenche o array equations com X equações de cada tipo habilitado
 	set_equation_text()
 
 func _input(event):
+	if event.is_action_released("ui_cancel"):
+		# TODO implement pause logic
+		SfxManager.stop("time_attack_background")
+		GameManager.change_scene(main_menu)
+		return
 	if event.is_action_released("accept") and is_correct():
 		print_debug("correct answer")
+		SfxManager.play("correct")
 		current_equation+=1
 		set_equation_text()
 		pc_screen.set_answer_text("")
 	elif event.is_action_released("accept") and not is_correct():
-		pc_screen.add_error()
 		print_debug(pc_screen.errors)
+		SfxManager.play("error")
+		pc_screen.add_error()
 		pc_screen.set_answer_text("")
-		#TODO: add sounds
 
 func is_correct() -> bool:
 	print_debug("Type: %s | Level: %d | Equation: %d" % [Type.find_key(enabled_types[current_eq_type]), current_eq_level, current_equation])
@@ -50,7 +58,7 @@ func set_equation_text() -> void:
 		equations = get_equations(equation_levels_amount)
 		current_equation = 0
 		set_equation_text()
-	
+
 	if current_eq_type < enabled_types.size():
 		match Type.find_key(enabled_types[current_eq_type]):
 			"sum":
@@ -67,12 +75,24 @@ func set_equation_text() -> void:
 func get_eq_types() -> void:
 	if GameManager.tattack_options["sum_enabled"] == 0:
 		enabled_types.append(Type.sum)
+		GameManager.tattack_results["sum"] = true
+	else:
+		GameManager.tattack_results["sum"] = false
 	if GameManager.tattack_options["subtraction_enabled"] == 0:
 		enabled_types.append(Type.subtraction)
+		GameManager.tattack_results["sub"] = true
+	else:
+		GameManager.tattack_results["sub"] = false
 	if GameManager.tattack_options["multiplication_enabled"] == 0:
 		enabled_types.append(Type.multiplication)
+		GameManager.tattack_results["mul"] = true
+	else:
+		GameManager.tattack_results["mul"] = false
 	if GameManager.tattack_options["division_enabled"] == 0:
 		enabled_types.append(Type.division)
+		GameManager.tattack_results["div"] = true
+	else:
+		GameManager.tattack_results["div"] = false
 
 func next_eq_type() -> void:
 	current_eq_type+=1
@@ -199,8 +219,8 @@ func finish_time_attack() -> void:
 	# Finished enabled equation levels
 	# Generate save data and transition to time attack results screen
 	pc_screen.timer.stop()
-	GameManager.tattack_results["user"] = ""
 	GameManager.tattack_results["time"] = pc_screen.timer.get_time()
 	GameManager.tattack_results["errors"] = pc_screen.errors
 	GameManager.tattack_results["seed"] = GameManager.tattack_options["seed"]
+	SfxManager.stop("time_attack_background")
 	GameManager.change_scene(time_attack_results_scene)

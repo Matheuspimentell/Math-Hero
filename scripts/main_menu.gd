@@ -5,8 +5,9 @@ var buttons: Array
 var selected_option = 0
 
 func _ready():
+	SfxManager.play("main_menu_background")
 	buttons = find_children("menu_button*", "Button")
-
+	
 	for button in buttons:
 		if button.disabled:
 			buttons.erase(button)
@@ -16,10 +17,13 @@ func _ready():
 func _input(event):
 	if event.is_action_released("ui_up") and selected_option > 0:
 		_set_selected_option(selected_option-1)
+		SfxManager.play("switch_option")
 	if event.is_action_released("ui_down") and selected_option < buttons.size()-1:
 		_set_selected_option(selected_option+1)
+		SfxManager.play("switch_option")
 	if event.is_action_released("ui_accept"):
 		buttons[selected_option]._pressed()
+		SfxManager.play("accept")
 
 func _set_selected_option(option: int):
 	buttons[selected_option].set_button_icon(null)

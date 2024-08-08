@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://scripts/game_manager.gd"
 FileManager="*res://scripts/file_manager.gd"
+SfxManager="*res://scenes/sfx_manager.tscn"
 
 [display]
 

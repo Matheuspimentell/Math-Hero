@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0fbnnj5ga7sa"]
+[gd_scene load_steps=7 format=3 uid="uid://d0fbnnj5ga7sa"]
 
 [ext_resource type="Texture2D" uid="uid://vf5scjfy0mki" path="res://media/art/blocking math hero 1st level.png" id="1_a7xju"]
 [ext_resource type="Texture2D" uid="uid://bp6aq48p08u2s" path="res://media/art/pc_screen_background.png" id="1_ib25x"]
+[ext_resource type="Script" path="res://scripts/leaderboard.gd" id="1_r4nlv"]
 [ext_resource type="FontFile" uid="uid://da5b5tojlaosn" path="res://media/fonts/dogicapixelbold.ttf" id="3_ddq4p"]
 [ext_resource type="Texture2D" uid="uid://d3h2k1d6noddr" path="res://media/art/ui_enter_tooltip.png" id="4_6885w"]
 [ext_resource type="FontFile" uid="uid://dvea7m88oxmit" path="res://media/fonts/dogicapixel.ttf" id="5_bbcl0"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r4nlv")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -71,20 +73,19 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="leaderboard_label" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
 theme_override_fonts/font = ExtResource("3_ddq4p")
 theme_override_font_sizes/font_size = 8
-text = "1. fulano de tal - 000:00.000
+text = "Ainda não implementado :(
 
-2. fulano de tal - 000:00.000
 
-3. fulano de tal - 000:00.000
 
-4. fulano de tal - 000:00.000
 
-5. fulano de tal - 000:00.000"
+
+
+Versão Alpha"
 horizontal_alignment = 1
 
 [node name="spacer2" type="Control" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
@@ -111,4 +112,4 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
 theme_override_fonts/font = ExtResource("5_bbcl0")
 theme_override_font_sizes/font_size = 8
-text = "Menu"
+text = "Voltar ao menu"

@@ -71,7 +71,7 @@ func _on_numpad_clicked(buttonName):
 	if button == NUMPADKEYS.backspace:
 		if _answer_label.text.is_empty():
 			print_debug("Label is empty")
-			# sfx_manager.play_sound("error")
+			SfxManager.play("error")
 			return
 		else:
 			_answer_label.text = _answer_label.text.erase(_answer_label.text.length()-1)
@@ -83,4 +83,4 @@ func _on_numpad_clicked(buttonName):
 	else:
 		_answer_label.text+=str(button)
 
-	# sfx_manager.play_sound("click")
+	SfxManager.play("click")

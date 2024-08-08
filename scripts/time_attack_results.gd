@@ -1,5 +1,7 @@
 extends Control
 
+const leaderboard = "res://scenes/leaderboard.tscn"
+
 @onready var elapsed_time = $MarginContainer/background/MarginContainer/info/time/elapsed_time
 @onready var errors = $MarginContainer/background/MarginContainer/info/errors/error_counter
 @onready var penalties = $MarginContainer/background/MarginContainer/info/penalties/penalty_counter
@@ -9,6 +11,7 @@ extends Control
 
 func _ready():
 	# Get all data from GameManager and perform calculations
+	SfxManager.play("upbeat_background")
 	elapsed_time.text = format_time(GameManager.tattack_results["time"]) if GameManager.tattack_results.has("time") else "000:00.000"
 	errors.text = "%d" % [GameManager.tattack_results["errors"]] if GameManager.tattack_results.has("errors") else "0"
 	penalties.text = "+%d s" % [self.get_total_penalty_time()]
@@ -17,6 +20,7 @@ func _ready():
 func _input(event):
 	# If accept is pressed, show popup to input name
 	if event.is_action_released("accept"):
+		SfxManager.play("accept")
 		name_dialog.visible = true
 		player_name.grab_focus()
 
@@ -36,4 +40,9 @@ func get_final_time() -> String:
 	return final_time
 
 func _on_name_submitted(new_text:String):
-	# Change scene to leaderboard
+	# Add result to time attack results json
+	GameManager.tattack_results["user"] = new_text
+	GameManager.tattack_results["time"] = get_final_time()
+	# Change scene to leaderboard and save current results
+	FileManager.save_results(GameManager.tattack_results)
+	GameManager.change_scene(leaderboard)
