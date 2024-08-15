@@ -13,7 +13,7 @@ func gen_two_by_one(quantity: int) -> Array:
 	var operations: Array = []
 
 	for a in range (10,99):
-		for b in range (1,9):
+		for b in range (2,9):
 			if a%b ==0:
 				operations.append({'a': a, 'b': b, 'res': a/b})
 
@@ -27,7 +27,7 @@ func gen_three_by_one(quantity: int) -> Array:
 	var operations: Array = []
 
 	for a in range(100,999):
-		for b in range(1,9):
+		for b in range(2,9):
 			if a%b == 0:
 				operations.append({'a': a, 'b': b, 'res': a/b})
 
@@ -41,7 +41,7 @@ func gen_four_by_one(quantity: int) -> Array:
 	var operations: Array = []
 
 	for a in range(1000,9999):
-		for b in range(1,9):
+		for b in range(2,9):
 			if a%b == 0:
 				operations.append({'a': a, 'b': b, 'res': a/b})
 
