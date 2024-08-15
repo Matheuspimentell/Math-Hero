@@ -45,6 +45,7 @@ func _input(event):
 
 func is_correct() -> bool:
 	print_debug("Type: %s | Level: %d | Equation: %d" % [Type.find_key(enabled_types[current_eq_type]), current_eq_level, current_equation])
+	print_debug("Result: %d" % equations[current_equation].res)
 	return str(equations[current_equation].res) == pc_screen.get_answer_text()
 
 func set_equation_text() -> void:
