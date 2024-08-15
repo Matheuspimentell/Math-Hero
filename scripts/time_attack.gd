@@ -17,12 +17,12 @@ var current_eq_level: int = 0
 
 var equations: Array = []
 var current_equation: int = 0
-var equation_levels_amount: int = 10
+var equation_levels_amount: int = 2
 
 func _ready():
 	SfxManager.play("time_attack_background")
 	get_eq_types()
-	equations = get_equations(equation_levels_amount) # Preenche o array equations com X equações de cada tipo habilitado
+	equations = get_equations() # Preenche o array equations com X equações de cada tipo habilitado
 	set_equation_text()
 
 func _input(event):
@@ -55,7 +55,7 @@ func set_equation_text() -> void:
 			print_debug("has finished time attack... will change scene")
 			finish_time_attack()
 			return
-		equations = get_equations(equation_levels_amount)
+		equations = get_equations()
 		current_equation = 0
 		set_equation_text()
 
@@ -139,79 +139,79 @@ func next_eq_level() -> void:
 			print_debug("unknown equation type!")
 			return
 
-func get_equations(quantity_each: int) -> Array:
+func get_equations() -> Array:
 	match Type.find_key(enabled_types[current_eq_type]):
 		"sum":
-			return get_sum_equations(quantity_each)
+			return get_sum_equations()
 		"subtraction":
-			return get_subtraction_equations(quantity_each)
+			return get_subtraction_equations()
 		"multiplication":
-			return get_multiplication_equations(quantity_each)
+			return get_multiplication_equations()
 		"division":
-			return get_division_equations(quantity_each)
+			return get_division_equations()
 		_:
 			print_debug("Equation level not found in enabled levels.")
 	return []
 
-func get_sum_equations(quantity: int) -> Array:
+func get_sum_equations() -> Array:
 	match Sum.Level.find_key(current_eq_level):
 		"odr":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_one_digit_restricted(quantity)
+			return Sum.new(GameManager.tattack_options.get("seed")).gen_one_digit_restricted(3)
 		"odu":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_one_digit_unrestricted(quantity)
+			return Sum.new(GameManager.tattack_options.get("seed")).gen_one_digit_unrestricted(2)
 		"twdr":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_two_digit_restricted(quantity)
+			return Sum.new(GameManager.tattack_options.get("seed")).gen_two_digit_restricted(2)
 		"twdu":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_two_digit_unrestricted(quantity)
+			return Sum.new(GameManager.tattack_options.get("seed")).gen_two_digit_unrestricted(1)
 		"tdr":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_three_digit_restricted(quantity)
+			return Sum.new(GameManager.tattack_options.get("seed")).gen_three_digit_restricted(1)
 		"tdu":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_three_digit_unrestricted(quantity)
+			return Sum.new(GameManager.tattack_options.get("seed")).gen_three_digit_unrestricted(1)
 		_:
 			return []
 
-func get_subtraction_equations(quantity: int) -> Array:
+func get_subtraction_equations() -> Array:
 	match Subtraction.Level.find_key(current_eq_level):
 		"twdr":
-			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_two_digit_restricted(quantity)
+			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_two_digit_restricted(3)
 		"twdu":
-			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_two_digit_unrestricted(quantity)
+			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_two_digit_unrestricted(3)
 		"tdr":
-			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_three_digit_restricted(quantity)
+			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_three_digit_restricted(2)
 		"tdu":
-			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_three_digit_unrestricted(quantity)
+			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_three_digit_unrestricted(1)
 		"fot":
-			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_four_on_three(quantity)
+			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_four_on_three(1)
 		_:
 			return []
 
-func get_multiplication_equations(quantity: int) -> Array:
+func get_multiplication_equations() -> Array:
 	match Multiplication.Level.find_key(current_eq_level):
 		"bfi":
-			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_by_five(quantity)
+			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_by_five(3)
 		"be":
-			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_by_eleven(quantity)
+			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_by_eleven(3)
 		"twbo":
-			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_two_by_one(quantity)
+			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_two_by_one(2)
 		"tbo":
-			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_three_by_one(quantity)
+			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_three_by_one(1)
 		"twbtw":
-			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_two_by_two(quantity)
+			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_two_by_two(1)
 		_:
 			return []
 
-func get_division_equations(quantity: int) -> Array:
+func get_division_equations() -> Array:
 	match Division.Level.find_key(current_eq_level):
 		"twbo":
-			return Division.new(GameManager.tattack_options.get("seed")).gen_two_by_one(quantity)
+			return Division.new(GameManager.tattack_options.get("seed")).gen_two_by_one(3)
 		"tbo":
-			return Division.new(GameManager.tattack_options.get("seed")).gen_three_by_one(quantity)
+			return Division.new(GameManager.tattack_options.get("seed")).gen_three_by_one(3)
 		"fbo":
-			return Division.new(GameManager.tattack_options.get("seed")).gen_four_by_one(quantity)
+			return Division.new(GameManager.tattack_options.get("seed")).gen_four_by_one(2)
 		"tbtw":
-			return Division.new(GameManager.tattack_options.get("seed")).gen_three_by_two(quantity)
+			return Division.new(GameManager.tattack_options.get("seed")).gen_three_by_two(1)
 		"fbtw":
-			return Division.new(GameManager.tattack_options.get("seed")).gen_four_by_two(quantity)
+			return Division.new(GameManager.tattack_options.get("seed")).gen_four_by_two(1)
 		_:
 			return []
 
