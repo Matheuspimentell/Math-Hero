@@ -51,7 +51,7 @@ func is_correct() -> bool:
 func set_equation_text() -> void:
 	# TODO: Check if passed last equation in equations array
 	if current_equation >= equations.size():
-		next_eq_level()
+		next_eq_type()
 		if current_eq_type >= enabled_types.size():
 			print_debug("has finished time attack... will change scene")
 			finish_time_attack()
@@ -98,49 +98,7 @@ func get_eq_types() -> void:
 func next_eq_type() -> void:
 	current_eq_type+=1
 
-func next_eq_level() -> void:
-	match Type.find_key(enabled_types[current_eq_type]):
-		"sum":
-			if current_eq_level >= Sum.Level.size():
-				print_debug("Finished SUM levels")
-				next_eq_type()
-				current_eq_level = 0
-				return
-			else:
-				current_eq_level+=1
-				return
-		"subtraction":
-			if current_eq_level >= Subtraction.Level.size():
-				print_debug("Finished SUBTRACTION levels")
-				next_eq_type()
-				current_eq_level = 0
-				return
-			else:
-				current_eq_level+=1
-				return
-		"multiplication":
-			if current_eq_level >= Multiplication.Level.size():
-				print_debug("Finished MULTIPLICATION levels")
-				next_eq_type()
-				current_eq_level = 0
-				return
-			else:
-				current_eq_level+=1
-				return
-		"division":
-			if current_eq_level >= Division.Level.size():
-				print_debug("Finished DIVISION levels")
-				next_eq_type()
-				current_eq_level = 0
-				return
-			else:
-				current_eq_level+=1
-				return
-		_:
-			print_debug("unknown equation type!")
-			return
-
-func get_equations() -> Array:	
+func get_equations() -> Array:
 	match Type.find_key(enabled_types[current_eq_type]):
 		"sum":
 			return get_sum_equations()
@@ -156,73 +114,159 @@ func get_equations() -> Array:
 
 func get_sum_equations() -> Array:
 	# TODO: check game difficulty, and generate equations
-	
-	match Sum.Level.find_key(current_eq_level):
-		"odr":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_one_digit_restricted(3)
-		"odu":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_one_digit_unrestricted(2)
-		"twdr":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_two_digit_restricted(2)
-		"twdu":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_two_digit_unrestricted(1)
-		"tdr":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_three_digit_restricted(1)
-		"tdu":
-			return Sum.new(GameManager.tattack_options.get("seed")).gen_three_digit_unrestricted(1)
-		_:
-			return []
+
+	var sumEquations: Array = []
+	var difficultyLevel: int = GameManager.tattack_options.get("difficulty")
+	var generator: Sum = Sum.new(GameManager.tattack_options.get("seed"))
+
+	# Beginner
+	if difficultyLevel == 0:
+		sumEquations.append_array(generator.gen_one_digit_restricted(5))
+		sumEquations.append_array(generator.gen_one_digit_unrestricted(3))
+		sumEquations.append_array(generator.gen_two_digit_restricted(2))
+	# Easy
+	elif difficultyLevel == 1:
+		sumEquations.append_array(generator.gen_one_digit_restricted(2))
+		sumEquations.append_array(generator.gen_one_digit_unrestricted(3))
+		sumEquations.append_array(generator.gen_two_digit_restricted(3))
+		sumEquations.append_array(generator.gen_two_digit_unrestricted(2))
+	# Medium
+	elif difficultyLevel == 2:
+		sumEquations.append_array(generator.gen_two_digit_restricted(5))
+		sumEquations.append_array(generator.gen_two_digit_restricted(5))
+		sumEquations.append_array(generator.gen_three_digit_restricted(2))
+	# Hard
+	elif difficultyLevel == 3:
+		sumEquations.append_array(generator.gen_two_digit_restricted(2))
+		sumEquations.append_array(generator.gen_two_digit_unrestricted(3))
+		sumEquations.append_array(generator.gen_three_digit_restricted(3))
+		sumEquations.append_array(generator.gen_three_digit_unrestricted(2))
+	# Very Hard
+	else:
+		sumEquations.append_array(generator.gen_two_digit_restricted(2))
+		sumEquations.append_array(generator.gen_two_digit_unrestricted(3))
+		sumEquations.append_array(generator.gen_three_digit_restricted(3))
+		sumEquations.append_array(generator.gen_three_digit_unrestricted(2))
+
+	return sumEquations
 
 func get_subtraction_equations() -> Array:
 	# TODO: check game difficulty, and generate equations
-	
-	match Subtraction.Level.find_key(current_eq_level):
-		"twdr":
-			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_two_digit_restricted(3)
-		"twdu":
-			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_two_digit_unrestricted(3)
-		"tdr":
-			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_three_digit_restricted(2)
-		"tdu":
-			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_three_digit_unrestricted(1)
-		"fot":
-			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_four_on_three(1)
-		_:
-			return []
+
+	var subEquations: Array = []
+	var difficultyLevel: int = GameManager.tattack_options.get("difficulty")
+	var generator: Subtraction = Subtraction.new(GameManager.tattack_options.get("seed"))
+
+	# Beginner
+	if difficultyLevel == 0:
+		subEquations.append_array(generator.gen_one_by_one(5))
+		subEquations.append_array(generator.gen_multipleoften_by_one(3))
+		subEquations.append_array(generator.gen_two_by_one_restricted(2))
+	# Easy
+	elif difficultyLevel == 1:
+		subEquations.append_array(generator.gen_one_by_one(2))
+		subEquations.append_array(generator.gen_multipleoften_by_one(3))
+		subEquations.append_array(generator.gen_two_by_one_restricted(3))
+		subEquations.append_array(generator.gen_two_by_one_unrestricted(2))
+	# Medium
+	elif difficultyLevel == 2:
+		subEquations.append_array(generator.gen_multipleoften_by_one(2))
+		subEquations.append_array(generator.gen_multipleofahundred_by_two(3))
+		subEquations.append_array(generator.gen_two_digit_unrestricted(3))
+		subEquations.append_array(generator.gen_three_by_two_restricted(2))
+	# Hard
+	elif difficultyLevel == 3:
+		subEquations.append_array(generator.gen_multipleofahundred_by_two(2))
+		subEquations.append_array(generator.gen_multipleofathousand_by_three(3))
+		subEquations.append_array(generator.gen_three_by_two_restricted(3))
+		subEquations.append_array(generator.gen_three_by_two_unrestricted(2))
+	# Very Hard
+	else:
+		subEquations.append_array(generator.gen_multipleofahundred_by_two(2))
+		subEquations.append_array(generator.gen_multipleofathousand_by_three(3))
+		subEquations.append_array(generator.gen_three_by_two_restricted(3))
+		subEquations.append_array(generator.gen_three_by_two_unrestricted(2))
+
+	return subEquations
 
 func get_multiplication_equations() -> Array:
 	# TODO: check game difficulty, and generate equations
-	
-	match Multiplication.Level.find_key(current_eq_level):
-		"bfi":
-			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_by_five(3)
-		"be":
-			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_by_eleven(3)
-		"twbo":
-			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_two_by_one(2)
-		"tbo":
-			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_three_by_one(1)
-		"twbtw":
-			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_two_by_two(1)
-		_:
-			return []
+
+	var multiplyEquations: Array = []
+	var difficultyLevel: int = GameManager.tattack_options.get("difficulty")
+	var generator: Multiplication = Multiplication.new(GameManager.tattack_options.get("seed"))
+
+	# Beginner
+	if difficultyLevel == 0:
+		multiplyEquations.append_array(generator.gen_one_by_one(5))
+		multiplyEquations.append_array(generator.gen_one_by_eleven_restricted(3))
+		multiplyEquations.append_array(generator.gen_two_by_eleven_restricted(2))
+	# Easy
+	elif difficultyLevel == 1:
+		multiplyEquations.append_array(generator.gen_one_by_one(3))
+		multiplyEquations.append_array(generator.gen_one_by_eleven_restricted(2))
+		multiplyEquations.append_array(generator.gen_two_by_eleven_restricted(3))
+		multiplyEquations.append_array(generator.gen_two_by_eleven_unrestricted(2))
+	# Medium
+	elif difficultyLevel == 2:
+		multiplyEquations.append_array(generator.gen_two_by_eleven_restricted(3))
+		multiplyEquations.append_array(generator.gen_two_by_eleven_unrestricted(2))
+		multiplyEquations.append_array(generator.gen_one_by_fiveinunitsplace(2))
+		multiplyEquations.append_array(generator.gen_one_by_fiveintensplace(3))
+	# Hard
+	elif difficultyLevel == 3:
+		multiplyEquations.append_array(generator.gen_two_by_eleven_unrestricted(2))
+		multiplyEquations.append_array(generator.gen_three_by_eleven_restricted(2))
+		multiplyEquations.append_array(generator.gen_three_by_eleven_unrestricted(3))
+		multiplyEquations.append_array(generator.gen_two_by_two(4))
+	# Very Hard
+	else:
+		multiplyEquations.append_array(generator.gen_three_by_eleven_restricted(2))
+		multiplyEquations.append_array(generator.gen_three_by_one(2))
+		multiplyEquations.append_array(generator.gen_two_by_two(3))
+		multiplyEquations.append_array(generator.gen_three_by_three(3))
+
+	return multiplyEquations
 
 func get_division_equations() -> Array:
 	# TODO: check game difficulty, and generate equations
-	
-	match Division.Level.find_key(current_eq_level):
-		"twbo":
-			return Division.new(GameManager.tattack_options.get("seed")).gen_two_by_one(3)
-		"tbo":
-			return Division.new(GameManager.tattack_options.get("seed")).gen_three_by_one(3)
-		"fbo":
-			return Division.new(GameManager.tattack_options.get("seed")).gen_four_by_one(2)
-		"tbtw":
-			return Division.new(GameManager.tattack_options.get("seed")).gen_three_by_two(1)
-		"fbtw":
-			return Division.new(GameManager.tattack_options.get("seed")).gen_four_by_two(1)
-		_:
-			return []
+
+	var divisionEquations: Array = []
+	var difficultyLevel: int = GameManager.tattack_options.get("difficulty")
+	var generator: Division = Division.new(GameManager.tattack_options.get("seed"))
+
+	# Beginner
+	if difficultyLevel == 0:
+		divisionEquations.append_array(generator.gen_two_by_one(5))
+		divisionEquations.append_array(generator.gen_two_by_two(3))
+		divisionEquations.append_array(generator.gen_two_by_five(2))
+	# Easy
+	elif difficultyLevel == 1:
+		divisionEquations.append_array(generator.gen_two_by_one(3))
+		divisionEquations.append_array(generator.gen_two_by_two(3))
+		divisionEquations.append_array(generator.gen_two_by_five(3))
+		divisionEquations.append_array(generator.gen_three_by_numtwo(2))
+	# Medium
+	elif difficultyLevel == 2:
+		divisionEquations.append_array(generator.gen_two_by_numtwo(2))
+		divisionEquations.append_array(generator.gen_three_by_numtwo(2))
+		divisionEquations.append_array(generator.gen_two_by_five(2))
+		divisionEquations.append_array(generator.gen_three_by_five(2))
+		divisionEquations.append_array(generator.gen_three_by_two(2))
+	# Hard
+	elif difficultyLevel == 3:
+		divisionEquations.append_array(generator.gen_three_by_numtwo(2))
+		divisionEquations.append_array(generator.gen_four_by_numtwo(2))
+		divisionEquations.append_array(generator.gen_three_by_one(3))
+		divisionEquations.append_array(generator.gen_three_by_two(3))
+	# Very Hard
+	else:
+		divisionEquations.append_array(generator.gen_three_by_numtwo(2))
+		divisionEquations.append_array(generator.gen_four_by_numtwo(2))
+		divisionEquations.append_array(generator.gen_three_by_one(3))
+		divisionEquations.append_array(generator.gen_three_by_two(3))
+
+	return divisionEquations
 
 func finish_time_attack() -> void:
 	# Finished enabled equation levels
