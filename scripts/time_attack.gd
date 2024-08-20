@@ -22,7 +22,7 @@ var equation_levels_amount: int = 2
 func _ready():
 	SfxManager.play("time_attack_background")
 	get_eq_types()
-	equations = get_equations() # Preenche o array equations com X equações de cada tipo habilitado
+	equations = get_equations() # Get all equations based on current level or current difficulty
 	set_equation_text()
 
 func _input(event):
@@ -140,7 +140,7 @@ func next_eq_level() -> void:
 			print_debug("unknown equation type!")
 			return
 
-func get_equations() -> Array:
+func get_equations() -> Array:	
 	match Type.find_key(enabled_types[current_eq_type]):
 		"sum":
 			return get_sum_equations()
@@ -155,6 +155,8 @@ func get_equations() -> Array:
 	return []
 
 func get_sum_equations() -> Array:
+	# TODO: check game difficulty, and generate equations
+	
 	match Sum.Level.find_key(current_eq_level):
 		"odr":
 			return Sum.new(GameManager.tattack_options.get("seed")).gen_one_digit_restricted(3)
@@ -172,6 +174,8 @@ func get_sum_equations() -> Array:
 			return []
 
 func get_subtraction_equations() -> Array:
+	# TODO: check game difficulty, and generate equations
+	
 	match Subtraction.Level.find_key(current_eq_level):
 		"twdr":
 			return Subtraction.new(GameManager.tattack_options.get("seed")).gen_two_digit_restricted(3)
@@ -187,6 +191,8 @@ func get_subtraction_equations() -> Array:
 			return []
 
 func get_multiplication_equations() -> Array:
+	# TODO: check game difficulty, and generate equations
+	
 	match Multiplication.Level.find_key(current_eq_level):
 		"bfi":
 			return Multiplication.new(GameManager.tattack_options.get("seed")).gen_by_five(3)
@@ -202,6 +208,8 @@ func get_multiplication_equations() -> Array:
 			return []
 
 func get_division_equations() -> Array:
+	# TODO: check game difficulty, and generate equations
+	
 	match Division.Level.find_key(current_eq_level):
 		"twbo":
 			return Division.new(GameManager.tattack_options.get("seed")).gen_two_by_one(3)

@@ -13,7 +13,7 @@ func _ready():
 
 func _is_at_least_one_equation_toggled() -> bool:
 	var count = 0
-	for i in range(2,6):
+	for i in range(3,7):
 		count+= 1 if options[i].current_option == 0 else 0
 	if count > 0:
 		return true
