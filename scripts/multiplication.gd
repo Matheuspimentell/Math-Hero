@@ -59,7 +59,7 @@ func gen_two_by_two(quantity: int) -> Array:
 
 	return operations
 
-func gen_by_five(quantity: int) -> Array:
+func gen_by_numfive(quantity: int) -> Array:
 	var operations: Array = []
 
 	for i in range(quantity):
@@ -68,7 +68,7 @@ func gen_by_five(quantity: int) -> Array:
 
 	return operations
 
-func gen_by_eleven(quantity: int) -> Array:
+func gen_by_numeleven(quantity: int) -> Array:
 	var operations: Array = []
 
 	for i in range(quantity):
@@ -77,7 +77,7 @@ func gen_by_eleven(quantity: int) -> Array:
 
 	return operations
 
-func gen_one_by_eleven_restricted(quantity: int) -> Array:
+func gen_one_by_numeleven(quantity: int) -> Array:
 	var operations: Array = []
 
 	for i in range(quantity):
@@ -86,7 +86,7 @@ func gen_one_by_eleven_restricted(quantity: int) -> Array:
 
 	return operations
 
-func gen_two_by_eleven_restricted(quantity: int) -> Array:
+func gen_two_by_numeleven_restricted(quantity: int) -> Array:
 	var operations: Array = []
 
 	for i in range(quantity):

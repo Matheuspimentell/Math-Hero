@@ -193,29 +193,29 @@ func get_multiplication_equations() -> Array:
 	# Beginner
 	if difficultyLevel == 0:
 		multiplyEquations.append_array(generator.gen_one_by_one(5))
-		multiplyEquations.append_array(generator.gen_one_by_eleven_restricted(3))
-		multiplyEquations.append_array(generator.gen_two_by_eleven_restricted(2))
+		multiplyEquations.append_array(generator.gen_one_by_numeleven(3))
+		multiplyEquations.append_array(generator.gen_two_by_numeleven_restricted(2))
 	# Easy
 	elif difficultyLevel == 1:
 		multiplyEquations.append_array(generator.gen_one_by_one(3))
-		multiplyEquations.append_array(generator.gen_one_by_eleven_restricted(2))
-		multiplyEquations.append_array(generator.gen_two_by_eleven_restricted(3))
-		multiplyEquations.append_array(generator.gen_two_by_eleven_unrestricted(2))
+		multiplyEquations.append_array(generator.gen_one_by_numeleven(2))
+		multiplyEquations.append_array(generator.gen_two_by_numeleven_restricted(3))
+		multiplyEquations.append_array(generator.gen_two_by_numeleven_unrestricted(2))
 	# Medium
 	elif difficultyLevel == 2:
-		multiplyEquations.append_array(generator.gen_two_by_eleven_restricted(3))
-		multiplyEquations.append_array(generator.gen_two_by_eleven_unrestricted(2))
+		multiplyEquations.append_array(generator.gen_two_by_numeleven_restricted(3))
+		multiplyEquations.append_array(generator.gen_two_by_numeleven_unrestricted(2))
 		multiplyEquations.append_array(generator.gen_one_by_fiveinunitsplace(2))
 		multiplyEquations.append_array(generator.gen_one_by_fiveintensplace(3))
 	# Hard
 	elif difficultyLevel == 3:
-		multiplyEquations.append_array(generator.gen_two_by_eleven_unrestricted(2))
-		multiplyEquations.append_array(generator.gen_three_by_eleven_restricted(2))
-		multiplyEquations.append_array(generator.gen_three_by_eleven_unrestricted(3))
+		multiplyEquations.append_array(generator.gen_two_by_numeleven_unrestricted(2))
+		multiplyEquations.append_array(generator.gen_three_by_numeleven_restricted(2))
+		multiplyEquations.append_array(generator.gen_three_by_numeleven_unrestricted(3))
 		multiplyEquations.append_array(generator.gen_two_by_two(4))
 	# Very Hard
 	else:
-		multiplyEquations.append_array(generator.gen_three_by_eleven_restricted(2))
+		multiplyEquations.append_array(generator.gen_three_by_numeleven_restricted(2))
 		multiplyEquations.append_array(generator.gen_three_by_one(2))
 		multiplyEquations.append_array(generator.gen_two_by_two(3))
 		multiplyEquations.append_array(generator.gen_three_by_three(3))
