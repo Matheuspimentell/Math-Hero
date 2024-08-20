@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://b7c77uo4gof8m"]
 
-[ext_resource type="Texture2D" uid="uid://bp6aq48p08u2s" path="res://media/art/pc_screen_background.png" id="1_ivso8"]
+[ext_resource type="Texture2D" uid="uid://bk81v6xhxbn0r" path="res://media/art/pc_screen_background.png" id="1_ivso8"]
 [ext_resource type="Script" path="res://scripts/time_attack_results.gd" id="1_pp5ka"]
-[ext_resource type="Texture2D" uid="uid://vf5scjfy0mki" path="res://media/art/blocking math hero 1st level.png" id="2_0gbx3"]
-[ext_resource type="FontFile" uid="uid://da5b5tojlaosn" path="res://media/fonts/dogicapixelbold.ttf" id="2_al1v5"]
-[ext_resource type="FontFile" uid="uid://dvea7m88oxmit" path="res://media/fonts/dogicapixel.ttf" id="3_hjplf"]
-[ext_resource type="Texture2D" uid="uid://d3h2k1d6noddr" path="res://media/art/ui_enter_tooltip.png" id="5_n5ws0"]
-[ext_resource type="Texture2D" uid="uid://d2j4nudtgjgu3" path="res://media/art/player_name_input_bg.png" id="7_0637c"]
-[ext_resource type="FontFile" uid="uid://ugj8q7mhjdfq" path="res://media/fonts/PIXEAB__.TTF" id="7_sdu0s"]
+[ext_resource type="Texture2D" uid="uid://d155pi2xbj82" path="res://media/art/blocking math hero 1st level.png" id="2_0gbx3"]
+[ext_resource type="FontFile" uid="uid://bi6yjm0slclnf" path="res://media/fonts/dogicapixelbold.ttf" id="2_al1v5"]
+[ext_resource type="FontFile" uid="uid://clepfga0wnveh" path="res://media/fonts/dogicapixel.ttf" id="3_hjplf"]
+[ext_resource type="Texture2D" uid="uid://cu7627kkdlwcn" path="res://media/art/ui_enter_tooltip.png" id="5_n5ws0"]
+[ext_resource type="Texture2D" uid="uid://cyu6p7cef4g8" path="res://media/art/player_name_input_bg.png" id="7_0637c"]
+[ext_resource type="FontFile" uid="uid://c82gfv3fbdet7" path="res://media/fonts/PIXEAB__.TTF" id="7_sdu0s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_teiul"]
 content_margin_left = 2.0
@@ -226,13 +226,14 @@ text = "insira seu nome:"
 [node name="LineEdit" type="LineEdit" parent="MarginContainer/background/name_dialog/VBoxContainer"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.447059, 0.796078, 0.145098, 1)
-theme_override_colors/font_placeholder_color = Color(0.447059, 0.796078, 0.145098, 1)
 theme_override_colors/caret_color = Color(0.447059, 0.796078, 0.145098, 1)
+theme_override_colors/font_placeholder_color = Color(0.447059, 0.796078, 0.145098, 1)
+theme_override_colors/font_color = Color(0.447059, 0.796078, 0.145098, 1)
 theme_override_fonts/font = ExtResource("3_hjplf")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_teiul")
 max_length = 12
 caret_blink = true
 
+[connection signal="text_changed" from="MarginContainer/background/name_dialog/VBoxContainer/LineEdit" to="." method="_on_text_changed"]
 [connection signal="text_submitted" from="MarginContainer/background/name_dialog/VBoxContainer/LineEdit" to="." method="_on_name_submitted"]

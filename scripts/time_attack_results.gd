@@ -47,3 +47,14 @@ func _on_name_submitted(new_text:String):
 	# Change scene to leaderboard and save current results
 	FileManager.save_results(GameManager.tattack_results)
 	GameManager.change_scene(leaderboard)
+
+func _on_text_changed(new_text: String):
+	var allowed_characters = "[A-Za-z0-9]"
+	var old_caret_position = player_name.caret_column
+	var word = ""
+	var regex = RegEx.new()
+	regex.compile(allowed_characters)
+	for valid_character in regex.search_all(new_text):
+		word += valid_character.get_string()
+		player_name.set_text(word)
+	player_name.caret_column = old_caret_position

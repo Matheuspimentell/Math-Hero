@@ -16,6 +16,7 @@ func _ready():
 func change_scene(target_scene):
 	if not target_scene:
 		print_debug("Target scene is null!")
+		
 		scene_tree.quit() # Quit game options was pressed
 	else:
 		print(target_scene)
