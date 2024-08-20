@@ -113,8 +113,6 @@ func get_equations() -> Array:
 	return []
 
 func get_sum_equations() -> Array:
-	# TODO: check game difficulty, and generate equations
-
 	var sumEquations: Array = []
 	var difficultyLevel: int = GameManager.tattack_options.get("difficulty")
 	var generator: Sum = Sum.new(GameManager.tattack_options.get("seed"))
@@ -151,8 +149,6 @@ func get_sum_equations() -> Array:
 	return sumEquations
 
 func get_subtraction_equations() -> Array:
-	# TODO: check game difficulty, and generate equations
-
 	var subEquations: Array = []
 	var difficultyLevel: int = GameManager.tattack_options.get("difficulty")
 	var generator: Subtraction = Subtraction.new(GameManager.tattack_options.get("seed"))
@@ -190,8 +186,6 @@ func get_subtraction_equations() -> Array:
 	return subEquations
 
 func get_multiplication_equations() -> Array:
-	# TODO: check game difficulty, and generate equations
-
 	var multiplyEquations: Array = []
 	var difficultyLevel: int = GameManager.tattack_options.get("difficulty")
 	var generator: Multiplication = Multiplication.new(GameManager.tattack_options.get("seed"))
@@ -229,8 +223,6 @@ func get_multiplication_equations() -> Array:
 	return multiplyEquations
 
 func get_division_equations() -> Array:
-	# TODO: check game difficulty, and generate equations
-
 	var divisionEquations: Array = []
 	var difficultyLevel: int = GameManager.tattack_options.get("difficulty")
 	var generator: Division = Division.new(GameManager.tattack_options.get("seed"))
@@ -272,8 +264,9 @@ func finish_time_attack() -> void:
 	# Finished enabled equation levels
 	# Generate save data and transition to time attack results screen
 	pc_screen.timer.stop()
+	GameManager.tattack_results["difficulty"] = GameManager.tattack_options.get("difficulty")
 	GameManager.tattack_results["time"] = pc_screen.timer.get_time()
 	GameManager.tattack_results["errors"] = pc_screen.errors
-	GameManager.tattack_results["seed"] = GameManager.tattack_options["seed"]
+	GameManager.tattack_results["seed"] = GameManager.tattack_options.get("seed")
 	SfxManager.stop("time_attack_background")
 	GameManager.change_scene(time_attack_results_scene)
