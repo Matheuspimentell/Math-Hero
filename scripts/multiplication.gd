@@ -95,7 +95,7 @@ func gen_two_by_numeleven_restricted(quantity: int) -> Array:
 
 	return operations
 
-func gen_two_by_eleven_unrestricted(quantity: int) -> Array:
+func gen_two_by_numeleven_unrestricted(quantity: int) -> Array:
 	var operations: Array = []
 
 	for i in range(quantity):
@@ -104,7 +104,7 @@ func gen_two_by_eleven_unrestricted(quantity: int) -> Array:
 
 	return operations
 
-func gen_three_by_eleven_restricted(quantity: int) -> Array:
+func gen_three_by_numeleven_restricted(quantity: int) -> Array:
 	var operations: Array = []
 
 	for i in range(quantity):
@@ -113,7 +113,7 @@ func gen_three_by_eleven_restricted(quantity: int) -> Array:
 
 	return operations
 
-func gen_three_by_eleven_unrestricted(quantity: int) -> Array:
+func gen_three_by_numeleven_unrestricted(quantity: int) -> Array:
 	var operations: Array = []
 
 	for i in range(quantity):
