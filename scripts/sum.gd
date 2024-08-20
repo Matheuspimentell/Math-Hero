@@ -13,8 +13,8 @@ func gen_one_digit_unrestricted(quantity: int) -> Array:
 	var operations: Array = [];
 
 	for x in range(quantity):
-		var a = self.rng.randi_range(0,9)
-		var b = self.rng.randi_range(0,9)
+		var a = self.rng.randi_range(1,9)
+		var b = self.rng.randi_range(1,9)
 		operations.append({ 'a': a, 'b': b, 'res': (a+b) })
 
 	return operations
@@ -22,8 +22,8 @@ func gen_one_digit_unrestricted(quantity: int) -> Array:
 func gen_one_digit_restricted(quantity: int) -> Array:
 	var operations: Array = []
 
-	for a in range(10):
-		for b in range(10):
+	for a in range(1,10):
+		for b in range(1,10):
 			if(a+b<10):
 				operations.append({ 'a': a, 'b': b, 'res': (a+b) })
 
