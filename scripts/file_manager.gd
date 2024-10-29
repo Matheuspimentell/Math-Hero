@@ -1,5 +1,11 @@
 extends Node
 
+var requestHandler = HTTPRequest.new()
+
+func _ready() -> void:
+	requestHandler.name = "RequestHandler"
+	self.add_child(requestHandler)
+
 # Time attack saving functions
 func save_results(gameplay_data: Dictionary) -> void:
 	var stored_data: Array = get_results()
@@ -8,7 +14,10 @@ func save_results(gameplay_data: Dictionary) -> void:
 	var file: FileAccess = FileAccess.open("user://results.json", FileAccess.WRITE)
 	file.store_string(new_data)
 	file.close()
-
+	var dataJson = JSON.stringify(gameplay_data)
+	var headers = ["Content-Type: application/json"]
+	requestHandler.request("http://0.0.0.0:8080/results", headers, HTTPClient.METHOD_POST, dataJson)
+	
 func get_results() -> Array:
 	var json: JSON = JSON.new()
 	var data: Array = []
