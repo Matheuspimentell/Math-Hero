@@ -125,10 +125,8 @@ func gen_three_by_numeleven_unrestricted(quantity: int) -> Array:
 func gen_one_by_fiveinunitsplace(quantity: int) -> Array:
 	var operations: Array = []
 	
-	for a in range(1,9):
-		for b in range(10,99):
-			if b%10 == 5:
-				operations.append({ 'a': a, 'b': b, 'res': (a*b) })
+	for a in range(15,95,10):
+		operations.append({ 'a': a, 'b': a, 'res': (a*a) })
 				
 	seed(self.rng.seed)
 	operations.shuffle()
@@ -139,10 +137,8 @@ func gen_one_by_fiveinunitsplace(quantity: int) -> Array:
 func gen_one_by_fiveintensplace(quantity: int) -> Array:
 	var operations: Array = []
 	
-	for a in range(1,9):
-		for b in range(10,99):
-			if b/10 == 5:
-				operations.append({ 'a': a, 'b': b, 'res': (a*b) })
+	for a in range(51,59):
+		operations.append({ 'a': a, 'b': a, 'res': (a*a) })
 				
 	seed(self.rng.seed)
 	operations.shuffle()
