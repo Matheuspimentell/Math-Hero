@@ -20,40 +20,63 @@ var current_equation: int = 0
 var equation_levels_amount: int = 2
 
 func _ready():
+	# Set max time to 10 if begginer or easy, 15 otherwise
+	var difficulty: int = GameManager.tattack_options.get("difficulty")
+	if difficulty == 0 or difficulty == 1:
+		GameManager.time_limit = 10.0
+	else:
+		GameManager.time_limit = 15.0
+		
 	SfxManager.play("time_attack_background")
 	get_eq_types()
 	equations = get_equations() # Get all equations based on current level or current difficulty
 	set_equation_text()
 
+func _process(delta: float) -> void:
+	var current_minutes: float = fmod(pc_screen.timer.get_time(), 3600) / 60
+	if current_minutes > GameManager.time_limit:
+		# Coloca resultado com 60min e finaliza time attack
+		var time: float = pc_screen.timer.set_time(3600)
+		#print_debug("time: %f" % time)s
+		#print_debug("pc screen time: %f" % pc_screen.timer.get_time())
+		self.finish_time_attack()
+
 func _input(event):
 	if event.is_action_released("ui_cancel"):
 		# TODO implement pause logic
-		SfxManager.stop("time_attack_background")
-		GameManager.change_scene(main_menu)
+		# Add a skip to counter and go to next question
+		GameManager.skip_count+=1
+		current_equation += 1
+		pc_screen.set_answer_text("")
+		set_equation_text()
+		#SfxManager.stop("time_attack_background")
+		#GameManager.change_scene(main_menu)
 		return
 	if event.is_action_released("accept") and is_correct():
-		print_debug("correct answer")
+		#print_debug("correct answer")
 		SfxManager.play("correct")
 		current_equation+=1
 		set_equation_text()
 		pc_screen.set_answer_text("")
+		return
 	elif event.is_action_released("accept") and not is_correct():
-		print_debug(pc_screen.errors)
+		#print_debug("total errors: %d" % pc_screen.errors)
 		SfxManager.play("error")
 		pc_screen.add_error()
 		pc_screen.set_answer_text("")
+		return
 
 func is_correct() -> bool:
-	print_debug("Type: %s | Level: %d | Equation: %d" % [Type.find_key(enabled_types[current_eq_type]), current_eq_level, current_equation])
-	print_debug("Result: %d" % equations[current_equation].res)
-	return str(equations[current_equation].res) == pc_screen.get_answer_text()
+	#print_debug("Type: %s | Level: %d | Equation: %d" % [Type.find_key(enabled_types[current_eq_type]), current_eq_level, current_equation])
+	#print_debug("Result: %d, Input %d" % [equations[current_equation].res, pc_screen.get_answer_text()])
+	return equations[current_equation].res == pc_screen.get_answer_text()
 
 func set_equation_text() -> void:
 	# TODO: Check if passed last equation in equations array
 	if current_equation >= equations.size():
 		next_eq_type()
 		if current_eq_type >= enabled_types.size():
-			print_debug("has finished time attack... will change scene")
+			#print_debug("has finished time attack... will change scene")
 			finish_time_attack()
 			return
 		equations = get_equations()
@@ -71,7 +94,7 @@ func set_equation_text() -> void:
 			"division":
 				pc_screen.set_question_text("%d / %d = ?" % [equations[current_equation].a, equations[current_equation].b])
 			_:
-				print_debug("Not known equation level.")
+				printerr("Not known equation level.")
 
 func get_eq_types() -> void:
 	if GameManager.tattack_options["sum_enabled"] == 0:
@@ -109,7 +132,7 @@ func get_equations() -> Array:
 		"division":
 			return get_division_equations()
 		_:
-			print_debug("Equation level not found in enabled levels.")
+			printerr("Equation level not found in enabled levels.")
 	return []
 
 func get_sum_equations() -> Array:

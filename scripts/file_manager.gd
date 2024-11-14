@@ -28,8 +28,8 @@ func get_results() -> Array:
 		if typeof(json.data) == TYPE_ARRAY:
 			data = json.data
 		else:
-			print_debug("invalid json format.")
+			printerr("invalid json format.")
 	else:
-		print_debug("Error while parsing json: %s" % [response])
+		printerr("Error while parsing json: %s" % [response])
 	
 	return data

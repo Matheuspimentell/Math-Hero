@@ -1,18 +1,18 @@
 [gd_scene load_steps=75 format=3 uid="uid://cv2n7rfpsk77q"]
 
 [ext_resource type="Script" path="res://scripts/pc_screen.gd" id="1_ceg0w"]
-[ext_resource type="Texture2D" uid="uid://bp6aq48p08u2s" path="res://media/art/pc_screen_background.png" id="1_jclbc"]
-[ext_resource type="Texture2D" uid="uid://duwho3g02xnfj" path="res://media/art/error_icon.png" id="2_7klpr"]
-[ext_resource type="Texture2D" uid="uid://cny8bsps5oacr" path="res://media/art/timer.png" id="2_e3b1k"]
-[ext_resource type="Texture2D" uid="uid://bowo6mm8wx62" path="res://media/art/password_box.png" id="3_q2j58"]
-[ext_resource type="FontFile" uid="uid://dvea7m88oxmit" path="res://media/fonts/dogicapixel.ttf" id="3_rbtkv"]
-[ext_resource type="Texture2D" uid="uid://cm4ixjwoyuawq" path="res://media/art/numpad.png" id="4_kqpko"]
-[ext_resource type="Texture2D" uid="uid://d0bkon8vdsvjk" path="res://media/art/lamp.png" id="4_pgn4t"]
-[ext_resource type="FontFile" uid="uid://da5b5tojlaosn" path="res://media/fonts/dogicapixelbold.ttf" id="6_doeq1"]
+[ext_resource type="Texture2D" uid="uid://csjjg7l652hwk" path="res://media/art/pc_screen_background.png" id="1_jclbc"]
+[ext_resource type="Texture2D" uid="uid://dycjlnjqnp6g5" path="res://media/art/error_icon.png" id="2_7klpr"]
+[ext_resource type="Texture2D" uid="uid://dr8j3ciwhpphu" path="res://media/art/timer.png" id="2_e3b1k"]
+[ext_resource type="Texture2D" uid="uid://citb23bi7j3th" path="res://media/art/password_box.png" id="3_q2j58"]
+[ext_resource type="FontFile" uid="uid://dp64jiyjemmsv" path="res://media/fonts/dogicapixel.ttf" id="3_rbtkv"]
+[ext_resource type="Texture2D" uid="uid://2smxrhjtx4p" path="res://media/art/numpad.png" id="4_kqpko"]
+[ext_resource type="Texture2D" uid="uid://bqoiu1ke8sykd" path="res://media/art/lamp.png" id="4_pgn4t"]
+[ext_resource type="FontFile" uid="uid://bssbpt7kqddc" path="res://media/fonts/dogicapixelbold.ttf" id="6_doeq1"]
 [ext_resource type="Script" path="res://scripts/timer.gd" id="6_y0jho"]
-[ext_resource type="FontFile" uid="uid://ght8n5rlwo0p" path="res://media/fonts/PIXEARG_.TTF" id="7_ll6r8"]
-[ext_resource type="Texture2D" uid="uid://d3h2k1d6noddr" path="res://media/art/ui_enter_tooltip.png" id="7_vtjwo"]
-[ext_resource type="Texture2D" uid="uid://bh01g2ofjahf8" path="res://media/art/ui_esc_tooltop.png" id="8_lnyoo"]
+[ext_resource type="FontFile" uid="uid://cnguyqoyi4vo8" path="res://media/fonts/PIXEARG_.TTF" id="7_ll6r8"]
+[ext_resource type="Texture2D" uid="uid://dmown8xcuyh0f" path="res://media/art/ui_enter_tooltip.png" id="7_vtjwo"]
+[ext_resource type="Texture2D" uid="uid://doutctdp84utn" path="res://media/art/ui_esc_tooltop.png" id="8_lnyoo"]
 [ext_resource type="Script" path="res://scripts/numpad_key.gd" id="11_i31e0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xh1pr"]
@@ -840,4 +840,4 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.0313726, 0.364706, 0.372549, 1)
 theme_override_fonts/font = ExtResource("3_rbtkv")
 theme_override_font_sizes/font_size = 8
-text = "pause"
+text = "pular"

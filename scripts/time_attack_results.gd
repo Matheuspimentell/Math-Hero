@@ -15,7 +15,7 @@ func _ready():
 	elapsed_time.text = format_time(GameManager.tattack_results["time"]) if GameManager.tattack_results.has("time") else "000:00.000"
 	errors.text = "%d" % [GameManager.tattack_results["errors"]] if GameManager.tattack_results.has("errors") else "0"
 	penalties.text = "+%d s" % [self.get_total_penalty_time()]
-	final_time_label.text = get_final_time()
+	final_time_label.text = calculate_final_time()
 
 func _input(event):
 	# If accept is pressed, show popup to input name
@@ -25,24 +25,29 @@ func _input(event):
 		player_name.grab_focus()
 
 func get_total_penalty_time() -> float:
-	return GameManager.tattack_results["errors"] * 30 if GameManager.tattack_results.has("errors") else 0
+	var total_penalty_time = 0
+	if GameManager.tattack_results.has("errors"):
+		total_penalty_time += GameManager.tattack_results.get("errors")*30
+	total_penalty_time += GameManager.skip_count*300
+	return total_penalty_time
 
 func format_time(time: float) -> String:
 	var ms = fmod(time, 1) * 1000
 	var sec = fmod(time, 60)
-	var minutes = fmod(time, 3600) / 60
+	var minutes = time/60
 	return "%03d:%02d.%03d" % [minutes, sec ,ms]
 
-func get_final_time() -> String:
+func calculate_final_time() -> String:
 	var time: float = GameManager.tattack_results["time"] if GameManager.tattack_results.has("time") else 0
 	var penalty_time: float = get_total_penalty_time()
 	var final_time = format_time(time+penalty_time)
+	GameManager.skip_count = 0 # Reset skip counter
 	return final_time
 
 func _on_name_submitted(new_text:String):
 	# Add result to time attack results json
 	GameManager.tattack_results["user"] = new_text
-	GameManager.tattack_results["time"] = get_final_time()
+	GameManager.tattack_results["time"] = calculate_final_time()
 	GameManager.tattack_results["date"] = Time.get_datetime_string_from_system(true,true)
 	# Change scene to leaderboard and save current results
 	FileManager.save_results(GameManager.tattack_results)

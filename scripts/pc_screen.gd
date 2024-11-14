@@ -62,15 +62,15 @@ func set_seed_text() -> void:
 func set_answer_text(new_text: String) -> void:
 	_answer_label.text = new_text
 
-func get_answer_text() -> String:
-	return _answer_label.text
+func get_answer_text() -> int:
+	return int(_answer_label.text)
 
 func _on_numpad_clicked(buttonName):
 	var button = NUMPADKEYS[buttonName]
 
 	if button == NUMPADKEYS.backspace:
 		if _answer_label.text.is_empty():
-			print_debug("Label is empty")
+			#print_debug("Label is empty")
 			SfxManager.play("error")
 			return
 		else:

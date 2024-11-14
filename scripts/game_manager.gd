@@ -4,6 +4,8 @@ enum Game_Modes {Story=1, TimeAttack=2, Menu=0}
 enum Time_Attack_Modes {Competition=0, Practice=1, Normal=3}
 
 var game_mode: int = Game_Modes.Menu
+var time_limit: float = 0.0
+var skip_count: int = 0
 var tattack_options: Dictionary = {}
 var tattack_results: Dictionary = {}
 
@@ -15,9 +17,9 @@ func _ready():
 
 func change_scene(target_scene):
 	if not target_scene:
-		print_debug("Target scene is null!")
+		#print_debug("Target scene is null!")
 		
 		scene_tree.quit() # Quit game options was pressed
 	else:
-		print(target_scene)
+		#print_debug(target_scene)
 		scene_tree.change_scene_to_file(target_scene)
